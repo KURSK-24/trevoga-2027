@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a0a0a">
+<title>Тревога 2027 · Оксана Смирнова</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--ink:#f3efe8;--mute:#8d8880;--line:#2a2724;--red:#c41e2f;--card:#121110}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:Manrope,system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:520px;margin:0 auto;padding:0 20px 64px}
+.demo{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);text-align:center;padding:10px 0;border-bottom:1px solid var(--line)}
+header{padding:48px 0 36px;text-align:center;position:relative}
+.kicker{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute)}
+h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:40px;line-height:1.08;margin:18px 0 18px}
+h1 em{font-style:italic;color:var(--red)}
+.rule{width:56px;height:1px;background:var(--red);margin:0 auto 20px}
+.lead{color:#cfc9c0;font-size:16px}
+.author{margin-top:22px;font-size:13px;color:var(--mute);letter-spacing:.04em}
+section{border-top:1px solid var(--line);padding:32px 0}
+.step{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;line-height:1.15;margin-bottom:18px}
+.spheres{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sp{background:transparent;border:1px solid var(--line);color:var(--ink);font:inherit;font-size:15px;text-align:left;padding:16px 14px;cursor:pointer;min-height:76px;position:relative;transition:border-color .2s}
+.sp small{display:block;color:var(--mute);font-size:12px;margin-top:4px}
+.sp:hover{border-color:#5a534d}
+.sp.on{border-color:var(--red)}
+.sp.on:before{content:'';position:absolute;left:-1px;top:-1px;bottom:-1px;width:3px;background:var(--red)}
+.sp.locked{color:#5d5852;cursor:default}
+.sp.locked:after{content:'🔒';position:absolute;right:10px;top:10px;font-size:12px;opacity:.7}
+label{display:block;font-size:13px;color:var(--mute);margin:16px 0 6px}
+input[type=date],input[type=time],input[type=text]{width:100%;background:var(--card);border:1px solid var(--line);color:var(--ink);font:inherit;padding:14px;border-radius:0;color-scheme:dark}
+input:focus{outline:none;border-color:var(--red)}
+.chk{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:14px;color:#cfc9c0;cursor:pointer}
+.chk input{accent-color:var(--red);width:18px;height:18px}
+#timeBox{display:none}
+.btn{display:block;width:100%;margin-top:22px;background:var(--red);color:#fff;border:0;font:inherit;font-weight:600;font-size:16px;padding:17px;cursor:pointer;letter-spacing:.02em}
+.btn:disabled{background:#3a2226;color:#8d6b70;cursor:default}
+.btn.ghost{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+.hint{font-size:13px;color:var(--mute);margin-top:10px;text-align:center}
+#result{display:none}
+.sign{font-family:'Cormorant Garamond',serif;font-size:22px;color:#cfc9c0;margin-bottom:6px}
+.status{border-left:2px solid var(--red);padding:4px 0 4px 16px;margin:18px 0 22px;color:#e6e1d9}
+.status b{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--red);margin-bottom:6px;font-weight:600}
+.todo{background:var(--card);border:1px solid var(--line);padding:20px}
+.todo .k{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.counter{display:flex;align-items:center;gap:14px;margin:28px 0 6px}
+.bar{flex:1;height:2px;background:var(--line);position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;width:8.33%;background:var(--red)}
+.counter span{font-size:13px;color:#cfc9c0;white-space:nowrap}
+.lock{border:1px solid var(--line);padding:18px 18px 18px 52px;position:relative;margin-top:10px}
+.lock:before{content:'';position:absolute;left:18px;top:20px;width:16px;height:16px;border:1px solid var(--red);border-radius:2px}
+.lock:after{content:'';position:absolute;left:21px;top:13px;width:10px;height:9px;border:1px solid var(--red);border-bottom:0;border-radius:6px 6px 0 0}
+.lock h3{font-size:15px;font-weight:600;margin-bottom:4px}
+.lock p{font-size:14px;color:var(--mute)}
+.blur{filter:blur(5px);user-select:none;color:#cfc9c0}
+.twelve{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-top:10px;font-size:13px;color:#6f6a63}
+.twelve div{border-bottom:1px solid var(--line);padding:6px 0}
+.twelve div.open{color:var(--ink)}
+.offer{border:1px solid var(--red);padding:26px 20px;margin-top:28px;position:relative}
+.offer .name{font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1.1;margin:6px 0 4px}
+.offer ul{list-style:none;margin:18px 0 6px}
+.offer li{padding:10px 0;border-top:1px solid var(--line);font-size:15px;display:flex;gap:12px}
+.offer li:before{content:'—';color:var(--red)}
+.price{display:flex;align-items:baseline;gap:12px;margin-top:18px}
+.price b{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600}
+.price span{color:var(--mute);font-size:14px}
+.proof{margin-top:26px;color:#cfc9c0;font-size:14px;border-left:1px solid var(--line);padding-left:16px}
+.proof q{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--ink);margin-bottom:6px;quotes:none}
+footer{text-align:center;color:var(--mute);font-size:12px;padding-top:28px;border-top:1px solid var(--line)}
+@media (max-width:360px){h1{font-size:34px}.spheres{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="demo">Макет для согласования · тексты-примеры</div>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Оксана Смирнова · финансовый астролог</div>
+  <h1>Как убрать тревогу в том, что волнует <em>тебя</em> больше всего</h1>
+  <div class="rule"></div>
+  <p class="lead">У одной тревога о деньгах - это период проверки, у другой - время роста. Поэтому и способ успокоиться у каждой свой. Его видно по дате рождения</p>
+  <div class="author">Расчёт по натальной карте на 2027 год</div>
+</header>
+
+<section id="s1">
+  <div class="step">Шаг 1</div>
+  <h2>Что тебя сейчас тревожит больше всего?</h2>
+  <div class="spheres" id="spheres"></div>
+  <p class="hint">Бесплатно открывается одна сфера</p>
+</section>
+
+<section id="s2">
+  <div class="step">Шаг 2</div>
+  <h2>Твоя дата рождения</h2>
+  <label for="bd">Дата рождения</label>
+  <input type="date" id="bd" min="1940-01-01" max="2012-12-31">
+  <label class="chk"><input type="checkbox" id="knowTime"> Знаю время рождения - расчёт по полной карте</label>
+  <div id="timeBox">
+    <label for="bt">Время рождения</label>
+    <input type="time" id="bt">
+    <label for="bc">Город рождения</label>
+    <input type="text" id="bc" placeholder="Например, Самара">
+  </div>
+  <button class="btn" id="go" disabled>Посчитать</button>
+</section>
+
+<section id="result">
+  <div class="step">Твой результат</div>
+  <div class="sign" id="rSign"></div>
+  <h2 id="rTitle"></h2>
+  <div class="status"><b id="rStatusK"></b><span id="rStatus"></span></div>
+  <div class="todo"><div class="k">Что сделать, чтобы убрать тревогу</div><div id="rTodo"></div></div>
+
+  <div class="counter"><div class="bar"><i></i></div><span>Ты открыла 1 сферу из 12</span></div>
+
+  <div class="lock"><h3>Как это сделать по твоей дате</h3><p>Самый короткий путь, чтобы не бросить на середине</p></div>
+  <div class="lock"><h3>Где взять силы и мотивацию в 2027</h3><p class="blur">Твой источник энергии по карте: ████████ ██████</p></div>
+  <div class="lock"><h3>Твоя аскеза по дате рождения</h3><p>Чтобы цель исполнилась: <span class="blur">планета █████ · день █████</span></p></div>
+  <div class="lock"><h3>Практики под твой расчёт</h3><p>4 практики: тревога, силы, опора, запуск года</p></div>
+  <div class="lock"><h3>Все 12 сфер 2027: что сделать и как</h3>
+    <div class="twelve" id="twelve"></div>
+  </div>
+
+  <div class="offer">
+    <div class="kicker">Мини-продукт</div>
+    <div class="name">[Название продукта]</div>
+    <p style="color:#cfc9c0;font-size:15px">Ты знаешь, что делать. Здесь - как именно, по твоей дате</p>
+    <ul>
+      <li>Личный расчёт по всем 12 сферам: что сделать и как</li>
+      <li>Где взять силы и мотивацию в 2027</li>
+      <li>Твоя аскеза по дате рождения</li>
+      <li>4 практики под твой расчёт</li>
+      <li>3 урока Оксаны по 10 минут в закрытом канале</li>
+      <li>Ритуал входа в 2027</li>
+    </ul>
+    <div class="price"><b>990 ₽</b><span>доступ сразу после оплаты</span></div>
+    <button class="btn">Открыть всё</button>
+  </div>
+
+  <div class="proof">
+    <q>Впервые в жизни оформила КАСКО по прогнозу. За год в машину въехали дважды, оба раза не по моей вине</q>
+    Елена, ученица Оксаны
+  </div>
+</section>
+
+<footer>Оксана Смирнова · астрология без запугивания</footer>
+</div>
+
+<script>
+var SPH=[
+ {id:'money',t:'Деньги и долги',s:'хватит ли, как вылезти',h:[2,8],todo:'Подвести финансовые итоги 2026 и выбрать один способ проверить, можно ли вырасти в доходе. С конкретным действием и сроком'},
+ {id:'work',t:'Работа',s:'держаться или уходить',h:[10,6,9],todo:'Описать, какое изменение в работе ты хочешь, и подготовить первый шаг: собрать свои результаты для разговора о повышении или оформить услугу'},
+ {id:'love',t:'Отношения',s:'любовь, пара, одиночество',h:[7,5],todo:'Подготовить разговор об одной важной потребности. Если ты свободна - сформулировать, какие отношения тебе нужны, и сделать один реальный шаг к знакомству'},
+ {id:'home',t:'Дом и семья',s:'переезд, близкие',h:[4],todo:'Выбрать одну договорённость дома, которая облегчит жизнь: перераспределить обязанность или обустроить место, где можно побыть одной'},
+ {id:'self',t:'Уверенность',s:'показать себя, свои люди',h:[1,3,11],todo:'Выбрать одно изменение в том, как ты себя показываешь: от нового описания себя до выхода в кадр'},
+ {id:'rest',t:'Нет сил',s:'хочу выдохнуть',h:[6,12],todo:'Собрать выполнимую неделю: время на еду, отдых и подходящую активность. И одно незавершённое дело, которое пора отпустить'}
+];
+var TWELVE=['1 · я и моя подача','2 · мои деньги','3 · голос и общение','4 · дом','5 · удовольствие','6 · режим и тело','7 · отношения','8 · общие деньги','9 · куда расти','10 · профессия','11 · свои люди','12 · пауза'];
+var SIGNS=['Овен','Телец','Близнецы','Рак','Лев','Дева','Весы','Скорпион','Стрелец','Козерог','Водолей','Рыбы'];
+var ST={
+ exam:{k:'Экзамен · Сатурн',t:'В 2027 по этой сфере у тебя проходит Сатурн. Сфера просит порядка, ответственности и терпения. Тревога здесь - знак, что пора навести порядок, а не что всё плохо'},
+ focus:{k:'Фокус · Северный узел',t:'В 2027 сюда ведёт Северный узел. Это сфера твоего роста на год. Тревога здесь - от нового и непривычного'},
+ release:{k:'Отпустить · Южный узел',t:'В 2027 здесь Южный узел. Сфера просит отпустить старое, что держит. Тревога здесь - от того, что держишься за привычное'},
+ calm:{k:'Спокойный период',t:'Тяжёлые планеты эту сферу в 2027 не трогают. Тревога здесь больше про привычку, чем про период, и с ней проще справиться'}
+};
+var chosen=null;
+var box=document.getElementById('spheres');
+SPH.forEach(function(s){var b=document.createElement('button');b.className='sp';b.innerHTML=s.t+'<small>'+s.s+'</small>';b.onclick=function(){if(b.classList.contains('locked'))return;chosen=s;[].forEach.call(box.children,function(x){x.classList.remove('on')});b.classList.add('on');check()};b.dataset.id=s.id;box.appendChild(b)});
+var bd=document.getElementById('bd'),go=document.getElementById('go');
+document.getElementById('knowTime').onchange=function(){document.getElementById('timeBox').style.display=this.checked?'block':'none'};
+bd.oninput=check;
+function check(){go.disabled=!(chosen&&bd.value)}
+function sunSign(m,d){
+ var md=m*100+d;
+ if(md>=321&&md<=419)return 0;if(md>=420&&md<=520)return 1;if(md>=521&&md<=620)return 2;if(md>=621&&md<=722)return 3;if(md>=723&&md<=822)return 4;if(md>=823&&md<=922)return 5;if(md>=923&&md<=1022)return 6;if(md>=1023&&md<=1121)return 7;if(md>=1122&&md<=1221)return 8;if(md>=1222||md<=119)return 9;if(md>=120&&md<=218)return 10;return 11}
+function house(s,x){return((x-s+12)%12)+1}
+go.onclick=function(){
+ var p=bd.value.split('-'),s=sunSign(+p[1],+p[2]);
+ var hSat=house(s,0),hNN=house(s,10),hSN=house(s,4),st='calm';
+ if(chosen.h.indexOf(hSat)>=0)st='exam';else if(chosen.h.indexOf(hNN)>=0)st='focus';else if(chosen.h.indexOf(hSN)>=0)st='release';
+ document.getElementById('rSign').textContent='Солнце в знаке '+SIGNS[s];
+ document.getElementById('rTitle').textContent=chosen.t+' в 2027';
+ document.getElementById('rStatusK').textContent=ST[st].k;
+ document.getElementById('rStatus').textContent=ST[st].t;
+ document.getElementById('rTodo').textContent=chosen.todo;
+ var tw=document.getElementById('twelve');tw.innerHTML='';
+ TWELVE.forEach(function(n,i){var d=document.createElement('div');d.textContent='🔒 '+n;if(chosen.h.indexOf(i+1)>=0)d.className='open';tw.appendChild(d)});
+ [].forEach.call(box.children,function(x){if(x.dataset.id!==chosen.id)x.classList.add('locked')});
+ var r=document.getElementById('result');r.style.display='block';r.scrollIntoView({behavior:'smooth'});
+};
+</script>
+</body>
+</html>

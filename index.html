@@ -163,6 +163,20 @@ footer{text-align:center;color:var(--mute);font-size:13px;padding-top:24px}
 .offer .btn{background:#13262a;color:#e6cdb0;box-shadow:0 12px 30px rgba(19,38,42,.35)}
 .offer .btn2{border-color:#13262a;color:#13262a}
 .offer>p[style]{color:#5b6466!important}
+.chk.timebox{background:#13262a;color:#f3e6d6;border-radius:12px;padding:12px 14px;margin-top:14px;align-items:flex-start;box-shadow:0 0 0 1px #b08f68}
+.chk.timebox input{accent-color:#e6cdb0;margin-top:3px}
+.chk.timebox b{display:block;color:#e6cdb0;font-size:16px}
+.chk.timebox small{display:block;color:#d9cdbd;font-size:13.5px;font-weight:500;margin-top:2px}
+.insert{display:block;width:100%;height:190px;object-fit:cover;border-radius:14px;margin-top:16px;border:1px solid rgba(217,191,160,.35);box-shadow:0 14px 40px rgba(0,0,0,.35)}
+.offer .insert.in{height:150px;margin:14px 0 0;border-color:#e0ccb0;box-shadow:0 8px 24px rgba(122,90,54,.18)}
+.from{margin:14px 0 4px}
+.from div{border-left:2px solid var(--gold);padding:6px 0 6px 14px;margin-top:10px}
+.from div b{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:19px;color:var(--gold2)}
+.periods{list-style:none;margin-top:4px}
+.periods li{border-top:1px solid var(--line);padding:12px 0;font-size:16px}
+.periods li:first-child{border-top:0}
+.periods li .d{display:block;font-family:'Playfair Display',Georgia,serif;font-size:18px;color:var(--gold2)}
+.periods li.hit .d:after{content:' · твоя сфера';font-family:Manrope,sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#13262a;background:var(--gold2);border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:2px}
 </style>
 </head>
 <body>
@@ -184,7 +198,7 @@ footer{text-align:center;color:var(--mute);font-size:13px;padding-top:24px}
     <select id="mm" aria-label="Месяц"></select>
     <select id="yy" aria-label="Год"></select>
   </div>
-  <label class="chk"><input type="checkbox" id="knowTime"> Знаю время рождения - расчёт по полной карте</label>
+  <label class="chk timebox"><input type="checkbox" id="knowTime"><span><b>Знаю время рождения</b><small>Тогда дома посчитаются точно, по твоему асценденту</small></span></label>
   <div id="timeBox">
     <div class="row2" style="margin-top:8px">
       <select id="hh" aria-label="Час"></select>
@@ -213,91 +227,78 @@ footer{text-align:center;color:var(--mute);font-size:13px;padding-top:24px}
     <p class="small" id="legend"></p>
   </div>
 
+  <img class="insert" id="sphImg" src="img/sfera-dengi.jpg" alt="">
+
   <div class="scr s-b">
-    <div class="photo"><img src="img/vecher.jpg" alt="Оксана Смирнова" loading="lazy"></div>
+    <div class="photo"><img src="img/vecher.jpg" alt="Оксана Смирнова"></div>
     <div class="tag">Раз волнует - значит, заряжено</div>
     <p class="big" id="bWhy"></p>
     <p id="bBody"></p>
   </div>
 
   <div class="scr s-c">
-    <div class="photo"><img src="img/kniga.jpg" alt="Оксана Смирнова с книгой про натальную карту" loading="lazy"></div>
-    <svg class="ill" style="display:none" viewBox="0 0 280 120" aria-hidden="true"><defs><radialGradient id="g1"><stop offset="0" stop-color="#f3e6d6"/><stop offset="1" stop-color="#f3e6d6" stop-opacity="0"/></radialGradient></defs><circle cx="140" cy="60" r="44" fill="url(#g1)" opacity=".35"/><circle cx="140" cy="60" r="16" fill="#efe6da"/><path d="M60 60 Q140 0 220 60 Q140 120 60 60Z" fill="none" stroke="#e6cdb0" stroke-width="1.2" opacity=".7"/><circle cx="60" cy="60" r="4" fill="#e6cdb0"/><circle cx="220" cy="60" r="4" fill="#e6cdb0"/><circle cx="200" cy="28" r="3" fill="#fff" opacity=".8"/><circle cx="84" cy="96" r="2.5" fill="#fff" opacity=".7"/></svg>
-    <div class="tag">Как это видно по твоей карте</div>
+    <div class="photo"><img src="img/kniga.jpg" alt="Оксана Смирнова с книгой про натальную карту"></div>
+    <div class="tag">Твоя сфера по карте</div>
     <p class="big" id="bPlain"></p>
     <p id="bFormula"></p>
+    <div class="from" id="bFrom"></div>
+    <p id="bLayers"></p>
     <p class="small" id="bAstro"></p>
   </div>
 
+  <img class="insert" src="img/st-kogda.jpg" alt="">
+
   <div class="scr s-d">
-    <div class="photo"><img src="img/alleya.jpg" alt="Оксана Смирнова" loading="lazy" style="object-position:50% 40%"></div>
-    <svg class="ill" style="display:none" viewBox="0 0 280 120" aria-hidden="true"><ellipse cx="140" cy="60" rx="70" ry="16" fill="none" stroke="#e8d7b8" stroke-width="3" opacity=".8" transform="rotate(-12 140 60)"/><circle cx="140" cy="60" r="28" fill="#d9c3a0"/><path d="M114 52 Q140 44 166 52" stroke="#b89b72" stroke-width="3" fill="none"/><path d="M116 66 Q140 74 164 66" stroke="#b89b72" stroke-width="2" fill="none"/><ellipse cx="140" cy="60" rx="70" ry="16" fill="none" stroke="#e8d7b8" stroke-width="3" opacity=".8" transform="rotate(-12 140 60)" stroke-dasharray="110 330"/></svg>
-    <div class="tag">Что 2027 делает с этой сферой</div>
+    <svg class="ill" viewBox="0 0 280 130" aria-hidden="true"><path id="loop" d="M20 90 C70 90 95 80 120 62 C150 40 175 40 168 62 C160 84 130 80 150 58 C170 36 210 40 260 40" fill="none" stroke="#e6cdb0" stroke-width="1.5" stroke-dasharray="3 5" opacity=".75"/><circle r="7" fill="#efe6da"><animateMotion dur="7s" repeatCount="indefinite"><mpath href="#loop"/></animateMotion></circle><text x="140" y="122" fill="#a99c8b" font-size="11" text-anchor="middle" font-family="Manrope">так планета «разворачивается» назад</text></svg>
+    <div class="tag">Твой 2027 и важные периоды</div>
     <p class="big" id="bYearPlain"></p>
     <p id="bYear"></p>
+    <div class="h" style="font-size:21px;margin-top:18px">Важные периоды для тебя</div>
+    <ul class="periods" id="bPeriods"></ul>
   </div>
 
-  <div class="scr s-c">
-    <svg class="ill" viewBox="0 0 280 130" aria-hidden="true"><path id="loop" d="M20 90 C70 90 95 80 120 62 C150 40 175 40 168 62 C160 84 130 80 150 58 C170 36 210 40 260 40" fill="none" stroke="#e6cdb0" stroke-width="1.5" stroke-dasharray="3 5" opacity=".75"/><circle r="7" fill="#efe6da"><animateMotion dur="7s" repeatCount="indefinite"><mpath href="#loop"/></animateMotion></circle><text x="140" y="122" fill="#a99c8b" font-size="11" text-anchor="middle" font-family="Manrope">так планета «разворачивается» назад</text></svg>
-    <div class="tag">Ретрограды: что бьёт именно по тебе</div>
-    <p class="big" id="bRetroPlain"></p>
-    <p id="bRetro"></p>
-  </div>
-
-  <div class="scr s-e">
-    <svg class="ill" viewBox="0 0 280 120" aria-hidden="true"><polygon points="140,14 190,60 140,106 90,60" fill="none" stroke="#e6cdb0" stroke-width="1.4"/><line x1="140" y1="14" x2="140" y2="106" stroke="#e6cdb0" stroke-width=".8" opacity=".6"/><line x1="90" y1="60" x2="190" y2="60" stroke="#e6cdb0" stroke-width=".8" opacity=".6"/><circle cx="140" cy="60" r="5" fill="#efe6da"/><circle cx="60" cy="34" r="2" fill="#fff" opacity=".6"/><circle cx="222" cy="88" r="2" fill="#fff" opacity=".6"/></svg>
-    <div class="tag">Как ещё это может проявляться</div>
-    <p id="bLayers"></p>
-  </div>
-
-  <div class="scr s-b">
-    <svg class="ill" viewBox="0 0 280 120" aria-hidden="true"><g stroke="#e6cdb0" stroke-width="1" opacity=".75"><line x1="60" y1="80" x2="140" y2="40"/><line x1="140" y1="40" x2="220" y2="78"/><line x1="60" y1="80" x2="220" y2="78" stroke-dasharray="3 4"/></g><circle cx="140" cy="40" r="9" fill="#efe6da"/><circle cx="60" cy="80" r="6" fill="#e6cdb0"/><circle cx="220" cy="78" r="6" fill="#e6cdb0"/><circle cx="104" cy="20" r="2" fill="#fff" opacity=".7"/><circle cx="186" cy="104" r="2" fill="#fff" opacity=".7"/></svg>
-    <div class="tag">Ни одна сфера не живёт сама по себе</div>
-    <p class="big" id="bLinksPlain"></p>
-    <p id="bLinks"></p>
-  </div>
+  <img class="insert" src="img/art-karta.jpg" alt="">
 
   <div class="scr s-pearl">
-    <div class="photo"><img src="img/kofe.jpg" alt="Оксана Смирнова" loading="lazy" style="object-position:50% 20%"></div>
+    <div class="photo"><img src="img/kofe.jpg" alt="Оксана Смирнова" style="object-position:50% 20%"></div>
     <div class="tag">Что сделать, чтобы снять тревогу</div>
     <div class="h" id="todoH"></div>
     <ol class="list" id="todo"></ol>
-    <p style="margin-top:12px" id="todoAfter"></p>
   </div>
 
   <div class="scr s-d">
     <div class="tag">Твоя аскеза по дате рождения</div>
-    <div class="h">Самый проверенный способ выделить энергию под цель по дате рождения</div>
-    <p>Это аскеза на желание и на свершение: маленький отказ, который возвращает тебе силы, утекающие на автомате. Одну из твоих аскез показываем сразу:</p>
+    <div class="h">Чтобы на это выделилась энергия</div>
+    <p id="askLead"></p>
     <div class="ask"><div class="n" id="ask1n"></div><div class="t" id="ask1t"></div><p id="ask1p"></p></div>
     <p style="margin-top:12px" id="askMore"></p>
   </div>
 
+  <img class="insert" src="img/st-kak.jpg" alt="">
+
   <div class="scr s-a">
-    <p class="big pearl" id="bHook"></p>
+    <div class="tag">Но это ещё не всё</div>
+    <p class="big" id="bHook"></p>
     <p id="bHook2"></p>
     <div class="counter"><div class="bar"><i></i></div><span>Ты открыла 1 сферу из 12</span></div>
-    <div class="lock"><h4>Расчёт по всем 12 сферам на 2027</h4><p id="lockLinks"></p></div>
-    <div class="lock"><h4>Как проработать каждую сферу по твоей дате</h4><p>Самый короткий путь, чтобы не бросить на середине</p></div>
-    <div class="lock"><h4>Как сформулировать свой запрос, чтобы цель исполнилась</h4><p>Формулировка под твою карту и <span class="blur">ближайший день старта: ██████</span></p></div>
-    <div class="lock"><h4>4 аскезы под твою карту</h4><p>На 21, 30, 40 и 49 дней, под твои планеты</p></div>
-    <div class="lock"><h4>Где взять силу и дисциплину в 2027 по твоей карте рождения</h4><p class="blur">Твой источник энергии: ████████ ███████</p></div>
   </div>
 
   <div class="offer">
-    <div class="kicker">Мини-продукт</div>
+    <div class="kicker">Что ты получишь</div>
     <div class="oname pearl">[Название продукта]</div>
-    <span class="ready">✦ Твой личный расчёт по всем 12 сферам уже готов и ждёт тебя</span>
+    <span class="ready">✦ Твой личный расчёт уже готов и ждёт тебя</span>
     <p style="color:var(--soft);margin-top:10px">Что сделать, ты уже знаешь. Здесь - как именно, по твоей дате: чтобы стало спокойно, появились силы и опора</p>
 
-    <div class="part"><h5>Посчитано лично для тебя</h5>
-      <div class="item"><b>Расчёт по всем 12 сферам на 2027</b><span>Что происходит в каждой сфере и с какими сферами она связана</span></div>
+    <div class="part"><h5>Твой полный расчёт</h5>
+      <div class="item"><b>Разбор всех 12 сфер на 2027</b><span id="oLinks">Начиная с главных сфер, которые связаны с твоей, и дальше по кругу</span></div>
       <div class="item"><b>Как проработать каждую сферу по твоей дате</b><span>Что сделать и как именно, по шагам</span></div>
-      <div class="item"><b>Как сформулировать свой запрос, чтобы цель исполнилась</b><span>Формулировка под твою карту и день, когда начать</span></div>
-      <div class="item"><b>5 аскез под твою карту</b><span>Под какие планеты, на сколько дней и в какой день старта</span></div>
+      <div class="item"><b>Как сформулировать запрос, чтобы цель исполнилась</b><span>Формулировка под твою карту и ближайший день старта</span></div>
+      <div class="item"><b>5 аскез под твою карту</b><span>Под твои планеты, на 7, 21, 30, 40 и 49 дней</span></div>
       <div class="item"><b>Где взять силу и дисциплину в 2027</b><span>Откуда у тебя энергия по карте рождения и что её съедает</span></div>
-      <div class="item"><b>Личный календарь ретроградов 2027</b><span>Даты и по каким твоим сферам они бьют</span></div>
+      <div class="item"><b>Личные периоды 2027</b><span>Ретрограды и важные даты, по каким твоим сферам они бьют</span></div>
     </div>
+
+    <img class="insert in" src="img/sfera-zadacha.jpg" alt="">
 
     <div class="part lessons"><h5>3 урока Оксаны, по 5-7 минут</h5>
       <div class="item"><b>Как прочитать свой расчёт и найти опору в 2027</b><span>Если у тебя в сфере Сатурн - делай так, если Северный узел - так. Ты сразу найдёшь свой случай</span></div>
@@ -311,6 +312,8 @@ footer{text-align:center;color:var(--mute);font-size:13px;padding-top:24px}
       <div class="item"><b>Выполнимая неделя</b><span>Время на еду, отдых и движение без насилия над собой</span><em>один вечер · появляется опора и ощущение «я успеваю»</em></div>
       <div class="item"><b>Разговор, который откладываешь</b><span>Одна важная потребность в отношениях или на работе</span><em>один вечер · уходит ком в горле</em></div>
     </div>
+
+    <img class="insert in" src="img/art-razvilka.jpg" alt="">
 
     <div class="part"><h5>В подарок</h5>
       <div class="item"><b class="gift">Трекер аскезы</b><span>Отмечаешь дни и видишь, как растут силы</span></div>
@@ -419,6 +422,12 @@ var PLANET_ACT={'Сатурн':['Наведи порядок: выбери од�
 var MOON_ACT=['сделай паузу на три вдоха, прежде чем ответить','вместо еды или покупки - тёплый душ или прогулка','запиши мысли на бумагу и закрой ленту','позвони тому, кто поддерживает тебя, а не тому, о ком переживаешь','напиши три вещи, которые у тебя уже получились','выбери одно дело и разреши остальному подождать','спроси себя, чего хочешь ты, а не другие','проговори вслух то, что держишь в себе','не обещай новое, доделай одно старое','остановись в 21:00, даже если не всё сделано','скажи одному человеку, что ты чувствуешь','выйди на улицу и почувствуй ноги на земле'];
 var LAY_IN=['{T} - это не только про {ab}.','Эта сфера шире, чем кажется.','У тебя эта сфера звучит по-своему.','Тревога о {ab} редко бывает только про {ab}.'];
 var LAY_OUT=['Вот почему тревога здесь ощущается сильнее, чем «должна».','Поэтому, когда здесь неспокойно, это отзывается во всём остальном.','Это и есть та нить, за которую стоит потянуть первой.'];
+
+var SIGNS_TO=['в Овна','в Тельца','в Близнецов','в Рака','во Льва','в Деву','в Весы','в Скорпиона','в Стрельца','в Козерога','в Водолея','в Рыб'];
+var SIGNS_TO2=['в Овен','в Телец','в Близнецы','в Рак','во Льва','в Деву','в Весы','в Скорпион','в Стрелец','в Козерог','в Водолей','в Рыбы'];
+var SPH_IMG={money:'sfera-dengi',work:'sfera-kariera',love:'sfera-otnosheniya',home:'art-zont',self:'st-sfery',rest:'sfera-zdorovie'};
+var RETRO_DO={money:'не подписывай крупных покупок и договоров, перепроверяй платежи и счета',work:'не увольняйся и не меняй условия сгоряча, перечитай договорённости',love:'не выясняй отношения в переписке, а если вернётся кто-то из прошлого, не спеши',home:'не начинай переезд и ремонт, проверь документы на жильё и технику',self:'не меняй образ радикально, вернись к старым идеям о себе',rest:'снизь нагрузку, больше сна, не бери новых обязательств'};
+function ingresses(body){var out=[],prev=null;for(var t=Date.UTC(2027,0,1);t<=Date.UTC(2027,11,31);t+=86400000){var sg=body==='NN'?sgn(meanNode(new Date(t))):sgn(lonOf(body,new Date(t)));if(prev!==null&&sg!==prev)out.push([t,sg]);prev=sg}return out}
 function hashKey(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
 var KEY=0;function pick(arr,salt){return arr[(hashKey(KEY+'|'+salt))%arr.length]}
 
@@ -488,46 +497,46 @@ go.onclick=function(){
  $('rTitle').textContent=s.t+' в 2027';
  $('rSub').textContent='Солнце '+SIGNS_IN[sgn(P.Sun)]+(full?' · асцендент '+SIGNS_IN[startSign]+' · '+city[0]:'');
  $('legend').textContent=full?'Карта посчитана по дате, времени и городу рождения':'Карта посчитана по дате рождения, дома от знака Солнца. Со временем рождения картина точнее';
+ $('sphImg').src='img/'+SPH_IMG[s.id]+'.jpg';
 
  // экран 2: заряжено
  var b=pick(s.body,'body');
  $('bWhy').textContent=pick(V.why,'w1')+'. '+pick(V.why2,'w2');
  var w3=pick(V.why3,'w3').replace('{b}',b);if(!/[?.!]$/.test(w3))w3+='.';$('bBody').textContent=w3+' '+pick(V.why4,'w4');
 
- // экран 3: как видно по карте
- var viaTxt=rH===s.main?'держатся на тебе самой: и вся опора, и вся тяжесть здесь твои':'тесно связаны с зоной «'+HN[rH]+'»: это '+HP[rH];
- $('bPlain').textContent='По твоей дате рождения '+s.n+' '+viaTxt+'.';
- $('bFormula').innerHTML='Твоя формула в этой сфере: <b>'+PN[ruler]+' '+SIGNS_IN[rulS]+'</b> - это '+(PF[ruler]||'твоя энергия в этой сфере')+'. Это проявляется '+STYLE[rulS]+'. А <b>Луна '+SIGNS_IN[moonS]+'</b> показывает, как ты проживаешь тревогу: '+SHADOW[moonS]+'.'+(ENGINE[aspect(P.Sun,P.Saturn)]?' '+ENGINE[aspect(P.Sun,P.Saturn)]:(ENGINE_M[aspect(P.Sun,P.Mars)]?' '+ENGINE_M[aspect(P.Sun,P.Mars)]:''));
+ // экран 3: сфера по карте одной цепочкой
+ $('bPlain').textContent=rH===s.main?'По твоей дате рождения '+s.n+' держатся на тебе самой: и вся опора, и вся тяжесть здесь твои':'По твоей дате рождения '+s.n+' у тебя тесно связаны с «'+HN[rH]+'»';
+ var eng=ENGINE[aspect(P.Sun,P.Saturn)]||ENGINE_M[aspect(P.Sun,P.Mars)]||'';
+ $('bFormula').innerHTML='Твоя формула в этой сфере: <b>'+PN[ruler]+' '+SIGNS_IN[rulS]+'</b> - это '+(PF[ruler]||'твоя энергия в этой сфере')+'. Это проявляется '+STYLE[rulS]+'. А <b>Луна '+SIGNS_IN[moonS]+'</b> показывает, как ты проживаешь тревогу: '+SHADOW[moonS]+'.'+(eng?' '+eng:'');
+ var fromTxt=[pick(['А вот это идёт от сферы','Часть тревоги приходит из сферы','Первая ниточка тянется к сфере'],'f1'),pick(['А это - от сферы','Вторая ниточка - сфера','И ещё это связано со сферой'],'f2')];
+ $('bFrom').innerHTML=links.map(function(l,i){return '<div><b>'+fromTxt[i]+' «'+HN[l]+'»</b>'+HP[l].charAt(0).toUpperCase()+HP[l].slice(1)+'. '+(i===0?'Пока здесь неспокойно, твоя сфера не может успокоиться до конца':'Отсюда в 2027 приходит заряд, который ты чувствуешь в своей сфере')+'</div>'}).join('');
+ var lay=pick(LAY_IN,'li').replace(/\{T\}/g,s.t).replace(/\{ab\}/g,AB[s.id]);
+ lay+=' Сфера у тебя начинается в знаке '+SIGNS[mainSign]+', поэтому ты проживаешь её '+STYLE[mainSign]+'.';
+ if(s.h.length>1){var h2=s.h[1],sg2=(startSign+h2-1)%12;lay+=' Вторая её часть, '+h2+' дом («'+HN[h2]+'»), у тебя в знаке '+SIGNS[sg2]+': там всё идёт '+STYLE[sg2]+'.'}
+ lay+=' '+pick(LAY_OUT,'lo');
+ $('bLayers').textContent=lay;
  $('bAstro').innerHTML='Для любопытных: сфера «'+s.t.toLowerCase()+'» - это '+s.main+' дом. Он начинается в знаке '+SIGNS[mainSign]+', его управитель '+PN[ruler]+' стоит '+SIGNS_IN[rulS]+' в '+rH+' доме. Общие планеты сферы: '+s.gen.map(function(k){return PN[k]+' '+SIGNS_IN[sgn(P[k])]+' ('+H(P[k])+' дом)'}).join(', ')+(full?'':'. Луна посчитана на полдень дня рождения, без времени она примерная');
 
- // экран 4: 2027
+ // экран 4: 2027 и личные периоды
  var yp,yt='';
  if(hits.length){yp='В 2027 по этой сфере у тебя идёт '+hits.join(' и ')+'. Поэтому тревога здесь сейчас громче, чем раньше';
   if(hits.indexOf('Сатурн')>=0)yt+='Сатурн - это экзамен: сфера просит порядка, дисциплины и ответственности. Старые способы перестают работать, и от этого неспокойно. ';
   if(hits.indexOf('Плутон')>=0)yt+='Плутон - глубокая перестройка: что-то здесь уходит, чтобы освободить место новому. ';
   if(hits.indexOf('Северный узел')>=0)yt+='Северный узел - зона роста года: сюда тебя ведёт, и непривычное пугает. ';
   if(hits.indexOf('Юпитер')>=0)yt+='Юпитер расширяет: возможностей больше, но и решений, которые надо принять. ';}
- else{yp='В 2027 заряд в эту сферу приходит из соседних, поэтому тревога ощущается здесь, а причина рядом';yt='Сатурн идёт по твоей зоне «'+HN[tr.Saturn[0]]+'» ('+tr.Saturn[0]+' дом), Северный узел - по зоне «'+HN[tr.NN[0]]+'» ('+tr.NN[0]+' дом). Оттуда в эту сферу приходит напряжение, и именно поэтому она тебя волнует'}
+ else{yp='В 2027 заряд в эту сферу приходит из «'+HN[links[0]]+'» и «'+HN[links[1]]+'», поэтому тревога ощущается здесь, а причина рядом';yt='Сатурн идёт по твоей зоне «'+HN[tr.Saturn[0]]+'», Северный узел - по зоне «'+HN[tr.NN[0]]+'». Оттуда в твою сферу и приходит напряжение'}
  $('bYearPlain').textContent=yp;$('bYear').textContent=yt;
+ var per=[],sunS=sgn(P.Sun);
+ function rel(h){return inS(h)?2:(links.indexOf(h)>=0?1:0)}
+ retros('Mercury').forEach(function(r){var h=houseOfSign(startSign,r[2]),k=rel(h);per.push({t:r[0],k:k,d:dm(r[0])+' - '+dm(r[1]),x:'Ретроградный Меркурий '+SIGNS_IN[r[2]]+', для твоего знака ('+SIGNS[sunS]+') это зона «'+HN[h]+'». '+(k===2?'Бьёт прямо по твоей сфере: '+RETRO_DO[s.id]:(k===1?'Задевает связанную с твоей сферу: здесь лучше перепроверять и не спешить':'По твоей сфере напрямую не бьёт, можно действовать спокойнее'))})});
+ retros('Mars').forEach(function(r){var h=houseOfSign(startSign,r[2]);per.push({t:r[0],k:rel(h),d:dm(r[0])+' - '+dm(r[1]),x:'Ретроградный Марс '+SIGNS_IN[r[2]]+', твоя зона «'+HN[h]+'»: сил здесь будет меньше, чем хочется. Не форсируй, береги энергию'})});
+ retros('Saturn').forEach(function(r){var h=houseOfSign(startSign,r[2]);per.push({t:r[0],k:rel(h),d:dm(r[0])+' - '+dm(r[1]),x:'Сатурн идёт назад '+SIGNS_IN[r[2]]+', твоя зона «'+HN[h]+'»: время пересмотреть правила и доделать старое'})});
+ ingresses('Jupiter').forEach(function(r){var h=houseOfSign(startSign,r[1]);per.push({t:r[0],k:rel(h),d:'с '+dm(r[0]),x:'Юпитер входит '+SIGNS_TO2[r[1]]+', в твою зону «'+HN[h]+'»: здесь на год открываются возможности'})});
+ ingresses('NN').forEach(function(r){var h=houseOfSign(startSign,r[1]);per.push({t:r[0],k:rel(h),d:'с '+dm(r[0]),x:'Северный узел переходит '+SIGNS_TO2[r[1]]+', твоя зона «'+HN[h]+'» становится зоной роста на полтора года'})});
+ per.sort(function(a,b){return b.k-a.k||a.t-b.t});
+ $('bPeriods').innerHTML=per.slice(0,5).sort(function(a,b){return a.t-b.t}).map(function(x){return '<li class="'+(x.k===2?'hit':'')+'"><span class="d">'+x.d+'</span>'+x.x+'</li>'}).join('');
 
- // экран 5: ретрограды
- var rr=retros('Mercury'),rl=[],touch=false;
- rr.forEach(function(r){var h=houseOfSign(startSign,r[2]),hit=inS(h);if(hit)touch=true;rl.push('· <b>'+dm(r[0])+' - '+dm(r[1])+'</b>, '+SIGNS_IN[r[2]]+': зона «'+HN[h]+'»'+(hit?' - <b>прямо по твоей сфере</b>':''))});
- var mr=retros('Mars');
- $('bRetroPlain').textContent=touch?'Один из ретроградов 2027 бьёт прямо по этой сфере. Даты лучше знать заранее':'Ретрограды Меркурия в 2027 по этой сфере у тебя напрямую не бьют. Всё, что пишут про «ретроград и '+s.n+'», про тебя не в первую очередь';
- $('bRetro').innerHTML='Меркурий в 2027 разворачивается назад '+times(rr.length)+':<br>'+rl.join('<br>')+(mr.length?'<br><br>Марс разворачивается '+dm(mr[0][0])+' '+SIGNS_IN[mr[0][2]]+', в твоей зоне «'+HN[houseOfSign(startSign,mr[0][2])]+'»: там сил будет меньше, чем хочется, береги их':'');
-
- // экран 6, 7
- var lay=pick(LAY_IN,'li').replace(/\{T\}/g,s.t).replace(/\{ab\}/g,AB[s.id]);
- lay+=' Сфера у тебя начинается в знаке '+SIGNS[mainSign]+', поэтому ты проживаешь её '+STYLE[mainSign]+'.';
- lay+=rH===s.main?' Управитель стоит в своём же доме: здесь всё держится на тебе, и вся сила, и вся тяжесть.':' А раз её управитель стоит в '+rH+' доме, тревога о '+AB[s.id]+' у тебя часто на самом деле растёт из зоны «'+HN[rH]+'»: это '+HP[rH]+'.';
- if(s.h.length>1){var h2=s.h[1],sg2=(startSign+h2-1)%12;lay+=' Вторая часть этой сферы, '+h2+' дом («'+HN[h2]+'»), у тебя в знаке '+SIGNS[sg2]+': там всё идёт '+STYLE[sg2]+'.'}
- lay+=' '+pick(LAY_OUT,'lo');
- $('bLayers').textContent=lay;
- $('bLinksPlain').textContent=pick(V.link,'lk');
- $('bLinks').innerHTML='У тебя эта сфера связана как минимум ещё с двумя: <b>«'+HN[links[0]]+'»</b> и <b>«'+HN[links[1]]+'»</b>. Посмотри на пунктирные линии на своей карте. А за всеми сферами стоят тело, энергия, проявленность и твои отношения с миром, не только с партнёром, но и с людьми вокруг';
-
- // экран 8: что сделать
+ // экран 5: что сделать
  $('todoH').textContent=pick(['Четыре шага по твоей карте','Твои четыре шага на 2027','С чего начать именно тебе'],'th');
  var st1=pick(SIGN_ACT[mainSign],'s1'),st2h=rH===s.main?links[0]:rH,st2=pick(HOUSE_ACT[st2h],'s2'),pk=hits.filter(function(x){return PLANET_ACT[x]})[0],st3=pk?pick(PLANET_ACT[pk],'s3'):pick(HOUSE_ACT[links[1]],'s3b');
  var steps=[
@@ -537,19 +546,19 @@ go.onclick=function(){
   ['Когда накрывает тревога','Твоя Луна '+SIGNS_IN[moonS]+': в тревоге ты '+SHADOW[moonS]+'. Поэтому в эту минуту '+MOON_ACT[moonS]]
  ];
  $('todo').innerHTML=steps.map(function(x){return'<li><b>'+x[0]+'</b>'+x[1]+'</li>'}).join('');
- $('todoAfter').innerHTML='Под каждый из этих шагов нужны энергия, мотивация, дисциплина, сила и окружение. Поэтому у тебя важно подтянуть и <b>«'+HN[links[0]]+'»</b>, и <b>«'+HN[links[1]]+'»</b>';
 
- // экран 9: аскеза
+ // экран 6: аскеза с подводкой
+ $('askLead').innerHTML='На каждый из этих шагов нужны энергия, мотивация, дисциплина и сила. А у тревожного человека они утекают на автомате. Самый проверенный способ выделить энергию под цель по дате рождения - <b>аскеза</b> (на желание и на свершение): маленький отказ, который возвращает силы туда, где они нужны. Твоя первая аскеза:';
  var a1=ASKEZA[moonS];
  $('ask1n').textContent='Аскеза 1 из 5 · Луна '+SIGNS_IN[moonS];
  $('ask1t').textContent=a1[0];
  $('ask1p').textContent=moonS===1?a1[1]:a1[1].replace('Луна в Тельце заедает тревогу','Твоя Луна так проживает тревогу');
- $('askMore').textContent='Ещё четыре аскезы - на 21, 30, 40 и 49 дней - подобраны под '+PN[ruler]+' '+SIGNS_IN[rulS]+', Сатурн '+SIGNS_IN[satS]+' и твою зону «'+HN[links[0]]+'». Вместе с ближайшим днём старта они в полном расчёте';
+ $('askMore').textContent='Ещё четыре аскезы - на 21, 30, 40 и 49 дней - подобраны под '+PN[ruler]+' '+SIGNS_IN[rulS]+', Сатурн '+SIGNS_IN[satS]+' и твою сферу «'+HN[links[0]]+'». Вместе с ближайшим днём старта они в полном расчёте';
 
- // экран 10: крючок
- $('bHook').textContent='Именно на эту сферу по твоей дате нужно выделить энергию';
- $('bHook2').innerHTML='Взять аскезу, выделить силы и дисциплину, потому что в 2027 здесь работает <b>'+keyPlanet+'</b>. Аскезы, день старта и практики под твою дату уже подобраны. И как подтянуть «'+HN[links[0]]+'» и «'+HN[links[1]]+'», чтобы сфера сдвинулась';
- $('lockLinks').textContent='Включая твои связанные сферы «'+HN[links[0]]+'» и «'+HN[links[1]]+'»';
+ // экран 7: мост к продукту
+ $('bHook').textContent='Но твоя сфера точно связана ещё со сферами «'+HN[links[0]]+'» и «'+HN[links[1]]+'»';
+ $('bHook2').innerHTML='Пока они не проработаны, «'+s.t.toLowerCase()+'» не сдвинутся на все 100%. В 2027 здесь работает <b>'+keyPlanet+'</b>, и энергия будет утекать туда, куда ты не смотришь. Полный расчёт этих сфер и всех остальных, по кругу все 12, уже готов. Ниже - что ты получишь';
+ $('oLinks').textContent='Начиная с «'+HN[links[0]]+'» и «'+HN[links[1]]+'», которые связаны с твоей сферой, и дальше по кругу';
 
  drawChart(P,startSign,s,links);
  $('decode').innerHTML='<b>Твоя сфера:</b> '+s.h.map(function(n){return n+' дом - '+HS[n].toLowerCase()+' ('+HP[n]+')'}).join('; ')+'<br><br><b>С чем она связана:</b><br>'+links.map(function(n){return '· '+n+' дом - '+HS[n].toLowerCase()+': '+HP[n]}).join('<br>');

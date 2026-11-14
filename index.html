@@ -44,7 +44,7 @@ select:focus,input:focus{outline:none;border-color:#b08f68;box-shadow:0 0 0 3px 
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{background:#fffaf3;border:1px solid #d8c6ae;color:#1c2a2d;font:inherit;font-size:15px;font-weight:700;padding:9px 14px;cursor:pointer;border-radius:999px}
 .chip.on{background:#13262a;border-color:#13262a;color:var(--gold2)}
-.chip.locked{opacity:.4;cursor:default}
+.chip.locked{opacity:.45;cursor:default}.chip.locked:after{content:' 🔒';font-size:12px}
 .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:16px;background:linear-gradient(180deg,#e9d3b6,#d6b892);color:#13262a;border:0;font:inherit;font-weight:700;font-size:17px;padding:16px;cursor:pointer;border-radius:999px;box-shadow:0 10px 28px rgba(0,0,0,.3);text-decoration:none}
 .btn:after{content:'⟶';font-size:18px}
 .btn:disabled{background:#ddd0bf;color:#9a8b78;box-shadow:none;cursor:default}
@@ -180,6 +180,7 @@ footer{text-align:center;color:var(--mute);font-size:13px;padding-top:24px}
     <div class="rsub" id="rSub"></div>
     <div class="chartBox" style="margin-top:14px"><svg id="chart" viewBox="0 0 360 360" aria-label="Твоя натальная карта"></svg></div>
     <div class="legend"><span><i style="background:#e6cdb0;box-shadow:0 0 8px #e6cdb0"></i>твоя сфера</span><span><i style="background:transparent;border:2px dashed #e6cdb0"></i>с чем она связана</span></div>
+    <div id="decode" style="margin-top:14px;border-top:1px solid var(--line);padding-top:12px;font-size:15.5px"></div>
     <div class="tip" id="tip">Нажми на любую сферу карты</div>
     <p class="small" id="legend"></p>
   </div>
@@ -331,7 +332,8 @@ var ASKEZA=[
  ['7 дней без «потом поговорим»','Одна честная фраза в день вместо дистанции. Оттаивает то, что заморожено'],
  ['7 дней без телефона в первый час утра','Утро остаётся твоим. Ты перестаёшь растворяться в чужом с самого начала дня']
 ];
-var HN={1:'я и моя подача',2:'деньги',3:'голос и общение',4:'дом и семья',5:'удовольствие и проекты',6:'режим и тело',7:'отношения',8:'общие деньги и долги',9:'перспектива',10:'профессия',11:'свои люди',12:'пауза и восстановление'};
+var HN={1:'я и моя подача',2:'деньги',3:'общение',4:'дом и семья',5:'радость и проекты',6:'здоровье и режим',7:'отношения',8:'долги и общие деньги',9:'рост и перспективы',10:'карьера',11:'друзья и свои люди',12:'отдых и восстановление'};
+var HS={1:'Я',2:'Деньги',3:'Общение',4:'Дом',5:'Радость',6:'Здоровье',7:'Отношения',8:'Долги',9:'Рост',10:'Карьера',11:'Друзья',12:'Отдых'};
 var HP={1:'как ты показываешь себя, твоё тело и то, как ты начинаешь новое',2:'деньги, самоценность и то, на что ты опираешься',3:'твой голос, переговоры, учёба и близкое окружение',4:'дом, семья и твоя внутренняя опора',5:'удовольствие, любовь-романтика, дети и твои проекты',6:'режим, ежедневная работа и тело',7:'партнёр, а ещё клиенты, договоры и все «ты и другой»',8:'общие деньги, кредиты, долги и доверие',9:'перспектива, учёба, поездки и то, во что ты веришь',10:'профессия, статус и цели',11:'свои люди, друзья, сообщества и планы',12:'пауза, уединение и восстановление'};
 var SPH=[
  {id:'money',t:'Деньги и долги',n:'деньги',h:[2,8],main:2,gen:['Venus','Jupiter'],
@@ -398,12 +400,13 @@ opt(mi,'','Минуты');for(i=0;i<60;i+=5)opt(mi,i,(i<10?'0':'')+i+' мин');
 var dl=document.getElementById('cities');CITIES.forEach(function(c){var o=document.createElement('option');o.value=c[0];dl.appendChild(o)});
 document.getElementById('knowTime').onchange=function(){document.getElementById('timeBox').style.display=this.checked?'block':'none'};
 
-var stored=null;try{stored=localStorage.getItem('trevoga2027_free')}catch(e){}
+var stored=null;try{if(/[?&]sbros/.test(location.search)){localStorage.removeItem('trevoga2027_free');localStorage.removeItem('trevoga2027_price_start')}stored=localStorage.getItem('trevoga2027_free')}catch(e){}
 var chosen=null,chips=document.getElementById('chips'),go=document.getElementById('go');
 SPH.forEach(function(s){var b=document.createElement('button');b.className='chip';b.textContent=s.t;b.dataset.id=s.id;
  if(stored&&stored!==s.id)b.classList.add('locked');
  b.onclick=function(){if(b.classList.contains('locked')){document.getElementById('note').textContent='Бесплатно уже открыта одна сфера. Все 12 - в полном расчёте';return}chosen=s;[].forEach.call(chips.children,function(x){x.classList.remove('on')});b.classList.add('on');check()};chips.appendChild(b)});
 [dd,mm,yy].forEach(function(e){e.onchange=check});
+var $n;if(stored){var sn=SPH.filter(function(x){return x.id===stored})[0];if(sn){$n=document.getElementById('note');$n.innerHTML='Бесплатно ты уже открыла сферу «'+sn.t+'». Её можно посмотреть снова. Все 12 сфер - в полном расчёте';$n.style.color='#7a5a36'}}
 function check(){var ok=chosen&&dd.value&&mm.value&&yy.value;go.disabled=!ok;go.textContent=ok?'Открыть сферу: '+chosen.t:(chosen?'Выбери дату рождения':'Выбери дату и сферу')}
 
 function fit(){[].forEach.call(document.querySelectorAll('.fit'),function(el){var w=el.parentNode.clientWidth;el.style.fontSize='40px';var r=w/el.scrollWidth;el.style.fontSize=Math.min(56,Math.floor(40*r*0.97))+'px'})}
@@ -489,6 +492,7 @@ go.onclick=function(){
  $('lockLinks').textContent='Твои связанные сферы «'+HN[links[0]]+'», «'+HN[links[1]]+'» и все остальные';
 
  drawChart(P,startSign,s,links);
+ $('decode').innerHTML='<b>Твоя сфера:</b> '+s.h.map(function(n){return n+' дом - '+HS[n].toLowerCase()+' ('+HP[n]+')'}).join('; ')+'<br><br><b>С чем она связана:</b><br>'+links.map(function(n){return '· '+n+' дом - '+HS[n].toLowerCase()+': '+HP[n]}).join('<br>');
  try{localStorage.setItem('trevoga2027_free',s.id)}catch(e){}
  [].forEach.call(chips.children,function(x){if(x.dataset.id!==s.id)x.classList.add('locked')});
  startTimer();
@@ -514,7 +518,7 @@ function drawChart(P,start,s,links){
   var l0=pt(R3,a0),l1=pt(R1,a0);h+='<line x1="'+l0[0]+'" y1="'+l0[1]+'" x2="'+l1[0]+'" y2="'+l1[1]+'" stroke="rgba(217,191,160,.3)"/>';
   var gp=pt((R1+R2)/2,a0+15);h+='<text x="'+gp[0]+'" y="'+gp[1]+'" fill="#efe6da" font-size="13" text-anchor="middle" dominant-baseline="central">'+GL[(start+i)%12]+'</text>';
   var np=pt((R2+R3)/2,a0+15);
-  if(isS||isL){var w=HN[hn].split(' ')[0];h+='<text x="'+np[0]+'" y="'+(+np[1]-6)+'" fill="#fff" font-size="10.5" font-family="Manrope" font-weight="800" text-anchor="middle">'+hn+'</text><text x="'+np[0]+'" y="'+(+np[1]+7)+'" fill="#fff" font-size="9.5" font-family="Manrope" font-weight="700" text-anchor="middle">'+(w.length>9?w.slice(0,8)+'.':w)+'</text>'}
+  if(isS||isL){h+='<text x="'+np[0]+'" y="'+(+np[1]-6)+'" fill="#fff" font-size="10" font-family="Manrope" font-weight="800" text-anchor="middle">'+hn+'</text><text x="'+np[0]+'" y="'+(+np[1]+8)+'" fill="#fff" font-size="10" font-family="Manrope" font-weight="700" text-anchor="middle">'+HS[hn]+'</text>'}
   else h+='<text x="'+np[0]+'" y="'+np[1]+'" fill="#a99c8b" font-size="11" font-family="Manrope" font-weight="700" text-anchor="middle" dominant-baseline="central">'+hn+'</text>';
  }
  var cS=pt(R3-8,180+(s.main-1)*30+15);

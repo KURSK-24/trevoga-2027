@@ -172,6 +172,12 @@ footer{text-align:center;color:var(--mute);font-size:13px;padding-top:24px}
 .from{margin:14px 0 4px}
 .from div{border-left:2px solid var(--gold);padding:6px 0 6px 14px;margin-top:10px}
 .from div b{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:19px;color:var(--gold2)}
+.gold{margin-top:18px;background:linear-gradient(135deg,#f3e2cc,#d6b48e);color:#1c2a2d;border-radius:16px;padding:16px 18px}
+.gold .gk{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#6e5030}
+.gold .gt{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:19px;line-height:1.38;margin-top:6px;color:#1c2a2d}
+.lab{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:3px 10px;margin-bottom:6px}
+.lab.ok{background:#e6cdb0;color:#13262a}.lab.bad{background:#d79a86;color:#13262a}.lab.du{border:1px solid #e6cdb0;color:#e6cdb0}
+.from .cp{display:block;margin-top:6px;font-size:15.5px}.from .cp b{display:inline;font-family:Manrope,sans-serif;font-size:inherit;color:var(--gold2);font-weight:800}
 .step{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:#13262a;background:var(--gold2);padding:5px 12px;border-radius:999px;margin-bottom:6px}
 .s-cream{background:linear-gradient(180deg,#f3e7d8,#e8d8c3);color:#1c2a2d;border:0}
 .s-cream:after{display:none}
@@ -246,71 +252,35 @@ footer{text-align:center;color:var(--mute);font-size:13px;padding-top:24px}
 
   <div class="scr s-b">
     <div class="photo"><img loading="lazy" src="img/vecher.jpg" alt="Оксана Смирнова"></div>
-    <div class="tag">Раз волнует - значит, заряжено</div>
-    <p class="big" id="bWhy"></p>
-    <p id="bBody"></p>
-  </div>
-
-  <div class="scr s-c">
-    <div class="step">Разбор сферы · 1 из 4</div>
-    <div class="h">Кто управляет твоей сферой</div>
-    <p class="big" id="bPlain"></p>
-    <div id="dRuler"></div>
+    <div class="tag">Что сейчас в твоей сфере</div>
+    <p class="big" id="nNow"></p>
+    <p id="nWhy"></p>
+    <div class="gold"><div class="gk">Главное на 2027</div><div class="gt" id="nMain"></div></div>
   </div>
 
   <img loading="lazy" class="insert" id="sphImg" src="img/sfera-dengi.jpg" alt="">
 
-  <div class="scr s-e">
-    <div class="step">Разбор сферы · 2 из 4</div>
-    <div class="h">Что стоит в сфере и что на неё влияет</div>
-    <div id="dIn"></div>
-    <div id="dAsp"></div>
-  </div>
-
-  <div class="scr s-cream">
-    <div class="step">Разбор сферы · 3 из 4</div>
-    <div class="h">Как это может проигрываться в жизни</div>
-    <div id="dScen"></div>
+  <div class="scr s-c">
+    <div class="step">3 переломных периода</div>
+    <div class="h">Когда в твоей сфере всё решается</div>
+    <ul class="periods" id="bPeriods"></ul>
+    <p class="small" id="perLead"></p>
   </div>
 
   <img loading="lazy" class="insert" src="img/st-kogda.jpg" alt="">
 
+  <div class="scr s-cream">
+    <div class="step">3 возможных события</div>
+    <div class="h">Что может произойти в 2027</div>
+    <div id="nEv"></div>
+  </div>
+
   <div class="scr s-d">
-    <div class="step">Разбор сферы · 4 из 4</div>
-    <div class="h">С какими сферами она связана</div>
+    <div class="step">3 связи и компенсаторика</div>
+    <div class="h">Откуда твоя сфера берёт силу</div>
+    <p id="nLinkLead"></p>
     <div class="from" id="bFrom"></div>
-    <p class="small" id="bAstro"></p>
-  </div>
-
-  <div class="scr s-b">
-    <svg class="ill" viewBox="0 0 280 130" aria-hidden="true"><path id="loop" d="M20 90 C70 90 95 80 120 62 C150 40 175 40 168 62 C160 84 130 80 150 58 C170 36 210 40 260 40" fill="none" stroke="#e6cdb0" stroke-width="1.5" stroke-dasharray="3 5" opacity=".75"/><circle r="7" fill="#efe6da"><animateMotion dur="7s" repeatCount="indefinite"><mpath href="#loop"/></animateMotion></circle><text x="140" y="122" fill="#a99c8b" font-size="11" text-anchor="middle" font-family="Manrope">так планета «разворачивается» назад</text></svg>
-    <div class="tag">Твой 2027 для этой сферы</div>
-    <p class="big" id="bYearPlain"></p>
-    <div id="bYear"></div>
-  </div>
-
-  <img loading="lazy" class="insert" src="img/art-karta.jpg" alt="">
-
-  <div class="scr s-c">
-    <div class="tag">Периоды 2027 по твоей сфере</div>
-    <div class="h" id="perH">Когда что будет происходить</div>
-    <p id="perLead"></p>
-    <ul class="periods" id="bPeriods"></ul>
-  </div>
-
-  <div class="scr s-pearl">
-    <div class="photo"><img loading="lazy" src="img/kofe.jpg" alt="Оксана Смирнова" style="object-position:50% 20%"></div>
-    <div class="tag">Что сделать, чтобы снять тревогу</div>
-    <div class="h" id="todoH"></div>
-    <ol class="list" id="todo"></ol>
-  </div>
-
-  <div class="scr s-d">
-    <div class="tag">Твоя аскеза по дате рождения</div>
-    <div class="h">Чтобы на это выделилась энергия</div>
-    <p id="askLead"></p>
-    <div class="ask"><div class="n" id="ask1n"></div><div class="t" id="ask1t"></div><p id="ask1p"></p></div>
-    <p style="margin-top:12px" id="askMore"></p>
+    <div class="gold"><div class="gk">Как делать компенсаторику</div><div class="gt">Встрой эти шаги в обычную жизнь, легко и без насилия над собой. И начни замечать микроизменения в лучшую сторону: где стало чуть спокойнее, чуть легче, чуть больше сил или денег. Фокус на том, что уже выправляется, и есть твоя опора</div></div>
   </div>
 
   <img loading="lazy" class="insert" src="img/st-kak.jpg" alt="">
@@ -332,7 +302,7 @@ footer{text-align:center;color:var(--mute);font-size:13px;padding-top:24px}
       <div class="item"><b>Разбор всех 12 сфер на 2027</b><span id="oLinks">Начиная с главных сфер, которые связаны с твоей, и дальше по кругу</span></div>
       <div class="item"><b>Как проработать каждую сферу по твоей дате</b><span>Что сделать и как именно, по шагам</span></div>
       <div class="item"><b>Как сформулировать запрос, чтобы цель исполнилась</b><span>Формулировка под твою карту и ближайший день старта</span></div>
-      <div class="item"><b>5 аскез под твою карту</b><span>Под твои планеты, на 7, 21, 30, 40 и 49 дней</span></div>
+      <div class="item"><b>Компенсаторика по всем 12 сферам</b><span>Лёгкие действия под твои планеты, которые встраиваются в обычную жизнь</span></div>
       <div class="item"><b>Где взять силу и дисциплину в 2027</b><span>Откуда у тебя энергия по карте рождения и что её съедает</span></div>
       <div class="item"><b>Личные периоды 2027</b><span>Ретрограды и важные даты, по каким твоим сферам они бьют</span></div>
     </div>
@@ -341,7 +311,7 @@ footer{text-align:center;color:var(--mute);font-size:13px;padding-top:24px}
 
     <div class="part lessons"><h5>3 урока Оксаны, по 5-7 минут</h5>
       <div class="item"><b>Как прочитать свой расчёт и найти опору в 2027</b><span>Если у тебя в сфере Сатурн - делай так, если Северный узел - так. Ты сразу найдёшь свой случай</span></div>
-      <div class="item"><b>Аскеза: почему работает и как не бросить на третий день</b><span>Как сформулировать запрос, сколько держать, что делать, если сорвалась</span></div>
+      <div class="item"><b>Компенсаторика: как встроить шаги в жизнь и не бросить</b><span>Как замечать, что уже стало лучше, и опираться на это</span></div>
       <div class="item"><b>Практики, которые снимают тревогу и возвращают силы</b><span>Делаешь вместе с Оксаной, просто и спокойно</span></div>
     </div>
 
@@ -355,7 +325,7 @@ footer{text-align:center;color:var(--mute);font-size:13px;padding-top:24px}
     <img loading="lazy" class="insert in" src="img/art-razvilka.jpg" alt="">
 
     <div class="part"><h5>В подарок</h5>
-      <div class="item"><b class="gift">Трекер аскезы</b><span>Отмечаешь дни и видишь, как растут силы</span></div>
+      <div class="item"><b class="gift">Трекер компенсаторики</b><span>Отмечаешь шаги и видишь, что выправляется</span></div>
       <div class="item"><b class="gift">Лист «Мой 2027 на одной странице»</b><span>Что было, что сохранить, что изменить, какое действие</span></div>
       <div class="item"><b class="gift">Ритуал входа в 2027</b><span>Спокойно закрыть старый год и запустить новый</span></div>
     </div>
@@ -661,8 +631,8 @@ go.onclick=function(){
  if(inS(tr.NN[0])||inS(tr.NN[1]))hits.push('Северный узел');
  if(inS(tr.Jupiter[0])||inS(tr.Jupiter[1]))hits.push('Юпитер');
  var cand=[[rH,'ruler'],[tr.Saturn[0],'Saturn'],[tr.NN[0],'NN'],[tr.Pluto[0],'Pluto'],[tr.Jupiter[1],'Jupiter'],[tr.Jupiter[0],'Jupiter']],links=[],why={};
- cand.forEach(function(c){var h=c[0];if(!inS(h)&&links.indexOf(h)<0&&links.length<2){links.push(h);why[h]=c[1]}});
- for(var k=1;links.length<2&&k<=12;k++){var h2=((s.main-1+k*4)%12)+1;if(!inS(h2)&&links.indexOf(h2)<0){links.push(h2);why[h2]='tri'}}
+ cand.forEach(function(c){var h=c[0];if(!inS(h)&&links.indexOf(h)<0&&links.length<3){links.push(h);why[h]=c[1]}});
+ for(var k=1;links.length<3&&k<=12;k++){var h2=((s.main-1+k*4)%12)+1;if(!inS(h2)&&links.indexOf(h2)<0){links.push(h2);why[h2]='tri'}}
  var keyPlanet=hits.indexOf('Сатурн')>=0?'Сатурн':(hits[0]||'Сатурн');
  var moonS=sgn(P.Moon),satS=sgn(P.Saturn),rulS=sgn(P[ruler]);
 
@@ -672,67 +642,44 @@ go.onclick=function(){
  $('legend').textContent=full?'Карта посчитана по дате, времени и городу рождения':'Карта посчитана по дате рождения, дома от знака Солнца. Со временем рождения картина точнее';
  $('sphImg').src='img/'+SPH_IMG[s.id]+'.jpg';
 
- // экран 2: заряжено
- var b=pick(s.body,'body');
- $('bWhy').textContent=pick(V.why,'w1')+'. '+pick(V.why2,'w2');
- var w3=pick(V.why3,'w3').replace('{b}',b);if(!/[?.!]$/.test(w3))w3+='.';$('bBody').textContent=w3+' '+pick(V.why4,'w4');
-
- // экран 3: глубокий разбор сферы
  function cap(x){return x.charAt(0).toUpperCase()+x.slice(1)}
- var dg=dign(ruler,rulS),rRetro=(ruler!=='Sun'&&ruler!=='Moon')&&((rev(lonOf(ruler,new Date(utc+86400000))-P[ruler]+180)-180)<0);
- var ON=(ruler==='Venus'||ruler==='Moon')?'Она':'Он';
- var rhT=(RH[s.id][rH]||'|').split('|');
- $('bPlain').textContent='Сфера «'+s.t.toLowerCase()+'» у тебя начинается в знаке '+SIGNS[mainSign]+', а управляет ею '+PN[ruler]+'. '+ON+' стоит '+SIGNS_IN[rulS]+', в '+rH+' доме, '+DIG_N[dg];
- var r='<div class="pt"><div class="k">Как ты проживаешь эту сферу</div><p>Знак '+SIGNS[mainSign]+' на входе в сферу значит, что в '+SPH_HOW[s.id]+' у тебя всё идёт '+STYLE[mainSign]+'. Это твой естественный способ, и тревога усиливается, когда жизнь заставляет действовать иначе</p></div>';
- r+='<div class="pt"><div class="k">Куда уходит энергия сферы · '+rH+' дом</div><p>'+rhT[0]+(rH===s.main?'':' '+cap(HP[rH])+' - вот где на самом деле решается твоя сфера')+'</p></div>';
- r+='<div class="pt"><div class="k">В каком он состоянии · '+PN[ruler]+' '+DIG_N[dg]+'</div><p>'+DIG_T[dg]+(rRetro?'. '+RETRO_N:'')+'</p></div>';
- $('dRuler').innerHTML=r;
-
- // планеты в сфере + аспекты к управителю
- var inside=Object.keys(P).filter(function(b){return inS(H(P[b]))&&(b!=='Moon'||full)});
- var di='<div class="pt"><div class="k">Планеты в самой сфере</div>';
- if(inside.length)di+=inside.map(function(b){return '<p><b>'+PN[b]+' '+SIGNS_IN[sgn(P[b])]+', '+H(P[b])+' дом.</b> '+PIN[b]+'</p>'}).join('');
- else di+='<p>В самих домах этой сферы у тебя планет нет. Это не пустота: такая сфера читается через управителя, то есть всё решает, где стоит '+PN[ruler]+' и в каком состоянии. Поэтому первый экран разбора для тебя главный</p>';
- di+='</div>';
- var asps=[];Object.keys(P).forEach(function(b){if(b===ruler)return;if(b==='Moon'&&!full)return;var x=aspX(P[b],P[ruler],6);if(x)asps.push({b:b,a:x[0],o:x[1],t:isTense(x[0],b)})});
- asps.sort(function(a,b){return a.o-b.o});asps=asps.slice(0,3);
- var da='<div class="pt"><div class="k">Что влияет на управителя</div>';
- if(asps.length)da+=asps.map(function(x){return '<p><span class="asp">'+ASPN[x.a]+'</span><b>'+PN[x.b]+' и '+PN[ruler]+'.</b> '+cap(ASPP[x.b][x.t?1:0])+(x.t?'. Это напряжённый аспект: именно отсюда в сфере берётся часть тревоги':'. Это поддержка, на неё можно опираться')+'</p>'}).join('');
- else da+='<p>Сильных аспектов к управителю у тебя нет: он работает сам по себе. Сфера меньше зависит от других частей жизни, но и помощи со стороны меньше, многое приходится делать самой</p>';
- da+='</div>';
- var gl=s.gen.filter(function(k){return k!==ruler&&P[k]!==undefined}).map(function(k){var d2=dign(k,sgn(P[k]));return PN[k]+' '+SIGNS_IN[sgn(P[k])]+' ('+H(P[k])+' дом'+(d2!=='per'?', '+DIG_N[d2]:'')+')'});
- if(gl.length)da+='<div class="pt"><div class="k">Природные показатели сферы</div><p>За эту сферу в любой карте '+(gl.length>1?'отвечают':'отвечает')+' ещё '+gl.join(' и ')+'. '+(s.gen.some(function(k){var d2=dign(k,sgn(P[k]));return d2==='det'||d2==='fall'||d2==='detfall'})?'Один из них у тебя ослаблен, и это добавляет сфере напряжения':'Они у тебя без ослаблений, и это смягчает сферу')+'</p></div>';
- $('dIn').innerHTML=di;$('dAsp').innerHTML=da;
-
- // как проигрывается
- var tense=asps.filter(function(x){return x.t})[0];
- var sc='<div class="sc"><div class="k">Сценарий 1 · через '+rH+' дом</div><p>'+rhT[1]+'</p></div>';
- sc+='<div class="sc"><div class="k">Сценарий 2 · когда накрывает тревога</div><p>Твоя Луна '+SIGNS_IN[moonS]+(full?'':' (примерно, без времени рождения)')+'. В тревоге ты '+SHADOW[moonS]+'. И тело отзывается: '+pick(s.body,'body2')+'</p></div>';
- if(tense)sc+='<div class="sc"><div class="k">Сценарий 3 · '+ASPN[tense.a]+' '+PN_G[tense.b]+'</div><p>'+PN[tense.b]+' давит на управителя твоей сферы. В жизни это '+ASPP[tense.b][1]+'. Это напряжение можно перевести в силу, если знать, как работать с ним по твоей карте</p></div>';
- else if(dg==='det'||dg==='fall'||dg==='detfall')sc+='<div class="sc"><div class="k">Сценарий 3 · ослабленный управитель</div><p>Ты делаешь всё, что «положено», а результат меньше, чем у других. И начинаешь думать, что дело в тебе. Дело не в тебе: '+PN[ruler]+' '+SIGNS_IN[rulS]+' просто требует другого пути</p></div>';
- else sc+='<div class="sc"><div class="k">Сценарий 3 · сильный управитель</div><p>У тебя в этой сфере есть сила, и окружающие это видят. Но сама ты замечаешь только то, что не получилось, и тревога растёт от завышенной планки</p></div>';
- $('dScen').innerHTML=sc;
-
- // связи с причиной
- $('bFrom').innerHTML=links.map(function(l){return '<div><b>'+l+' дом · «'+HN[l]+'»</b>'+cap(HP[l])+'. '+LINKWHY[why[l]||'tri']+'</div>'}).join('');
- $('bAstro').innerHTML='Как считали: сфера «'+s.t.toLowerCase()+'» - это '+(s.h.length>1?s.h.slice(0,-1).join(', ')+' и '+s.h[s.h.length-1]+' дома':s.h[0]+' дом')+'. Дома '+(full?'от асцендента, по времени и городу рождения':'от знака Солнца, потому что время рождения не указано. Со временем картина точнее')+'. Управители классические, достоинства планет по Птолемею';
-
- // экран 4: 2027 для этой сферы
+ function nd(x){return String(x).replace(/\.\s*$/,'')}
  var SAT_SC={money:'доход требует системы (учёт, подушка, честная цена). Деньги «как-нибудь» перестают приходить, а то, что выстроишь, останется надолго',work:'работа проверяет на прочность: больше ответственности, строже требования. В это время закладывается карьера на годы вперёд',love:'отношения проходят проверку: пара выходит на новый уровень обязательств, или становится видно, что держалось на честном слове',home:'вопросы жилья и семьи требуют решений: ремонт, переезд, забота о родителях. Тяжело, но после остаётся прочная опора',self:'тебя проверяют на зрелость: приходится брать ответственность за свои решения, и внутренняя опора становится твёрже',rest:'тело и силы требуют режима. Если не слушать, оно остановит само. Если выстроить, сил станет больше, чем было'};
  var NN_SC={money:'тебя тянет к новым способам зарабатывать. Страшно, потому что непривычно, но именно сюда ведёт год',work:'в работе открывается новая роль или новое направление. Старое держит, новое пугает',love:'в отношениях пора учиться новому: другим людям и другому способу быть в паре',home:'в доме и семье назревает новый уклад, переезд или новая роль',self:'год ведёт к тому, чтобы проявиться и стать заметной',rest:'год учит отдыхать и восстанавливаться по-новому'};
- var JUP_SC={money:'больше возможностей заработать, но и больше соблазнов потратить',work:'приходят предложения, рост и новые проекты',love:'больше встреч и тепла, легче договориться',home:'возможность улучшить жильё или расширить семью',self:'растёт уверенность, тебя больше замечают',rest:'легче восстановиться, хорошее время для лечения и отдыха'};
+ var JUP_SC={money:'больше возможностей заработать, но и больше соблазнов потратить',work:'приходят предложения, рост и новые проекты',love:'больше встреч и тепла, легче договориться',home:'возможность улучшить жильё или расширить семью',self:'растёт уверенность, тебя больше замечают',rest:'легче восстановиться, хорошее время для отдыха'};
  var PLU_SC={money:'уходит старая модель заработка, и отношение к деньгам перестраивается глубоко',work:'карьера перестраивается до основания',love:'отношения меняются глубоко, через кризис к новому',home:'перестраиваются семья и дом',self:'ты меняешься изнутри, и это видно снаружи',rest:'старые способы отдыха перестают работать, нужен новый'};
- function ptb(k,t){return '<div class="pt"><div class="k">'+k+'</div><p>'+t+'</p></div>'}
- function hin(b){return b==='NN'?tr.NN:tr[b]}
- var yt='';
- if(hits.indexOf('Сатурн')>=0)yt+=ptb('Сатурн '+SIGNS_IN[sgn(lonOf('Saturn',t1))]+' проходит твою сферу','Сатурн - это экзамен. Сфера просит порядка и ответственности, старые способы перестают работать, и от этого неспокойно. Как это проигрывается у тебя: '+SAT_SC[s.id]);
- if(hits.indexOf('Северный узел')>=0)yt+=ptb('Северный узел в твоей сфере','Это зона роста года, сюда тебя ведёт. Как это проигрывается: '+NN_SC[s.id]);
- if(hits.indexOf('Юпитер')>=0)yt+=ptb('Юпитер в твоей сфере','Юпитер расширяет: '+JUP_SC[s.id]+'. Главное - выбрать одно направление, а не хвататься за всё');
- if(hits.indexOf('Плутон')>=0)yt+=ptb('Плутон в твоей сфере','Плутон работает медленно и глубоко: '+PLU_SC[s.id]);
- if(!hits.length)yt+=ptb('Медленные планеты идут рядом','Сатурн в 2027 идёт по твоей зоне «'+HN[tr.Saturn[0]]+'», Северный узел - по зоне «'+HN[tr.NN[0]]+'». Твою сферу они напрямую не задевают, поэтому тревога ощущается здесь, а причина рядом. Главные события для тебя - периоды ниже: транзиты к управителю, затмения и проход планет по сфере');
+ var EV={
+  money:{Jupiter:'Новый источник дохода или повышение: больше денег приходит через знания и людей',Saturn:'Пересмотр бюджета: приходится сократить лишнее, закрыть долг или собрать подушку',Uranus:'Неожиданные деньги или неожиданный расход: доход меняется резко, через новое и интернет',Neptune:'Туман в деньгах: легко переплатить или поверить в лёгкий заработок, зато хорошо идут творческие деньги',Pluto:'Перестройка дохода: старый способ зарабатывать заканчивается, появляется новый, на другие суммы',ecl:'Резкий поворот в деньгах: закрывается один источник и открывается другой',retro:'Возвращаются старые долги, клиенты или идеи заработка, которые ты когда-то откладывала',Sun:'Хороший месяц, чтобы заявить о цене, попросить прибавку или запустить продажу',Venus:'Деньги приходят легче: оплата, которую долго ждала, выгодная покупка, подарок',Mars:'Рывок в заработке, но и импульсивные траты: решения о деньгах лучше не принимать сгоряча',NN:'Тянет зарабатывать по-новому: страшно, но именно сюда ведёт год'},
+  work:{Jupiter:'Предложение о новой роли, проекте или повышении',Saturn:'Больше ответственности и строже требования: проверка на прочность, после которой закрепляешься надолго',Uranus:'Внезапная смена задач, руководителя или формата работы',Neptune:'Неясность в работе: размытые задачи и обещания, зато легче даётся творческое',Pluto:'Глубокая перестройка карьеры: уход из того, что ты переросла',ecl:'Поворотная точка в работе: что-то заканчивается, и открывается новое направление',retro:'Возвращение к старому проекту, прежнему месту или незаконченному делу',Sun:'Месяц, когда тебя замечают: удобно показать результаты',Venus:'Лёгкие договорённости, приятные коллеги и клиенты',Mars:'Много задач и конкуренции, сил хватает на рывок',NN:'Новая роль или направление, к которому тянет, хотя непривычно'},
+  love:{Jupiter:'Встреча или новый уровень в паре: больше тепла и общих планов',Saturn:'Проверка отношений: разговор о будущем, обязательствах или честный итог',Uranus:'Неожиданная встреча или резкая перемена в паре',Neptune:'Сильная влюблённость и риск идеализировать: важно видеть человека, а не мечту',Pluto:'Глубокая перемена в отношениях: через кризис к другой близости',ecl:'Поворот в личной жизни: одна история закрывается, другая начинается',retro:'Возвращается человек из прошлого или старый незакрытый разговор',Sun:'Месяц, когда хочется внимания и легче говорить о чувствах',Venus:'Самое тёплое время года для пары и знакомств',Mars:'Страсть и споры: хорошо для смелого шага, плохо для ультиматумов',NN:'Знакомство или новый формат отношений, к которому ведёт год'},
+  home:{Jupiter:'Улучшение жилья: переезд, ремонт или крупная покупка для дома',Saturn:'Ответственные решения по дому и семье: документы, ремонт, забота о родителях',Uranus:'Внезапный переезд или резкие перемены в семье',Neptune:'Неясность с жильём или документами: важно всё перепроверять',Pluto:'Перестройка семьи и дома: меняются уклад и роли',ecl:'Поворот в семье или с жильём: завершение одного и начало другого',retro:'Возвращение к старому вопросу жилья, ремонта или семейному разговору',Sun:'Месяц для дома и семьи: удобно решать жилищные вопросы',Venus:'Время уюта и примирения с близкими',Mars:'Активные дела по дому: ремонт, перевозка, но и бытовые ссоры',NN:'Назревает новый уклад, переезд или новая роль в семье'},
+  self:{Jupiter:'Растёт уверенность, тебя больше замечают и зовут',Saturn:'Проверка на зрелость: приходится самой отвечать за решения',Uranus:'Резкое желание всё поменять: образ, окружение, правила',Neptune:'Сомнения в себе и туман в целях, зато сильная интуиция',Pluto:'Глубокая внутренняя перемена: ты становишься другой, и это видно',ecl:'Поворотная точка в том, как ты себя ощущаешь и подаёшь',retro:'Возвращаются старые сомнения, чтобы закрыть их окончательно',Sun:'Твой месяц силы: проще проявиться и начать',Venus:'Время нравиться себе: образ, красота, лёгкость',Mars:'Прилив смелости: хорошо для первого шага',NN:'Год ведёт к тому, чтобы проявиться и стать заметной'},
+  rest:{Jupiter:'Легче восстановиться: хорошее время для отдыха и заботы о себе',Saturn:'Тело просит режима: усталость копится, если не снижать нагрузку',Uranus:'Резкие перепады сил и сна, нервное напряжение',Neptune:'Упадок сил и размытость, хочется спрятаться от всего',Pluto:'Старые способы отдыха перестают работать, ищешь новые',ecl:'Сигнал остановиться: силам нужен перезапуск',retro:'Возвращаются старая усталость и привычки, чтобы их пересмотреть',Sun:'Месяц, когда сил больше: хорошо начать новый режим',Venus:'Мягкий период для восстановления и заботы о себе',Mars:'Энергия есть, но легко перегореть: двигайся без надрыва',NN:'Год учит отдыхать по-новому'}};
+ var COMP={Sun:'так, чтобы тебя было видно: от своего имени и с удовольствием',Moon:'через заботу о себе и доме: тёплая еда, сон, уют',Mercury:'через слова: записывай, проговаривай, договаривайся письменно',Venus:'через красоту и удовольствие: приятная вещь, красивое место, забота о теле',Mars:'через движение: прогулка, спорт, физическая работа, быстрый первый шаг',Jupiter:'через обучение и расширение: курс, наставник, поездка',Saturn:'через порядок и режим: одно правило, расписание, доведённое до конца дело',Uranus:'через новое: техника, технологии, способ, который раньше не пробовала',Neptune:'через тишину и воду: медитация, музыка, прогулка у воды, творчество',Pluto:'через очищение: разбери завалы, выброси лишнее, отпусти то, что держит',NN:'через непривычное: попробуй один новый способ, даже если страшно'};
+ var LW={ruler:function(){return 'Здесь стоит управитель твоей сферы, '+PN[ruler]+'. Твоя сфера питается отсюда: пока здесь неспокойно, спокойно не станет и в ней'},Saturn:function(){return 'В 2027 здесь идёт Сатурн. Напряжение отсюда перетекает в твою сферу'},NN:function(){return 'Сюда в 2027 идёт Северный узел, это зона роста года. Стоишь на месте здесь, и буксует твоя сфера'},Pluto:function(){return 'Здесь в 2027 Плутон: идут глубокие перемены, и они отзываются в твоей сфере'},Jupiter:function(){return 'Сюда в 2027 приходит Юпитер: отсюда в твою сферу может прийти помощь'},tri:function(){return 'Эта зона по твоей карте поддерживает твою сферу. Наладишь её, и сфере станет легче'}};
+
+ // что сейчас в сфере
+ var dg=dign(ruler,rulS),rhT=(RH[s.id][rH]||'|').split('|');
+ var asps=[];Object.keys(P).forEach(function(b){if(b===ruler)return;if(b==='Moon'&&!full)return;var x=aspX(P[b],P[ruler],6);if(x)asps.push({b:b,a:x[0],o:x[1],t:isTense(x[0],b)})});
+ asps.sort(function(a,b){return a.o-b.o});
+ var tense=asps.filter(function(x){return x.t})[0];
+ var inside=Object.keys(P).filter(function(b){return inS(H(P[b]))&&(b!=='Moon'||full)});
+ $('nNow').textContent='В '+SPH_HOW[s.id]+' у тебя всё идёт '+STYLE[mainSign]+'. '+nd(rhT[0]);
+ var wy;
+ if(tense)wy='Тревожно, потому что по твоей карте на эту сферу давит '+PN[tense.b]+'. В жизни это '+nd(ASPP[tense.b][1]);
+ else if(dg==='det'||dg==='fall'||dg==='detfall')wy='Тревожно, потому что ты делаешь всё, что положено, а результат меньше, чем хочется. Дело не в тебе: этой сфере у тебя нужен свой путь';
+ else wy='А когда тревога накрывает, ты '+nd(SHADOW[moonS]);
+ $('nWhy').textContent=cap(nd(rhT[1]))+'. '+wy+'. И тело отзывается: '+nd(pick(s.body,'body'));
+ var mn;
+ if(hits.indexOf('Сатурн')>=0)mn='Сатурн проходит твою сферу: '+SAT_SC[s.id];
+ else if(hits.indexOf('Плутон')>=0)mn='Плутон в твоей сфере: '+PLU_SC[s.id];
+ else if(hits.indexOf('Северный узел')>=0)mn='Твоя сфера становится зоной роста: '+NN_SC[s.id];
+ else if(hits.indexOf('Юпитер')>=0)mn='Юпитер расширяет твою сферу: '+JUP_SC[s.id];
+ else mn='Твоя сфера в 2027 меняется через «'+HN[links[0]]+'». Наведёшь спокойствие там, и здесь станет легче';
+ $('nMain').textContent=mn;
 
  // периоды по сфере
- var per=[],sunS=sgn(P.Sun);
+ var per=[];
  function rel(h){return inS(h)?2:(links.indexOf(h)>=0?1:0)}
  function rg(a,b){return a===b?dm(a):dm(a)+' - '+dm(b)}
  var used={};var targets=[[ruler,' (управитель сферы)']];inside.forEach(function(b){if(b!==ruler&&targets.length<3)targets.push([b,' (стоит в твоей сфере)'])});
@@ -741,47 +688,38 @@ go.onclick=function(){
   Object.keys(gr).forEach(function(a){var ws=gr[a],tn=isTense(a,T),isR=tg[0]===ruler;
    var sp=used[T]?'':T==='Saturn'?' В '+SPH_HOW[s.id]+' это значит: '+SAT_SC[s.id]:(T==='Jupiter'&&!tn?' В '+SPH_HOW[s.id]+': '+JUP_SC[s.id]:(T==='Pluto'?' В '+SPH_HOW[s.id]+': '+PLU_SC[s.id]:''));
    if(sp)used[T]=1;var wh=isR?MY[tg[0]]+' - управитель сферы, поэтому всё, что с ним происходит, сразу отзывается здесь.':MY[tg[0]]+' стоит прямо в твоей сфере.';
-   per.push({t:ws[0].s,p:isR?1:2,d:ws.map(function(w){return rg(w.s,w.e)}).join('; '),ti:'Транзитный '+PN[T]+' · '+ASPN[a]+' · '+MY[tg[0]],x:(cap(TRT[T][tn?1:0])+'. '+(ws.length>1?'Из-за ретро-петли планета касается точки '+times(ws.length)+', поэтому периодов несколько. ':'')+cap(wh)+sp).replace(/\.$/,''),o:tn?DOT[s.id]:DOH[s.id]})})})});
+   var tone=(a==='conj'&&(T==='Pluto'||T==='Uranus'||T==='Neptune'))?'du':(tn?'bad':'ok');
+   per.push({k:T,tone:tone,t:ws[0].s,p:isR?1:2,d:ws.map(function(w){return rg(w.s,w.e)}).join('; '),ti:PN[T]+' · '+ASPN[a]+' · '+MY[tg[0]],x:(cap(TRT[T][tn?1:0])+'. '+cap(wh)+sp).replace(/\.$/,''),o:tn?DOT[s.id]:DOH[s.id]})})})});
  eclipses2027().forEach(function(e){var h=houseOfSign(startSign,sgn(e.lon)),k=rel(h),near=Math.abs(rev(e.lon-P[ruler]+180)-180)<=6;
-  if(k===2||near)per.push({t:e.t,p:0,d:dm(e.t),ti:cap(e.kind)+' затмение '+SIGNS_IN[sgn(e.lon)]+(near?' · рядом с управителем сферы':' · в '+h+' доме, в твоей сфере'),x:'Точка перезапуска. В '+SPH_HOW[s.id]+' что-то заканчивается или резко начинается, а решения этих недель работают долго, до полугода',o:'в сам день и неделю вокруг не делай резких шагов. Запиши, что хочешь отпустить, а через две недели действуй'});
-  else if(k===1)per.push({t:e.t,p:3,d:dm(e.t),ti:cap(e.kind)+' затмение '+SIGNS_IN[sgn(e.lon)]+' · в связанной сфере «'+HN[h]+'»',x:'Перезапуск идёт в соседней сфере, но отзовётся и в твоей',o:'смотри, что меняется в «'+HN[h]+'», и не спорь с этими переменами'})});
- if(['Mercury','Venus','Mars','Jupiter','Saturn'].indexOf(ruler)>=0)retros(ruler).forEach(function(r,i){var hr=houseOfSign(startSign,r[2]);var RV=['время пересматривать и доделывать, а не начинать с нуля','может вернуться то, что казалось закрытым: люди, задачи, старые договорённости','хорошо исправлять и завершать, плохо запускать новое'];per.push({t:r[0],p:0,d:rg(r[0],r[1]),ti:PN[ruler]+' ретроградный · управитель твоей сферы',x:'Управитель сферы идёт назад '+SIGNS_IN[r[2]]+', по твоей зоне «'+HN[hr]+'». В '+SPH_HOW[s.id]+' '+RV[i%3]+'. Причину ищи в «'+HN[hr]+'»',o:RETRO_DO[s.id]})});
- if(ruler!=='Mercury')retros('Mercury').forEach(function(r){var h=houseOfSign(startSign,r[2]),k=rel(h);if(k)per.push({t:r[0],p:k===2?2:4,d:rg(r[0],r[1]),ti:'Ретроградный Меркурий '+SIGNS_IN[r[2]]+(k===2?' · в твоей сфере':' · в связанной сфере «'+HN[h]+'»'),x:k===2?'Путаница в договорённостях, документах и переписке по твоей сфере':'Задевает соседнюю сферу, а через неё и твою',o:k===2?RETRO_DO[s.id]:'перепроверяй и не спеши с решениями'})});
- [['Sun','Солнце в твоей сфере','Твой месяц для этой сферы: внимание и силы сами идут сюда. Хорошее время начать то, что откладывала',null,4],['Venus','Венера в твоей сфере','Самое мягкое время года для сферы: договориться, попросить, помириться, получить',null,2],['Mars','Марс в твоей сфере','Прилив сил и напора, но и спешка, конфликты. Хорошо для рывка, плохо для споров','делай рывок там, где давно стоишь на месте, и не решай ничего на эмоциях',2]].forEach(function(z){
-  windows(function(d){var h=houseOfSign(startSign,sgn(lonOf(z[0],d)));return inS(h)?'h'+h:null}).forEach(function(w){per.push({t:w.s,p:z[4],d:rg(w.s,w.e),ti:z[1]+' · '+w.key.slice(1)+' дом',x:z[2],o:z[3]||DOH[s.id]})})});
- ingresses('Jupiter').forEach(function(r){var h=houseOfSign(startSign,r[1]);if(inS(h))per.push({t:r[0],p:1,d:'с '+dm(r[0]),ti:'Юпитер входит '+SIGNS_TO2[r[1]]+' · в твою сферу',x:'На год открываются возможности: '+JUP_SC[s.id],o:DOH[s.id]})});
- ingresses('NN').forEach(function(r){var h=houseOfSign(startSign,r[1]);if(inS(h))per.push({t:r[0],p:1,d:'с '+dm(r[0]),ti:'Северный узел переходит '+SIGNS_TO2[r[1]]+' · в твою сферу',x:'На полтора года сфера становится зоной роста: '+NN_SC[s.id],o:'пробуй новое, даже если непривычно'})});
- per.sort(function(a,b){return a.p-b.p||a.t-b.t});per=per.slice(0,9).sort(function(a,b){return a.t-b.t});
- $('bPeriods').innerHTML=per.map(function(x){return '<li><span class="d">'+x.d+'</span><span class="w">'+x.ti+'</span>'+x.x+'<span class="dd"><b>Что делать:</b> '+x.o+'</span></li>'}).join('');
- $('perH').textContent=per.length+' '+(per.length>=5?'периодов':(per.length===1?'период':'периода'))+' для сферы «'+s.t.toLowerCase()+'»';
- $('perLead').textContent='Здесь только то, что касается твоей сферы по твоей карте: транзиты к управителю, затмения, ретрограды и проход планет по её домам. У другого человека с другой датой этот список другой';
- var nT=per.filter(function(x){return x.p===1}).length,nE=per.filter(function(x){return /затмение/.test(x.ti)}).length;
- $('bYearPlain').textContent='В 2027 на сферу «'+s.t.toLowerCase()+'» у тебя влияют '+(hits.length?hits.join(', ')+' в самой сфере, ':'')+(nT?'транзиты к управителю ('+nT+')'+(nE?' ':''):'')+(nE?(nT?'и затмения ('+nE+')':'затмения ('+nE+')'):'')+(!nT&&!nE?'проход быстрых планет и ретрограды':'');
- $('bYear').innerHTML=yt;
+  if(k===2||near)per.push({k:'ecl',tone:'du',t:e.t,p:0,d:dm(e.t),ti:cap(e.kind)+' затмение '+SIGNS_IN[sgn(e.lon)]+(near?' · рядом с управителем сферы':' · в твоей сфере'),x:'Точка перезапуска. В '+SPH_HOW[s.id]+' что-то заканчивается или резко начинается, а решения этих недель работают долго, до полугода',o:'в сам день и неделю вокруг не делай резких шагов. Запиши, что хочешь отпустить, а через две недели действуй'});
+  else if(k===1)per.push({k:'ecl',tone:'du',t:e.t,p:3,d:dm(e.t),ti:cap(e.kind)+' затмение '+SIGNS_IN[sgn(e.lon)]+' · в связанной сфере «'+HN[h]+'»',x:'Перезапуск идёт в соседней сфере, но отзовётся и в твоей',o:'смотри, что меняется в «'+HN[h]+'», и не спорь с этими переменами'})});
+ if(['Mercury','Venus','Mars','Jupiter','Saturn'].indexOf(ruler)>=0)retros(ruler).forEach(function(r,i){var hr=houseOfSign(startSign,r[2]);var RV=['время пересматривать и доделывать, а не начинать с нуля','может вернуться то, что казалось закрытым: люди, задачи, старые договорённости','хорошо исправлять и завершать, плохо запускать новое'];per.push({k:'retro',tone:'du',t:r[0],p:0,d:rg(r[0],r[1]),ti:PN[ruler]+' ретроградный · управитель твоей сферы',x:'Управитель сферы идёт назад '+SIGNS_IN[r[2]]+', по твоей зоне «'+HN[hr]+'». В '+SPH_HOW[s.id]+' '+RV[i%3]+'. Причину ищи в сфере «'+HN[hr]+'»',o:RETRO_DO[s.id]})});
+ if(ruler!=='Mercury')retros('Mercury').forEach(function(r){var h=houseOfSign(startSign,r[2]),k=rel(h);if(k)per.push({k:'retro',tone:'bad',t:r[0],p:k===2?2:4,d:rg(r[0],r[1]),ti:'Ретроградный Меркурий '+SIGNS_IN[r[2]]+(k===2?' · в твоей сфере':' · в связанной сфере «'+HN[h]+'»'),x:k===2?'Путаница в договорённостях, документах и переписке по твоей сфере':'Задевает соседнюю сферу, а через неё и твою',o:k===2?RETRO_DO[s.id]:'перепроверяй и не спеши с решениями'})});
+ [['Sun','Солнце в твоей сфере','Твой месяц для этой сферы: внимание и силы сами идут сюда. Хорошее время начать то, что откладывала',null,4,'ok'],['Venus','Венера в твоей сфере','Самое мягкое время года для сферы: договориться, попросить, помириться, получить',null,2,'ok'],['Mars','Марс в твоей сфере','Прилив сил и напора, но и спешка, конфликты. Хорошо для рывка, плохо для споров','делай рывок там, где давно стоишь на месте, и не решай ничего на эмоциях',2,'du']].forEach(function(z){
+  windows(function(d){var h=houseOfSign(startSign,sgn(lonOf(z[0],d)));return inS(h)?'h'+h:null}).forEach(function(w){per.push({k:z[0],tone:z[5],t:w.s,p:z[4],d:rg(w.s,w.e),ti:z[1],x:z[2],o:z[3]||DOH[s.id]})})});
+ ingresses('Jupiter').forEach(function(r){var h=houseOfSign(startSign,r[1]);if(inS(h))per.push({k:'Jupiter',tone:'ok',t:r[0],p:1,d:'с '+dm(r[0]),ti:'Юпитер входит '+SIGNS_TO2[r[1]]+' · в твою сферу',x:'На год открываются возможности: '+JUP_SC[s.id],o:DOH[s.id]})});
+ ingresses('NN').forEach(function(r){var h=houseOfSign(startSign,r[1]);if(inS(h))per.push({k:'NN',tone:'du',t:r[0],p:1,d:'с '+dm(r[0]),ti:'Северный узел переходит '+SIGNS_TO2[r[1]]+' · в твою сферу',x:'На полтора года сфера становится зоной роста: '+NN_SC[s.id],o:'пробуй новое, даже если непривычно'})});
+ per.sort(function(a,b){return a.p-b.p||a.t-b.t});
+ var top=[],seen={};per.forEach(function(x){if(top.length<3&&!seen[x.k]){top.push(x);seen[x.k]=1}});
+ per.forEach(function(x){if(top.length<3&&top.indexOf(x)<0)top.push(x)});
+ top.sort(function(a,b){return a.t-b.t});
+ var LAB={ok:'благоприятное влияние',bad:'напряжённое влияние',du:'дуальное влияние'};
+ $('bPeriods').innerHTML=top.map(function(x){return '<li><span class="lab '+x.tone+'">'+LAB[x.tone]+'</span><span class="w">'+x.ti+'</span><span class="d">'+x.d+'</span>'+x.x+'<span class="dd"><b>Что делать:</b> '+x.o+'</span></li>'}).join('');
+ $('perLead').textContent='Это 3 самых сильных периода из всех, что задевают твою сферу по твоей карте. У человека с другой датой они другие. Все периоды 2027 по всем 12 сферам - в полном расчёте';
 
- // экран 5: что сделать
- $('todoH').textContent=pick(['Четыре шага по твоей карте','Твои четыре шага на 2027','С чего начать именно тебе'],'th');
- var st1=pick(SIGN_ACT[mainSign],'s1'),st2h=rH===s.main?links[0]:rH,st2=pick(HOUSE_ACT[st2h],'s2'),pk=hits.filter(function(x){return PLANET_ACT[x]})[0],st3=pk?pick(PLANET_ACT[pk],'s3'):pick(HOUSE_ACT[links[1]],'s3b');
- var steps=[
-  ['Действуй так, как устроена твоя сфера',st1+'. Твоя сфера начинается в знаке '+SIGNS[mainSign]+', поэтому здесь у тебя всё двигается '+STYLE[mainSign]],
-  ['Зайди через «'+HN[st2h]+'»',st2+'. '+(rH===s.main?'Эта сфера у тебя тесно связана с твоей':'У тебя '+s.n+' включаются именно через эту сферу')],
-  [pk?'Что просит от тебя 2027':'Подтяни «'+HN[links[1]]+'»',st3+'. '+(pk?'В 2027 здесь работает '+pk+', и это его урок для тебя':'Именно оттуда в 2027 в твою сферу приходит заряд')],
-  ['Когда накрывает тревога','Твоя Луна '+SIGNS_IN[moonS]+': в тревоге ты '+SHADOW[moonS]+'. Поэтому в эту минуту '+MOON_ACT[moonS]]
- ];
- $('todo').innerHTML=steps.map(function(x){return'<li><b>'+x[0]+'</b>'+x[1]+'</li>'}).join('');
+ // 3 события по этим периодам
+ $('nEv').innerHTML=top.map(function(x,i){var ev=(EV[s.id][x.k]||EV[s.id].ecl);return '<div class="sc"><div class="k">'+(i+1)+' · '+x.d.split(';')[0]+'</div><p>'+ev+'</p></div>'}).join('');
 
- // экран 6: аскеза с подводкой
- $('askLead').innerHTML='На каждый из этих шагов нужны энергия, мотивация, дисциплина и сила. А у тревожного человека они утекают на автомате. Самый проверенный способ выделить энергию под цель по дате рождения - <b>аскеза</b> (на желание и на свершение): маленький отказ, который возвращает силы туда, где они нужны. Твоя первая аскеза:';
- var a1=ASKEZA[moonS];
- $('ask1n').textContent='Аскеза 1 из 5 · Луна '+SIGNS_IN[moonS];
- $('ask1t').textContent=a1[0];
- $('ask1p').textContent=moonS===1?a1[1]:a1[1].replace('Луна в Тельце заедает тревогу','Твоя Луна так проживает тревогу');
- $('askMore').textContent='Ещё четыре аскезы - на 21, 30, 40 и 49 дней - подобраны под '+PN[ruler]+' '+SIGNS_IN[rulS]+', Сатурн '+SIGNS_IN[satS]+' и твою сферу «'+HN[links[0]]+'». Вместе с ближайшим днём старта они в полном расчёте';
+ // 3 связи + компенсаторика в этих сферах
+ $('nLinkLead').textContent='По твоей карте сфера «'+s.t.toLowerCase()+'» питается ещё из трёх. Если тревожно в твоей сфере, неспокойно и там. Поэтому компенсаторика нужна именно в них';
+ var uW={},uP={};
+ $('bFrom').innerHTML=links.map(function(l,i){var w=why[l]||'tri';if(uW[w])w='tri';uW[w]=1;var pl=w==='ruler'?ruler:(w==='tri'?RULER[(startSign+l-1)%12]:w);if(uP[pl])pl=RULER[(startSign+l-1)%12];uP[pl]=1;var ac=nd(pick(HOUSE_ACT[l],'cp'+i));
+  return '<div><b>'+(i+1)+' · «'+cap(HN[l])+'»</b>'+LW[w]()+'<span class="cp"><b>Компенсаторика:</b> '+ac.charAt(0).toLowerCase()+ac.slice(1)+'. Делай это '+COMP[pl]+'</span></div>'}).join('');
 
- // экран 7: мост к продукту
- $('bHook').textContent='Но твоя сфера точно связана ещё со сферами «'+HN[links[0]]+'» и «'+HN[links[1]]+'»';
- $('bHook2').innerHTML='Пока они не проработаны, «'+s.t.toLowerCase()+'» не сдвинутся на все 100%. В 2027 здесь работает <b>'+keyPlanet+'</b>, и энергия будет утекать туда, куда ты не смотришь. Полный расчёт этих сфер и всех остальных, по кругу все 12, уже готов. Ниже - что ты получишь';
- $('oLinks').textContent='Начиная с «'+HN[links[0]]+'» и «'+HN[links[1]]+'», которые связаны с твоей сферой, и дальше по кругу';
+ // мост к продукту
+ $('bHook').textContent='Ты увидела 3 связи. А всего на сферу «'+s.t.toLowerCase()+'» влияют все 12';
+ $('bHook2').innerHTML='Как именно делать эти шаги по твоей дате, компенсаторика по каждой сфере и все личные периоды 2027 уже посчитаны. В 2027 у тебя работает <b>'+keyPlanet+'</b>, и энергия будет утекать туда, куда ты не смотришь. Ниже - что ты получишь';
+ $('oLinks').textContent='Начиная с «'+HN[links[0]]+'», «'+HN[links[1]]+'» и «'+HN[links[2]]+'», которые связаны с твоей сферой, и дальше по кругу';
 
  drawChart(P,startSign,s,links);
  $('decode').innerHTML='<b>Твоя сфера:</b> '+s.h.map(function(n){return n+' дом - '+HS[n].toLowerCase()+' ('+HP[n]+')'}).join('; ')+'<br><br><b>С чем она связана:</b><br>'+links.map(function(n){return '· '+n+' дом - '+HS[n].toLowerCase()+': '+HP[n]}).join('<br>');

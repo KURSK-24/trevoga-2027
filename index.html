@@ -102,6 +102,7 @@ select:focus,input:focus{outline:none;border-color:#b08f68;box-shadow:0 0 0 3px 
 .lock h4{font-size:17px;font-weight:700;color:var(--ink)}
 .lock p{font-size:15px;color:var(--soft);margin-top:3px}
 .blur{filter:blur(5px);user-select:none}
+.proto{position:sticky;top:0;z-index:50;background:#c9533f;color:#fff;font:600 13px/1.35 Manrope,sans-serif;text-align:center;padding:8px 14px}.proto b{letter-spacing:.12em}
 .offer{background:linear-gradient(170deg,#1b3439,#13262a 55%,#0f1e23);border-radius:16px;padding:26px 20px;margin-top:22px;border:1px solid rgba(217,191,160,.45);position:relative;overflow:hidden}
 .offer:after{content:'';position:absolute;left:-20px;bottom:-20px;width:220px;height:170px;background:url(img/deco-bl.jpg) left bottom/cover no-repeat;opacity:.35;-webkit-mask-image:linear-gradient(0deg,#000 40%,transparent);mask-image:linear-gradient(0deg,#000 40%,transparent);pointer-events:none}
 .offer>*{position:relative;z-index:1}
@@ -203,6 +204,7 @@ footer{text-align:center;color:var(--mute);font-size:13px;padding-top:24px}
 </style>
 </head>
 <body>
+<div class="proto"><b>ПРОТОТИП</b> · рабочая версия для докрутки и правок. Тексты и расчёты - черновик на согласование с Оксаной</div>
 <div class="wrap">
 
 <header>
@@ -297,39 +299,37 @@ footer{text-align:center;color:var(--mute);font-size:13px;padding-top:24px}
     <div class="kicker">Что ты получишь</div>
     <div class="oname pearl">[Название продукта]</div>
     <span class="ready">✦ Твой личный расчёт уже готов и ждёт тебя</span>
-    <p style="color:var(--soft);margin-top:10px">Что сделать, ты уже знаешь. Здесь - как именно, по твоей дате: чтобы стало спокойно, появились силы и опора</p>
+    <p style="color:var(--soft);margin-top:10px">Для тех, у кого последние месяцы опускаются руки, тревога не отпускает и сил нет даже у самых сильных. Здесь твой 2027, уже посчитанный по дате рождения: почему тебе так, когда отпустит и что сделать, чтобы стало спокойно</p>
 
-    <div class="part"><h5>Твой полный расчёт</h5>
-      <div class="item"><b>Разбор всех 12 сфер на 2027</b><span id="oLinks">Начиная с главных сфер, которые связаны с твоей, и дальше по кругу</span></div>
-      <div class="item"><b>Как проработать каждую сферу по твоей дате</b><span>Что сделать и как именно, по шагам</span></div>
-      <div class="item"><b>Как сформулировать запрос, чтобы цель исполнилась</b><span>Формулировка под твою карту и ближайший день старта</span></div>
-      <div class="item"><b>Компенсаторика по всем 12 сферам</b><span>Лёгкие действия под твои планеты, которые встраиваются в обычную жизнь</span></div>
-      <div class="item"><b>Аскеза под твою карту</b><span>Чтобы усилить компенсаторику: какая аскеза подходит именно тебе и с какого дня начать</span></div>
-      <div class="item"><b>Где взять силу и дисциплину в 2027</b><span>Откуда у тебя энергия по карте рождения и что её съедает</span></div>
-      <div class="item"><b>Личные периоды 2027</b><span>Ретрограды и важные даты, по каким твоим сферам они бьют</span></div>
+    <div class="part lessons"><h5>3 урока Оксаны, по 7-10 минут</h5>
+      <div class="item"><b>Почему тебе тревожно именно сейчас и когда отпустит</b><span>Почему последние месяцы тяжело даже самым сильным. И как по твоему календарю найти дату, когда станет легче</span><em>было «всё тщетно» · стало «я знаю, когда отпустит»</em></div>
+      <div class="item"><b>Микрошаги, которые снимают тревогу</b><span>Маленькие действия по твоим планетам, которые смягчают трудный период. И почему работать надо там, откуда твоя сфера питается</span><em>было «опускаются руки» · стало «делаю, и становится лучше»</em></div>
+      <div class="item"><b>Откуда забрать энергию на то, что болит</b><span>Что успокаивает именно тебя по твоей Луне, где утекают силы, и твоя аскеза по дате рождения, чтобы хватило на желание</span><em>было «вымотана» · стало «есть силы и опора»</em></div>
     </div>
 
     <img loading="lazy" class="insert in" src="img/sfera-zadacha.jpg" alt="">
 
-    <div class="part lessons"><h5>3 урока Оксаны, по 5-7 минут</h5>
-      <div class="item"><b>Как прочитать свой расчёт и найти опору в 2027</b><span>Если у тебя в сфере Сатурн - делай так, если Северный узел - так. Ты сразу найдёшь свой случай</span></div>
-      <div class="item"><b>Компенсаторика: как встроить шаги в жизнь и не бросить</b><span>Как замечать, что уже стало лучше, и опираться на это</span></div>
-      <div class="item"><b>Практики, которые снимают тревогу и возвращают силы</b><span>Делаешь вместе с Оксаной, просто и спокойно</span></div>
-    </div>
-
-    <div class="part"><h5>Практики под твой расчёт</h5>
-      <div class="item"><b>Деньги на одном листе</b><span>Финансовые итоги 2026 и один способ проверить рост дохода</span><em>15 минут вечером · деньги перестают быть туманом</em></div>
-      <div class="item"><b>Отпустить одно</b><span>Одно незавершённое дело, которое пора закрыть</span><em>10 минут · становится легче дышать</em></div>
-      <div class="item"><b>Выполнимая неделя</b><span>Время на еду, отдых и движение без насилия над собой</span><em>один вечер · появляется опора и ощущение «я успеваю»</em></div>
-      <div class="item"><b>Разговор, который откладываешь</b><span>Одна важная потребность в отношениях или на работе</span><em>один вечер · уходит ком в горле</em></div>
+    <div class="part"><h5>Твой личный расчёт</h5>
+      <div class="item"><b>Все 12 сфер на 2027</b><span id="oLinks">Начиная с главных сфер, которые связаны с твоей, и дальше по кругу</span></div>
+      <div class="item"><b>Календарь 2027 «когда отпустит»</b><span>Все трудные и лёгкие периоды года на одной странице, с датой конца каждого</span></div>
+      <div class="item"><b>Компенсаторика на год</b><span>12 конкретных действий, по одному на каждую сферу</span></div>
+      <div class="item"><b>Твоя Луна: что успокаивает именно тебя</b><span>Твоя кнопка SOS на минуту, когда накрывает</span></div>
+      <div class="item"><b>Точка утечки</b><span>Сфера, через которую у тебя утекают силы из всех остальных</span></div>
+      <div class="item"><b>Аскеза по дате рождения</b><span>Какая подходит тебе и с какого дня начать</span></div>
+      <div class="item"><b>Главная проверка 2027</b><span>На чём год будет проверять тебя сильнее всего</span></div>
     </div>
 
     <img loading="lazy" class="insert in" src="img/art-razvilka.jpg" alt="">
 
+    <div class="part"><h5>Чтобы было видно, что стало спокойнее</h5>
+      <div class="item"><b>Шкала тревоги до и после</b><span>Оцениваешь тревогу в первый день и через 21 день. Разница видна в цифрах</span></div>
+      <div class="item"><b>Дневник микроизменений на 21 день</b><span>Одна строка вечером: что стало чуть лучше</span></div>
+      <div class="item"><b>Трекер компенсаторики и аскезы</b><span>Отмечаешь шаги и видишь, что выправляется</span></div>
+    </div>
+
     <div class="part"><h5>В подарок</h5>
-      <div class="item"><b class="gift">Трекер компенсаторики</b><span>Отмечаешь шаги и видишь, что выправляется</span></div>
-      <div class="item"><b class="gift">Лист «Мой 2027 на одной странице»</b><span>Что было, что сохранить, что изменить, какое действие</span></div>
-      <div class="item"><b class="gift">Ритуал входа в 2027</b><span>Спокойно закрыть старый год и запустить новый</span></div>
+      <div class="item"><b class="gift">Лист «Мой 2027 на одной странице»</b><span>Что сохранить, что изменить, какое действие</span></div>
+      <div class="item"><b class="gift">12 дней запуска 2027</b><span>Как прожить первые 12 дней года, чтобы каждая сфера получила свой старт</span></div>
     </div>
 
     <div class="price"><b class="pearl" id="priceNow">990 ₽</b><span class="old" id="priceOld">1 990 ₽</span></div>

@@ -474,7 +474,7 @@ var A=window.Astronomy;
 var SIGNS=['Овен','Телец','Близнецы','Рак','Лев','Дева','Весы','Скорпион','Стрелец','Козерог','Водолей','Рыбы'];
 var SIGNS_IN=['в Овне','в Тельце','в Близнецах','в Раке','во Льве','в Деве','в Весах','в Скорпионе','в Стрельце','в Козероге','в Водолее','в Рыбах'];
 var GL=['♈︎','♉︎','♊︎','♋︎','♌︎','♍︎','♎︎','♏︎','♐︎','♑︎','♒︎','♓︎'];
-var RULER=['Mars','Venus','Mercury','Moon','Sun','Mercury','Venus','Mars','Jupiter','Saturn','Saturn','Jupiter'];
+var RULER=['Mars','Venus','Mercury','Moon','Sun','Mercury','Venus','Pluto','Jupiter','Saturn','Uranus','Neptune'];
 var PN={Sun:'Солнце',Moon:'Луна',Mercury:'Меркурий',Venus:'Венера',Mars:'Марс',Jupiter:'Юпитер',Saturn:'Сатурн',Uranus:'Уран',Neptune:'Нептун',Pluto:'Плутон'};
 var PG={Sun:'☉',Moon:'☽',Mercury:'☿',Venus:'♀',Mars:'♂',Jupiter:'♃',Saturn:'♄',Uranus:'♅',Neptune:'♆',Pluto:'♇'};
 var PF={Sun:'твоя суть и то, ради чего ты горишь',Moon:'то, что тебя успокаивает, и как ты проживаешь тревогу',Mercury:'как ты думаешь и говоришь',Venus:'что для тебя ценность и удовольствие',Mars:'откуда у тебя силы и как ты действуешь',Jupiter:'где твой рост',Saturn:'твоя дисциплина и твой главный страх'};
@@ -523,7 +523,7 @@ var SPH=[
   layers:'Силы в карте видны через 6 и 12 дом. 6 дом - режим, тело и ежедневная нагрузка. 12 дом - пауза, восстановление, время, когда от тебя никто ничего не требует. «Нет сил» почти всегда значит, что одна из этих зон заброшена, а энергия утекает в другую сферу',
   todo:[['Собери выполнимую неделю','Время на еду, отдых и подходящую активность, без подвигов'],['Отпусти одно незавершённое дело','То, что висит и тянет силы просто фактом своего существования'],['Найди час, когда от тебя никто ничего не ждёт','Каждый день, хотя бы 20 минут'],['Заметь, куда утекает энергия','Один человек, привычка или задача, после которых ты пустая']]}
 ];
-var CITIES=[['Москва',55.75,37.62,'Europe/Moscow'],['Санкт-Петербург',59.94,30.31,'Europe/Moscow'],['Новосибирск',55.03,82.92,'Asia/Novosibirsk'],['Екатеринбург',56.84,60.61,'Asia/Yekaterinburg'],['Казань',55.79,49.12,'Europe/Moscow'],['Нижний Новгород',56.33,44.0,'Europe/Moscow'],['Челябинск',55.16,61.4,'Asia/Yekaterinburg'],['Самара',53.2,50.15,'Europe/Samara'],['Омск',54.99,73.37,'Asia/Omsk'],['Ростов-на-Дону',47.24,39.71,'Europe/Moscow'],['Уфа',54.74,55.97,'Asia/Yekaterinburg'],['Красноярск',56.01,92.89,'Asia/Krasnoyarsk'],['Воронеж',51.66,39.2,'Europe/Moscow'],['Пермь',58.01,56.25,'Asia/Yekaterinburg'],['Волгоград',48.71,44.51,'Europe/Volgograd'],['Краснодар',45.04,38.98,'Europe/Moscow'],['Саратов',51.53,46.03,'Europe/Saratov'],['Тюмень',57.15,65.53,'Asia/Yekaterinburg'],['Тольятти',53.51,49.42,'Europe/Samara'],['Ижевск',56.85,53.2,'Europe/Samara'],['Барнаул',53.35,83.77,'Asia/Barnaul'],['Ульяновск',54.31,48.4,'Europe/Ulyanovsk'],['Иркутск',52.29,104.28,'Asia/Irkutsk'],['Хабаровск',48.48,135.07,'Asia/Vladivostok'],['Ярославль',57.63,39.87,'Europe/Moscow'],['Владивосток',43.12,131.89,'Asia/Vladivostok'],['Махачкала',42.98,47.5,'Europe/Moscow'],['Томск',56.48,84.95,'Asia/Tomsk'],['Оренбург',51.77,55.1,'Asia/Yekaterinburg'],['Кемерово',55.35,86.09,'Asia/Novokuznetsk'],['Новокузнецк',53.76,87.11,'Asia/Novokuznetsk'],['Рязань',54.63,39.74,'Europe/Moscow'],['Астрахань',46.35,48.04,'Europe/Astrakhan'],['Пенза',53.2,45.0,'Europe/Moscow'],['Липецк',52.61,39.6,'Europe/Moscow'],['Киров',58.6,49.66,'Europe/Kirov'],['Тула',54.19,37.62,'Europe/Moscow'],['Чебоксары',56.14,47.25,'Europe/Moscow'],['Калининград',54.71,20.51,'Europe/Kaliningrad'],['Курск',51.73,36.19,'Europe/Moscow'],['Ставрополь',45.04,41.97,'Europe/Moscow'],['Сочи',43.6,39.73,'Europe/Moscow'],['Тверь',56.86,35.9,'Europe/Moscow'],['Владимир',56.13,40.41,'Europe/Moscow'],['Белгород',50.6,36.59,'Europe/Moscow'],['Архангельск',64.54,40.54,'Europe/Moscow'],['Мурманск',68.97,33.07,'Europe/Moscow'],['Якутск',62.03,129.73,'Asia/Yakutsk'],['Минск',53.9,27.56,'Europe/Minsk'],['Алматы',43.24,76.95,'Asia/Almaty'],['Киев',50.45,30.52,'Europe/Kyiv'],['Ташкент',41.3,69.24,'Asia/Tashkent']];
+var CITIES=[['Тихвин',59.645,33.514,'Europe/Moscow'],['Москва',55.75,37.62,'Europe/Moscow'],['Санкт-Петербург',59.94,30.31,'Europe/Moscow'],['Новосибирск',55.03,82.92,'Asia/Novosibirsk'],['Екатеринбург',56.84,60.61,'Asia/Yekaterinburg'],['Казань',55.79,49.12,'Europe/Moscow'],['Нижний Новгород',56.33,44.0,'Europe/Moscow'],['Челябинск',55.16,61.4,'Asia/Yekaterinburg'],['Самара',53.2,50.15,'Europe/Samara'],['Омск',54.99,73.37,'Asia/Omsk'],['Ростов-на-Дону',47.24,39.71,'Europe/Moscow'],['Уфа',54.74,55.97,'Asia/Yekaterinburg'],['Красноярск',56.01,92.89,'Asia/Krasnoyarsk'],['Воронеж',51.66,39.2,'Europe/Moscow'],['Пермь',58.01,56.25,'Asia/Yekaterinburg'],['Волгоград',48.71,44.51,'Europe/Volgograd'],['Краснодар',45.04,38.98,'Europe/Moscow'],['Саратов',51.53,46.03,'Europe/Saratov'],['Тюмень',57.15,65.53,'Asia/Yekaterinburg'],['Тольятти',53.51,49.42,'Europe/Samara'],['Ижевск',56.85,53.2,'Europe/Samara'],['Барнаул',53.35,83.77,'Asia/Barnaul'],['Ульяновск',54.31,48.4,'Europe/Ulyanovsk'],['Иркутск',52.29,104.28,'Asia/Irkutsk'],['Хабаровск',48.48,135.07,'Asia/Vladivostok'],['Ярославль',57.63,39.87,'Europe/Moscow'],['Владивосток',43.12,131.89,'Asia/Vladivostok'],['Махачкала',42.98,47.5,'Europe/Moscow'],['Томск',56.48,84.95,'Asia/Tomsk'],['Оренбург',51.77,55.1,'Asia/Yekaterinburg'],['Кемерово',55.35,86.09,'Asia/Novokuznetsk'],['Новокузнецк',53.76,87.11,'Asia/Novokuznetsk'],['Рязань',54.63,39.74,'Europe/Moscow'],['Астрахань',46.35,48.04,'Europe/Astrakhan'],['Пенза',53.2,45.0,'Europe/Moscow'],['Липецк',52.61,39.6,'Europe/Moscow'],['Киров',58.6,49.66,'Europe/Kirov'],['Тула',54.19,37.62,'Europe/Moscow'],['Чебоксары',56.14,47.25,'Europe/Moscow'],['Калининград',54.71,20.51,'Europe/Kaliningrad'],['Курск',51.73,36.19,'Europe/Moscow'],['Ставрополь',45.04,41.97,'Europe/Moscow'],['Сочи',43.6,39.73,'Europe/Moscow'],['Тверь',56.86,35.9,'Europe/Moscow'],['Владимир',56.13,40.41,'Europe/Moscow'],['Белгород',50.6,36.59,'Europe/Moscow'],['Архангельск',64.54,40.54,'Europe/Moscow'],['Мурманск',68.97,33.07,'Europe/Moscow'],['Якутск',62.03,129.73,'Asia/Yakutsk'],['Минск',53.9,27.56,'Europe/Minsk'],['Алматы',43.24,76.95,'Asia/Almaty'],['Киев',50.45,30.52,'Europe/Kyiv'],['Ташкент',41.3,69.24,'Asia/Tashkent']];
 
 // ===== человеческий язык (прожарка Елены 15.11): тексты без домов и планет, астрология только припиской =====
 var SPN={
@@ -883,6 +883,16 @@ function tzOff(ms,zone){var f=new Intl.DateTimeFormat('en-US',{timeZone:zone,hou
 function localToUtc(y,m,d,h,mi,zone){var g=Date.UTC(y,m-1,d,h,mi);var u=g-tzOff(g,zone);return g-tzOff(u,zone)}
 function ascLon(dt,lat,lon){var gst=A.SiderealTime(dt);var ramc=(gst*15+lon)*Math.PI/180,eps=23.4393*Math.PI/180,phi=lat*Math.PI/180;var a=Math.atan2(Math.cos(ramc),-(Math.sin(ramc)*Math.cos(eps)+Math.tan(phi)*Math.sin(eps)));return rev(a*180/Math.PI)}
 function houseOfSign(start,s){return((s-start+12)%12)+1}
+function oblq(d){var T=(d.getTime()/86400000+2440587.5-2451545)/36525;return (23.4392911-0.0130042*T)*Math.PI/180}
+function topoLon(b,d,lat,lon){var eq=A.Equator(A.Body[b],d,new A.Observer(lat,lon,0),true,true),e=oblq(d),ra=eq.ra*15*Math.PI/180,de=eq.dec*Math.PI/180;return rev(Math.atan2(Math.sin(ra)*Math.cos(e)+Math.tan(de)*Math.sin(e),Math.cos(ra))*180/Math.PI)}
+function placidus(d,lat,lon){var e=oblq(d),ramc=rev(A.SiderealTime(d)*15+lon),phi=lat*Math.PI/180;
+ function l4ra(ra){ra*=Math.PI/180;return rev(Math.atan2(Math.sin(ra),Math.cos(ra)*Math.cos(e))*180/Math.PI)}
+ var r=ramc*Math.PI/180,asc=rev(Math.atan2(Math.cos(r),-(Math.sin(r)*Math.cos(e)+Math.tan(phi)*Math.sin(e)))*180/Math.PI),mc=l4ra(ramc);
+ if(Math.abs(lat)>62){var q=[];for(var i=0;i<12;i++)q.push(rev(asc+i*30));return q}
+ function cusp(f,above){var ra=ramc+(above?f*90:180-f*90);for(var i=0;i<80;i++){var l=l4ra(ra)*Math.PI/180,dec=Math.asin(Math.sin(e)*Math.sin(l)),x=Math.max(-1,Math.min(1,Math.tan(phi)*Math.tan(dec))),ad=Math.asin(x)*180/Math.PI,r2=above?ramc+f*(90+ad):ramc+180-f*(90-ad);if(Math.abs(r2-ra)<1e-8)break;ra=r2}return l4ra(ra)}
+ var c11=cusp(1/3,true),c12=cusp(2/3,true),c2=cusp(2/3,false),c3=cusp(1/3,false);
+ return [asc,c2,c3,rev(mc+180),rev(c11+180),rev(c12+180),rev(asc+180),rev(c2+180),rev(c3+180),mc,c11,c12]}
+function houseOfCusps(c,l){for(var i=0;i<12;i++){if(rev(l-c[i])<rev(c[(i+1)%12]-c[i]))return i+1}return 1}
 function retros(body){var out=[],prev=false,start=null;for(var t=Date.UTC(2027,0,1);t<=Date.UTC(2027,11,31);t+=86400000){var a=lonOf(body,new Date(t)),b=lonOf(body,new Date(t+86400000));var r=(rev(b-a+180)-180)<0;if(r&&!prev)start=t;if(!r&&prev&&start!==null){out.push([start,t,sgn(lonOf(body,new Date(start)))]);start=null}prev=r}if(prev&&start!==null)out.push([start,Date.UTC(2027,11,31),sgn(lonOf(body,new Date(start)))]);return out}
 var MON=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
 function dm(t){var d=new Date(t);return d.getUTCDate()+' '+MON[d.getUTCMonth()]}
@@ -916,13 +926,14 @@ function $(id){return document.getElementById(id)}
 
 go.onclick=function(){
  var Y=+yy.value,M=+mm.value,D=+dd.value,full=false,city=null,utc;
- if($('knowTime').checked&&hh.value!==''){var cn=$('city').value.trim().toLowerCase();CITIES.forEach(function(c){if(c[0].toLowerCase()===cn)city=c});if(!city)city=CITIES[0];utc=localToUtc(Y,M,D,+hh.value,+(mi.value||0),city[3]);full=true}
+ if($('knowTime').checked&&hh.value!==''){var cn=$('city').value.trim().toLowerCase();CITIES.forEach(function(c){if(c[0].toLowerCase()===cn)city=c});if(!city){var nt=$('note');nt.textContent='Такого города нет в списке. Выбери ближайший город из подсказок: от города зависят дома карты';nt.style.color='#b0413e';nt.scrollIntoView({behavior:'smooth',block:'center'});return}utc=localToUtc(Y,M,D,+hh.value,+(mi.value||0),city[3]);full=true}
  else utc=Date.UTC(Y,M-1,D,12,0);
  var s=chosen;KEY=[Y,M,D,full?hh.value:'',full?mi.value:'',full?city[0]:'',s.id].join('-');
- var dt=new Date(utc),P={};['Sun','Moon','Mercury','Venus','Mars','Jupiter','Saturn','Uranus','Neptune','Pluto'].forEach(function(b){P[b]=lonOf(b,dt)});
+ var dt=new Date(utc),P={};['Sun','Moon','Mercury','Venus','Mars','Jupiter','Saturn','Uranus','Neptune','Pluto'].forEach(function(b){P[b]=full?topoLon(b,dt,city[1],city[2]):lonOf(b,dt)});
  var startSign=full?sgn(ascLon(dt,city[1],city[2])):sgn(P.Sun);
- var H=function(lon){return houseOfSign(startSign,sgn(lon))};
- var mainSign=(startSign+s.main-1)%12,ruler=RULER[mainSign],rH=H(P[ruler]);
+ window.CUSPS=full?placidus(dt,city[1],city[2]):(function(){var a=[];for(var i=0;i<12;i++)a.push(((startSign+i)%12)*30);return a})();
+ var H=function(lon){return houseOfCusps(window.CUSPS,lon)};
+ var mainSign=sgn(window.CUSPS[s.main-1]),ruler=RULER[mainSign],rH=H(P[ruler]);
  function inS(h){return s.h.indexOf(h)>=0}
  var t1=new Date(Date.UTC(2027,1,1)),t2=new Date(Date.UTC(2027,10,1));
  var tr={Saturn:[H(lonOf('Saturn',t1)),H(lonOf('Saturn',t2))],Jupiter:[H(lonOf('Jupiter',t1)),H(lonOf('Jupiter',t2))],Pluto:[H(lonOf('Pluto',t1)),H(lonOf('Pluto',t2))],NN:[H(meanNode(t1)),H(meanNode(t2))]};
@@ -972,7 +983,7 @@ go.onclick=function(){
 
  // что сейчас в сфере
  var dg=dign(ruler,rulS),rhT=(RH[s.id][rH]||'|').split('|');
- var asps=[];Object.keys(P).forEach(function(b){if(b===ruler)return;if(b==='Moon'&&!full)return;var x=aspX(P[b],P[ruler],6);if(x)asps.push({b:b,a:x[0],o:x[1],t:isTense(x[0],b)})});
+ var asps=[];Object.keys(P).forEach(function(b){if(b===ruler)return;if(b==='Moon'&&!full)return;var x=aspX(P[b],P[ruler],5);if(x)asps.push({b:b,a:x[0],o:x[1],t:isTense(x[0],b)})});
  asps.sort(function(a,b){return a.o-b.o});
  var tense=asps.filter(function(x){return x.t})[0];
  var inside=Object.keys(P).filter(function(b){return inS(H(P[b]))&&(b!=='Moon'||full)});
@@ -1007,14 +1018,11 @@ go.onclick=function(){
   var SCm={Saturn:SAT_SC,Pluto:PLU_SC,Jupiter:JUP_SC};
   ['Saturn','Pluto','Uranus','Neptune','Jupiter'].forEach(function(T){
    var orb=(T==='Jupiter'||T==='Saturn')?2:1.5,x=aspX(lonOf(T,new Date(NOW)),P[ruler],orb);
-   if(x){var tn=isTense(x[0],T),e=till(function(d){return aspX(lonOf(T,d),P[ruler],orb)});
+   if(x){var tn=(x[0]==='sq'||x[0]==='opp'),e=till(function(d){return aspX(lonOf(T,d),P[ruler],orb)});
     cur.push({w:tn?0:2,d:when(e),x:cap(TRT[T][tn?1:0])});ax.push(PN[T]+' '+ASPN[x[0]]+' с управителем сферы ('+PN_I[ruler]+')')}
    if(SCm[T]&&inS(H(lonOf(T,new Date(NOW))))){var e2=till(function(d){return inS(H(lonOf(T,d)))});
     cur.push({w:T==='Jupiter'?2:1,d:when(e2),x:cap(SCm[T][s.id])});ax.push(PN[T]+' идёт по твоей сфере')}});
   if(inS(H(meanNode(new Date(NOW))))){cur.push({w:1,d:when(till(function(d){return inS(H(meanNode(d)))})),x:cap(NN_SC[s.id])});ax.push('Северный узел идёт по твоей сфере')}
-  var mA=lonOf('Mercury',new Date(NOW)),mB=lonOf('Mercury',new Date(NOW+DAY));
-  if(rev(mB-mA+180)-180<0){var e3=till(function(d){return rev(lonOf('Mercury',new Date(d.getTime()+DAY))-lonOf('Mercury',d)+180)-180<0});
-   cur.push({w:1,d:when(e3),x:'Легко ошибиться в переписке, платежах и договорённостях. Всё важное перепроверяй дважды и не начинай новое на бегу'});ax.push('ретроградный Меркурий')}
   cur.sort(function(a,b){return a.w-b.w});cur=cur.slice(0,3);
   var today=dm(NOW)+' '+new Date(NOW).getUTCFullYear();
   $('curH').textContent=pick(['Сегодня '+today+'. Что у тебя сейчас','Что идёт у тебя прямо сейчас, '+today,'Сейчас, '+today+', у тебя вот что'],'ch');
@@ -1036,23 +1044,14 @@ go.onclick=function(){
  var per=[];
  function rel(h){return inS(h)?2:(links.indexOf(h)>=0?1:0)}
  function rg(a,b){return a===b?dm(a):dm(a)+' - '+dm(b)}
- var used={};var targets=[[ruler,' (управитель сферы)']];inside.forEach(function(b){if(b!==ruler&&targets.length<3)targets.push([b,' (стоит в твоей сфере)'])});
+ var used={};var targets=[[ruler,' (управитель сферы)']];s.h.forEach(function(hh){var rr=RULER[sgn(window.CUSPS[hh-1])];if(!targets.some(function(x){return x[0]===rr}))targets.push([rr,' (управитель '+hh+' дома)'])});inside.forEach(function(b){if(!targets.some(function(x){return x[0]===b}))targets.push([b,' (стоит в твоей сфере)'])});s.h.forEach(function(hh){targets.push(['CUSP'+hh,' (куспид сферы)']);MY['CUSP'+hh]='куспид '+hh+' дома'});
  ['Jupiter','Saturn','Uranus','Neptune','Pluto'].forEach(function(T){targets.forEach(function(tg){var orb=(T==='Jupiter'||T==='Saturn')?1.5:1;
-  var gr={};windows(function(d){var x=aspX(lonOf(T,d),P[tg[0]],orb);return x?x[0]:null}).forEach(function(w){(gr[w.key]=gr[w.key]||[]).push(w)});
-  Object.keys(gr).forEach(function(a){var ws=gr[a],tn=isTense(a,T),isR=tg[0]===ruler;
-   var co=(a==='conj'&&(T==='Pluto'||T==='Uranus'||T==='Neptune'));
+  var gr={};var tl=tg[0].indexOf('CUSP')===0?window.CUSPS[+tg[0].slice(4)-1]:P[tg[0]];windows(function(d){var x=aspX(lonOf(T,d),tl,orb);return x?x[0]:null}).forEach(function(w){(gr[w.key]=gr[w.key]||[]).push(w)});
+  Object.keys(gr).forEach(function(a){var ws=gr[a],tn=(a==='sq'||a==='opp'),isR=tg[0]===ruler;
+   var co=(a==='conj');
    var sc=T==='Saturn'?SAT_SC[s.id]:(T==='Jupiter'&&!tn?JUP_SC[s.id]:(T==='Pluto'?PLU_SC[s.id]:''));
    var tt=TRT[T][tn?1:0],dt=tt.indexOf('. ');tt=dt>0?tt.slice(dt+2):tt;var body=cap(tt)+(sc&&!used[T]?'. '+cap(sc):'');if(sc)used[T]=1;
-   per.push({k:T,tone:co?'du':(tn?'bad':'ok'),lab:co?'время перемен':(tn?'время не спешить':'время действовать'),t:ws[0].s,e:ws[ws.length-1].e,p:isR?1:2,d:ws.map(function(w){return rg(w.s,w.e)}).join('; '),hd:SN.hd+': '+PHD[T+(tn?'-':'+')],x:body,o:tn?DOT[s.id]:DOH[s.id],ti:PN[T]+' · '+ASPN[a]+' · '+MY[tg[0]]+tg[1]})})})});
- eclipses2027().forEach(function(e){var h=houseOfSign(startSign,sgn(e.lon)),k=rel(h),near=Math.abs(rev(e.lon-P[ruler]+180)-180)<=6,ti=cap(e.kind)+' затмение '+SIGNS_IN[sgn(e.lon)];
-  if(k===2||near)per.push({k:'ecl',tone:'du',lab:'точка поворота',t:e.t,p:0,d:dm(e.t),hd:ECL_HD[s.id],x:ECL_SC[s.id],o:ECL_DO[s.id],ti:ti+(near?' рядом с управителем сферы':' в твоей сфере')});
-  else if(k===1)per.push({k:'ecl',tone:'du',lab:'точка поворота',t:e.t,p:3,d:dm(e.t),hd:'Перемены в сфере «'+HN[h]+'»',x:'Перемены начинаются в сфере «'+HN[h]+'», а отзываются '+SN.in,o:'в эти дни не принимай резких решений в сфере «'+HN[h]+'». Через две недели сделай там первый шаг из списка компенсаторики ниже',ti:ti+', '+h+' дом'})});
- if(['Mercury','Venus','Mars','Jupiter','Saturn'].indexOf(ruler)>=0)retros(ruler).forEach(function(r){var hr=houseOfSign(startSign,r[2]);per.push({k:'retro',tone:'du',lab:'время доделать',t:r[0],e:r[1],p:0,d:rg(r[0],r[1]),hd:SN.hd+': время пересмотреть и доделать, а не начинать новое',x:'Ничего нового не начинай. Это лучшее время закрыть старые обязательства, доделать начатое и вернуться к тому, что откладывала. А ответ на то, что происходит '+SN.in+', сейчас ищи в сфере «'+HN[hr]+'»',o:RETRO_DO[s.id],ti:PN[ruler]+' ретроградный '+SIGNS_IN[r[2]]+', управитель сферы, '+hr+' дом'})});
- if(ruler!=='Mercury')retros('Mercury').forEach(function(r){var h=houseOfSign(startSign,r[2]),k=rel(h);if(k)per.push({k:'retro',tone:'bad',lab:'время перепроверять',t:r[0],e:r[1],p:k===2?2:4,d:rg(r[0],r[1]),hd:k===2?SN.hd+': путаница в договорённостях и документах':'Путаница в сфере «'+HN[h]+'»',x:k===2?'Легко ошибиться в переписке, платежах и договорах. Всё важное перепроверяй дважды':'Задержки, недопонимания и переносы в сфере «'+HN[h]+'». Через неё это отзывается '+SN.in,o:k===2?RETRO_DO[s.id]:'перепроверяй договорённости и не спеши с решениями',ti:'Ретроградный Меркурий '+SIGNS_IN[r[2]]+', '+h+' дом'})});
- [['Sun','Солнце в твоей сфере','Твой месяц для этой сферы: внимание и силы сами идут сюда. Хорошее время начать то, что откладывала',null,4,'ok','время действовать',': твой месяц силы'],['Venus','Венера в твоей сфере','Самое мягкое время года: договориться, попросить, помириться, получить',null,2,'ok','время договариваться',': самое мягкое время года'],['Mars','Марс в твоей сфере','Прилив сил и напора, но и спешка, конфликты. Хорошо для рывка, плохо для споров','делай рывок там, где давно стоишь на месте, и не решай ничего на эмоциях',2,'du','время рывка',': прилив сил, но и спешка']].forEach(function(z){
-  windows(function(d){var h=houseOfSign(startSign,sgn(lonOf(z[0],d)));return inS(h)?'h'+h:null}).forEach(function(w){per.push({k:z[0],tone:z[5],lab:z[6],t:w.s,e:w.e,p:z[4],d:rg(w.s,w.e),hd:SN.hd+z[7],x:z[2],o:z[3]||DOH[s.id],ti:z[1]})})});
- ingresses('Jupiter').forEach(function(r){var h=houseOfSign(startSign,r[1]);if(inS(h))per.push({k:'Jupiter',tone:'ok',lab:'время возможностей',t:r[0],p:1,d:'с '+dm(r[0]),hd:SN.hd+': открываются возможности на год вперёд',x:cap(JUP_SC[s.id]),o:DOH[s.id],ti:'Юпитер входит '+SIGNS_TO2[r[1]]+', в твою сферу'})});
- ingresses('NN').forEach(function(r){var h=houseOfSign(startSign,r[1]);if(inS(h))per.push({k:'NN',tone:'du',lab:'время роста',t:r[0],p:1,d:'с '+dm(r[0]),hd:SN.hd+': начинается полтора года роста',x:cap(NN_SC[s.id]),o:'пробуй новое, даже если непривычно: одно новое действие в неделю',ti:'Северный узел переходит '+SIGNS_TO2[r[1]]+', в твою сферу'})});
+   per.push({k:T,tone:co?'du':(tn?'bad':'ok'),lab:co?'время перемен':(tn?'время не спешить':'время действовать'),t:ws[0].s,e:ws[ws.length-1].e,p:isR?1:2,d:ws.map(function(w){return rg(w.s,w.e)}).join('; '),hd:SN.hd+': '+(co?'время перемен, хорошее и трудное вместе':PHD[T+(tn?'-':'+')]),x:body,o:tn?DOT[s.id]:DOH[s.id],ti:PN[T]+' · '+ASPN[a]+' · '+MY[tg[0]]+tg[1]})})})});
  per.sort(function(a,b){return a.p-b.p||a.t-b.t});
  var top=[],seen={};function ov(a,b){return a.e>a.t&&b.e>b.t&&a.t<=b.e&&b.t<=a.e}function free(x){return top.every(function(y){return !ov(x,y)})}
  per.forEach(function(x){if(top.length<3&&!seen[x.k]&&free(x)){top.push(x);seen[x.k]=1}});
@@ -1167,22 +1166,23 @@ function startTimer(){var st=null;try{st=localStorage.getItem(GK)}catch(e){}var 
 function drawChart(P,start,s,links){
  var svg=$('chart'),C=180,R1=172,R2=146,R3=92,h='';
  function pt(r,a){a=a*Math.PI/180;return[(C+r*Math.cos(a)).toFixed(1),(C-r*Math.sin(a)).toFixed(1)]}
- function ang(lon){return 180+(lon-start*30)}
+ var BASE=window.CUSPS?window.CUSPS[0]:start*30;function ang(lon){return 180+(lon-BASE)}
+ function mid(hh){var a=ang(window.CUSPS[hh-1]);return a+rev(window.CUSPS[hh%12]-window.CUSPS[hh-1])/2}
  h+='<defs><radialGradient id="cg"><stop offset="0" stop-color="#1d3439"/><stop offset="1" stop-color="#12252a"/></radialGradient><filter id="glow"><feGaussianBlur stdDeviation="3"/></filter></defs>';
  h+='<circle cx="180" cy="180" r="'+R1+'" fill="url(#cg)" stroke="rgba(217,191,160,.5)"/><circle cx="180" cy="180" r="'+R2+'" fill="none" stroke="rgba(217,191,160,.4)"/><circle cx="180" cy="180" r="'+R3+'" fill="#0f1e23" stroke="rgba(217,191,160,.28)"/>';
- for(var i=0;i<12;i++){var hn=i+1,a0=180+i*30,a1=a0+30,isS=s.h.indexOf(hn)>=0,isL=links.indexOf(hn)>=0;
+ for(var i=0;i<12;i++){var hn=i+1,a0=ang(window.CUSPS[i]),a1=a0+rev(window.CUSPS[(i+1)%12]-window.CUSPS[i]),isS=s.h.indexOf(hn)>=0,isL=links.indexOf(hn)>=0;
   var p0=pt(R2,a0),p1=pt(R2,a1),q0=pt(R3,a0),q1=pt(R3,a1);
   var d='M'+q0.join(' ')+' L'+p0.join(' ')+' A'+R2+' '+R2+' 0 0 0 '+p1.join(' ')+' L'+q1.join(' ')+' A'+R3+' '+R3+' 0 0 1 '+q0.join(' ')+' Z';
   var fill=isS?'rgba(217,191,160,.55)':(isL?'rgba(217,191,160,.18)':'rgba(255,255,255,.02)');
   h+='<path d="'+d+'" fill="'+fill+'" class="'+(isS?'hot':'')+'" data-h="'+hn+'" style="cursor:pointer"/>';
-  var l0=pt(R3,a0),l1=pt(R1,a0);h+='<line x1="'+l0[0]+'" y1="'+l0[1]+'" x2="'+l1[0]+'" y2="'+l1[1]+'" stroke="rgba(217,191,160,.3)"/>';
-  var gp=pt((R1+R2)/2,a0+15);h+='<text x="'+gp[0]+'" y="'+gp[1]+'" fill="#efe6da" font-size="13" text-anchor="middle" dominant-baseline="central">'+GL[(start+i)%12]+'</text>';
-  var np=pt((R2+R3)/2,a0+15);
+  var l0=pt(R3,a0),l1=pt(R2,a0),z0=pt(R2,ang(i*30)),z1=pt(R1,ang(i*30));h+='<line x1="'+z0[0]+'" y1="'+z0[1]+'" x2="'+z1[0]+'" y2="'+z1[1]+'" stroke="rgba(217,191,160,.3)"/>';h+='<line x1="'+l0[0]+'" y1="'+l0[1]+'" x2="'+l1[0]+'" y2="'+l1[1]+'" stroke="rgba(217,191,160,.3)"/>';
+  var gp=pt((R1+R2)/2,ang(i*30+15));h+='<text x="'+gp[0]+'" y="'+gp[1]+'" fill="#efe6da" font-size="13" text-anchor="middle" dominant-baseline="central">'+GL[i]+'</text>';
+  var np=pt((R2+R3)/2,(a0+a1)/2);
   if(isS||isL){h+='<text x="'+np[0]+'" y="'+(+np[1]-6)+'" fill="#fff" font-size="10" font-family="Manrope" font-weight="800" text-anchor="middle"></text><text x="'+np[0]+'" y="'+(+np[1]+2)+'" fill="#fff" font-size="10" font-family="Manrope" font-weight="700" text-anchor="middle">'+HS[hn]+'</text>'}
   else h+='<text x="'+np[0]+'" y="'+np[1]+'" fill="#c9bba8" font-size="9.5" font-family="Manrope" font-weight="700" text-anchor="middle" dominant-baseline="central">'+HS[hn]+'</text>';
  }
- var cS=pt(R3-8,180+(s.main-1)*30+15);
- links.forEach(function(l){var cL=pt(R3-8,180+(l-1)*30+15);h+='<line x1="'+cS[0]+'" y1="'+cS[1]+'" x2="'+cL[0]+'" y2="'+cL[1]+'" stroke="#e6cdb0" stroke-width="1.6" stroke-dasharray="4 4"/><circle cx="'+cL[0]+'" cy="'+cL[1]+'" r="4" fill="#e6cdb0"/>'});
+ var cS=pt(R3-8,mid(s.main));
+ links.forEach(function(l){var cL=pt(R3-8,mid(l));h+='<line x1="'+cS[0]+'" y1="'+cS[1]+'" x2="'+cL[0]+'" y2="'+cL[1]+'" stroke="#e6cdb0" stroke-width="1.6" stroke-dasharray="4 4"/><circle cx="'+cL[0]+'" cy="'+cL[1]+'" r="4" fill="#e6cdb0"/>'});
  h+='<circle cx="'+cS[0]+'" cy="'+cS[1]+'" r="9" fill="#f3e6d6" filter="url(#glow)"/><circle cx="'+cS[0]+'" cy="'+cS[1]+'" r="5" fill="#fff"/>';
  var used=[];Object.keys(P).forEach(function(b){var a=ang(P[b]),r=R3-26;used.forEach(function(u){if(Math.abs(rev(a-u+180)-180)<10)r-=14});used.push(a);var p=pt(Math.max(r,22),a);h+='<text x="'+p[0]+'" y="'+p[1]+'" fill="#efe6da" font-size="14" text-anchor="middle" dominant-baseline="central">'+PG[b]+'</text>'});
  svg.innerHTML=h;

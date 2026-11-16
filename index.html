@@ -1077,7 +1077,7 @@ go.onclick=function(){
  var rest=per.filter(function(x){return top.indexOf(x)<0}),more=rest.length;
  function plP(n){var a=n%10,b=n%100;return a===1&&b!==11?'период':(a>=2&&a<=4&&(b<12||b>14)?'периода':'периодов')}
  $('perLock').innerHTML='<a class="plk" href="#priceBox">'+rest.slice(0,3).map(function(x){return '<div class="plc"><span class="lab '+x.tone+'">'+x.lab+'</span><span class="pd2">'+x.d.split(';')[0]+'</span><span class="pw2">'+x.hd+'</span></div>'}).join('')+'<div class="plt">🔒 '+(more?'Ещё '+more+' '+plP(more)+' по сфере «'+s.n+'» и периоды по остальным 11 сферам уже посчитаны':'Периоды по остальным 11 сферам уже посчитаны')+'. <u>Открыть</u></div></a>';
- var SPHG='<div class="sgh">Твои 12 сфер на 2027</div><div class="sg">';for(var hh=1;hh<=12;hh++){var on=s.h.indexOf(hh)>=0;SPHG+='<a href="#priceBox" class="'+(on?'on':'')+'">'+(on?'✓ ':'🔒 ')+cap(HN[hh])+'</a>'}SPHG+='</div>';
+ var SPHG='<div class="sgh">Твои 12 сфер на 2027</div><div class="sg">';for(var hq=1;hq<=12;hq++){var on=s.h.indexOf(hq)>=0;SPHG+='<a href="#priceBox" class="'+(on?'on':'')+'">'+(on?'✓ ':'🔒 ')+cap(HN[hq])+'</a>'}SPHG+='</div>';
  $('sphGrid').innerHTML=SPHG;
 
  // 3 события и что с ними делать

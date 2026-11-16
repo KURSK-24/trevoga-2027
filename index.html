@@ -1022,7 +1022,7 @@ go.onclick=function(){
   function when(e){return e>=Y27?'до конца года и дальше, в 2027':'до '+dm(e)}
   var SCm={Saturn:SAT_SC,Pluto:PLU_SC,Jupiter:JUP_SC};
   ['Saturn','Pluto','Uranus','Neptune','Jupiter'].forEach(function(T){
-   var orb=(T==='Jupiter'||T==='Saturn')?2:1.5,x=aspX(lonOf(T,new Date(NOW)),P[ruler],orb);
+   var orb=T==='Jupiter'?3:(T==='Saturn'?2:1),x=aspX(lonOf(T,new Date(NOW)),P[ruler],orb);
    if(x){var tn=(x[0]==='sq'||x[0]==='opp'),e=till(function(d){return aspX(lonOf(T,d),P[ruler],orb)});
     cur.push({w:tn?0:2,d:when(e),x:cap(TRT[T][tn?1:0])});ax.push(PN[T]+' '+ASPN[x[0]]+' с управителем сферы ('+PN_I[ruler]+')')}
    if(SCm[T]&&inS(H(lonOf(T,new Date(NOW))))){var e2=till(function(d){return inS(H(lonOf(T,d)))});
@@ -1050,7 +1050,7 @@ go.onclick=function(){
  function rel(h){return inS(h)?2:(links.indexOf(h)>=0?1:0)}
  function rg(a,b){return a===b?dm(a):dm(a)+' - '+dm(b)}
  var used={};var targets=[[ruler,' (управитель сферы)']];s.h.forEach(function(hh){var rr=RULER[sgn(window.CUSPS[hh-1])];if(!targets.some(function(x){return x[0]===rr}))targets.push([rr,' (управитель '+hh+' дома)'])});inside.forEach(function(b){if(!targets.some(function(x){return x[0]===b}))targets.push([b,' (стоит в твоей сфере)'])});s.h.forEach(function(hh){targets.push(['CUSP'+hh,' (куспид сферы)']);MY['CUSP'+hh]='куспид '+hh+' дома'});
- ['Jupiter','Saturn','Uranus','Neptune','Pluto'].forEach(function(T){targets.forEach(function(tg){var orb=(T==='Jupiter'||T==='Saturn')?1.5:1;
+ ['Jupiter','Saturn','Uranus','Neptune','Pluto'].forEach(function(T){targets.forEach(function(tg){var orb=T==='Jupiter'?3:(T==='Saturn'?2:1);
   var gr={};var tl=tg[0].indexOf('CUSP')===0?window.CUSPS[+tg[0].slice(4)-1]:P[tg[0]];windows(function(d){var x=aspX(lonOf(T,d),tl,orb);return x?x[0]:null}).forEach(function(w){(gr[w.key]=gr[w.key]||[]).push(w)});
   Object.keys(gr).forEach(function(a){var ws=gr[a],tn=(a==='sq'||a==='opp'),isR=tg[0]===ruler;
    var co=(a==='conj');

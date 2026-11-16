@@ -304,6 +304,7 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
 .notime{margin-top:14px;background:rgba(215,154,134,.16);border:1px solid #d79a86;border-left:4px solid #d79a86;border-radius:12px;padding:12px 14px;font-size:14.5px;line-height:1.45;color:#f3e6d6}.notime b{display:block;color:#f3dcc0;margin-bottom:4px}
 .freeinfo{display:block;margin-top:14px;padding:12px 14px;border-radius:12px;background:#e6cdb0;color:#13262a;text-decoration:none;font-size:14.5px;line-height:1.45}.freeinfo b{display:block}.plk{display:block;margin-top:14px;text-decoration:none;color:inherit;border:1px dashed rgba(217,191,160,.6);border-radius:14px;padding:10px 12px;position:relative}.plc{filter:blur(3.5px);user-select:none;padding:8px 0;border-bottom:1px solid var(--line)}.plc .pd2{display:block;font-family:'Playfair Display',serif;font-size:17px;color:var(--gold2)}.plc .pw2{display:block;font-size:14px;color:var(--soft)}.plt{margin-top:10px;font-size:15px;font-weight:700;color:var(--gold2)}.plt u{text-underline-offset:3px}.sgh{margin-top:18px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--gold2)}.sg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.sg a{display:block;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:rgba(243,230,214,.05);color:var(--soft);text-decoration:none;font-size:14px;font-weight:600}.sg a.on{background:#e6cdb0;color:#13262a;border-color:#e6cdb0}.stk{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:flex;align-items:center;gap:10px;justify-content:space-between;padding:12px 14px;border-radius:16px;background:#13262a;border:1.5px solid #e6cdb0;box-shadow:0 10px 30px rgba(0,0,0,.45);text-decoration:none;transform:translateY(140%);transition:transform .35s ease;max-width:520px;margin:0 auto}.stk.on{transform:translateY(0)}.stk b{display:block;color:#f3e6d6;font-size:14.5px}.stk i{display:block;font-style:normal;color:#d9cdbd;font-size:12.5px;margin-top:2px}.stk em{font-style:normal;font-weight:800;color:#e6cdb0}.stk strong{flex:none;background:#e6cdb0;color:#13262a;border-radius:999px;padding:9px 14px;font-size:14px}
 .lkmore{display:block;margin-top:10px;font-size:14px;font-weight:700;color:var(--gold2);text-decoration:none}.lkcard{margin-top:12px;padding:14px;border-radius:14px;border:1px dashed rgba(217,191,160,.6);background:rgba(243,230,214,.04)}.lkcard b{display:block;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:19px;color:var(--gold2)}.lkp{font-size:14.5px;margin-top:6px}.bl{filter:blur(4px);user-select:none;font-weight:700}.lkw{opacity:.75}.gc.lkg{border-style:dashed}
+.axd{margin-top:12px}.axd summary{font-size:13px;font-weight:700;color:var(--mute);cursor:pointer;list-style:none}.axd summary::-webkit-details-marker{display:none}.axd summary:after{content:' ▾'}.axd[open] summary:after{content:' ▴'}.lkbridge{margin-top:14px;padding:12px 14px;border-radius:12px;background:#e6cdb0;color:#13262a;font-weight:700;font-size:15px;line-height:1.45}
 </style>
 </head>
 <body>
@@ -353,7 +354,7 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
     <div class="legend"><span><i style="background:#e6cdb0;box-shadow:0 0 8px #e6cdb0"></i>твоя сфера</span><span><i style="background:transparent;border:2px dashed #e6cdb0"></i>с чем она связана</span></div>
     <div id="decode" style="display:none;margin-top:14px;border-top:1px solid var(--line);padding-top:12px;font-size:16px"></div>
     <p class="small" id="legend"></p>
-    <a class="freeinfo" href="#priceBox"><b>Это бесплатный разбор 1 сферы из 12.</b> Полный расчёт твоего 2027 по всем сферам уже посчитан и ждёт тебя в конце страницы ↓</a>
+    <div class="freeinfo"><b>Это бесплатный разбор 1 сферы из 12.</b> Полный расчёт твоего 2027 по всем сферам уже посчитан. Как его получить, расскажу в конце ↓</div>
     <div class="notime" id="noTime" style="display:none"><b>Время рождения не указано, поэтому расчёт приблизительный.</b> Дома карты и Луна зависят от часа рождения, и без него сферы могут сместиться. Даже астролог без времени не скажет точно, не то что система. Мы посчитали по дате, а для точного разбора напиши Оксане: она подскажет, что делать дальше</div>
   </div>
 
@@ -374,8 +375,7 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
     <p class="big" id="nNow"></p>
     <div id="nWhy"></div>
     <div class="gold"><div class="gk">Главное на 2027</div><div class="gt" id="nMain"></div></div>
-    <p class="ax" id="nAstro1"></p>
-    <p class="ax" id="nAstro2"></p>
+    <details class="axd"><summary>Для тех, кто разбирается в астрологии</summary><p class="ax" id="nAstro1"></p><p class="ax" id="nAstro2"></p></details>
   </div>
 
   <div class="scr s-pearl trust">
@@ -930,7 +930,7 @@ function fit(){[].forEach.call(document.querySelectorAll('.fit'),function(el){va
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);window.addEventListener('resize',fit);fit();
 function $(id){return document.getElementById(id)}
 
-window.addEventListener('scroll',function(){var r=document.getElementById('result'),k=document.getElementById('stk');if(!k)return;if(!r||r.style.display!=='block'){k.classList.remove('on');return}var c=document.getElementById('curScr'),o=document.querySelector('.offer'),pass=c&&c.getBoundingClientRect().bottom<0,before=o&&o.getBoundingClientRect().top>window.innerHeight*0.6;k.classList.toggle('on',!!(pass&&before))},{passive:true});
+window.addEventListener('scroll',function(){var r=document.getElementById('result'),k=document.getElementById('stk');if(!k)return;if(!r||r.style.display!=='block'){k.classList.remove('on');return}var c=document.getElementById('bFrom');if(!c||!c.offsetParent)c=document.querySelector('.w4');var o=document.querySelector('.offer'),pass=c&&c.offsetParent&&c.getBoundingClientRect().bottom<0,before=o&&o.getBoundingClientRect().top>window.innerHeight*0.6;k.classList.toggle('on',!!(pass&&before))},{passive:true});
 go.onclick=function(){
  var Y=+yy.value,M=+mm.value,D=+dd.value,full=false,city=null,utc;
  if($('knowTime').checked&&hh.value!==''){var cn=$('city').value.trim().toLowerCase();CITIES.forEach(function(c){if(c[0].toLowerCase()===cn)city=c});if(!city){var nt=$('note');nt.textContent='Такого города нет в списке. Выбери ближайший город из подсказок: от города зависят дома карты';nt.style.color='#b0413e';nt.scrollIntoView({behavior:'smooth',block:'center'});return}utc=localToUtc(Y,M,D,+hh.value,+(mi.value||0),city[3]);full=true}
@@ -1004,16 +1004,15 @@ go.onclick=function(){
  if(tense)wy='Так устроена твоя карта: в этой сфере у тебя '+nd(ASPP[tense.b][1]);
  else if(dg==='det'||dg==='fall'||dg==='detfall')wy='Ты делаешь всё, что положено, а результат меньше, чем хочется. Дело не в тебе: в этой сфере тебе нужен свой путь, а не как у всех';
  else wy='А когда тревога накрывает, ты '+nd(SHADOW[moonS]);
- $('nWhy').innerHTML='<p>'+pick(TIE_T,'tie')(SN,HV[links[0]],HV[links[1]],HV[links[2]])+' '+pick(TIE_TAIL,'tt')+'</p>'
-  +'<p>'+cap(nd(rhT[0]))+'. '+cap(nd(rhT[1]))+'</p>'
+ $('nWhy').innerHTML='<p>'+cap(nd(rhT[0]))+'. '+cap(nd(rhT[1]))+'</p>'
   +'<p class="voice">'+pick(VOICE_IN,'vi')+' '+pickN(VOICE2[s.id],3,'v').join(', ')+'</p>'
   +'<p>'+wy+'. И первым откликается тело: '+nd(pick(s.body,'body'))+'. '+pick(GUM,'gum')+'</p>';
  var rIn=inS(rH);
- $('nAstro1').textContent='Для тех, кто разбирается в астрологии: управитель сферы '+PN[ruler]+' '+SIGNS_IN[rulS]+', '+rH+' дом, '+DIG_N[dg]+(tense?', в натальной карте '+ASPN[tense.a]+' с '+PN_I[tense.b]:'')+'. Что это значит: '+(rIn?'управитель стоит в самой сфере, поэтому она держится прежде всего на тебе самой':'управитель стоит в '+rH+' доме, поэтому эта сфера питается от сферы «'+HN[rH]+'»')+'. '+cap(DIG_X[dg])+'.'+(tense?' '+cap(ASPN[tense.a])+' с '+PN_I[tense.b]+': '+nd(ASPP[tense.b][1])+'.':'')+' '+(full?'Дома посчитаны по асценденту, потому что указано время рождения':'Дома посчитаны от знака Солнца, потому что время рождения не указано');
+ $('nAstro1').textContent='Управитель сферы '+PN[ruler]+' '+SIGNS_IN[rulS]+', '+rH+' дом, '+DIG_N[dg]+(tense?', в натальной карте '+ASPN[tense.a]+' с '+PN_I[tense.b]:'')+'. Что это значит: '+(rIn?'управитель стоит в самой сфере, поэтому она держится прежде всего на тебе самой':'управитель стоит в '+rH+' доме, поэтому эта сфера питается от сферы «'+HN[rH]+'»')+'. '+cap(DIG_X[dg])+'.'+(tense?' '+cap(ASPN[tense.a])+' с '+PN_I[tense.b]+': '+nd(ASPP[tense.b][1])+'.':'')+' '+(full?'Дома посчитаны по асценденту, потому что указано время рождения':'Дома посчитаны от знака Солнца, потому что время рождения не указано');
  var mk=hits.indexOf('Сатурн')>=0?'sat':(hits.indexOf('Плутон')>=0?'plu':(hits.indexOf('Северный узел')>=0?'nn':(hits.indexOf('Юпитер')>=0?'jup':'link')));
  var M=MAIN[s.id][mk],Lnm=HN[links[0]];function fl(t){return t.replace(/\{L\}/g,Lnm)}
  var HM={'Сатурн':SAT_SC,'Плутон':PLU_SC,'Северный узел':NN_SC,'Юпитер':JUP_SC};
- $('nAstro2').textContent=hits.length?'Для тех, кто разбирается: в 2027 твою сферу '+(hits.length>1?'проходят ':'проходит ')+(hits.length>1?hits.slice(0,-1).join(', ')+' и '+hits[hits.length-1]:hits[0])+'. Что это значит для тебя: '+hits.map(function(h){return h+' - '+HM[h][s.id]}).join('. '):'Для тех, кто разбирается: Сатурн, Юпитер, Плутон и Северный узел в 2027 не проходят твою сферу напрямую. Что это значит: сама сфера не перегружена, главное напряжение приходит через связанную сферу «'+Lnm+'». Поэтому и шаги ниже начинаются со связей';
+ $('nAstro2').textContent=hits.length?'В 2027 твою сферу '+(hits.length>1?'проходят ':'проходит ')+(hits.length>1?hits.slice(0,-1).join(', ')+' и '+hits[hits.length-1]:hits[0])+'. Что это значит для тебя: '+hits.map(function(h){return h+' - '+HM[h][s.id]}).join('. '):'Сатурн, Юпитер, Плутон и Северный узел в 2027 не проходят твою сферу напрямую. Что это значит: сама сфера не перегружена, главное напряжение приходит через связанную сферу «'+Lnm+'». Поэтому и шаги ниже начинаются со связей';
 
  // период прямо сейчас (Елена 16.11): от даты, когда человек открыл расчёт, до конца 2026
  (function(){
@@ -1076,7 +1075,7 @@ go.onclick=function(){
  // переход к продукту (Елена 16.11: подруга не заметила оффер)
  var rest=per.filter(function(x){return top.indexOf(x)<0}),more=rest.length;
  function plP(n){var a=n%10,b=n%100;return a===1&&b!==11?'период':(a>=2&&a<=4&&(b<12||b>14)?'периода':'периодов')}
- $('perLock').innerHTML='<a class="plk" href="#priceBox">'+rest.slice(0,3).map(function(x){return '<div class="plc"><span class="lab '+x.tone+'">'+x.lab+'</span><span class="pd2">'+x.d.split(';')[0]+'</span><span class="pw2">'+x.hd+'</span></div>'}).join('')+'<div class="plt">🔒 '+(more?'Ещё '+more+' '+plP(more)+' по сфере «'+s.n+'» и периоды по остальным 11 сферам уже посчитаны':'Периоды по остальным 11 сферам уже посчитаны')+'. <u>Открыть</u></div></a>';
+ $('perLock').innerHTML='<div class="plk">'+rest.slice(0,3).map(function(x){return '<div class="plc"><span class="lab '+x.tone+'">'+x.lab+'</span><span class="pd2">'+x.d.split(';')[0]+'</span><span class="pw2">'+x.hd+'</span></div>'}).join('')+'<div class="plt">🔒 '+(more?'Ещё '+more+' '+plP(more)+' по сфере «'+s.n+'» и периоды по сферам, которые на неё влияют, уже посчитаны':'Периоды по сферам, которые влияют на '+SN.acc+', уже посчитаны')+'. Как их получить, расскажу в конце ↓</div></div>';
  var SPHG='<div class="sgh">Твои 12 сфер на 2027</div><div class="sg">';for(var hq=1;hq<=12;hq++){var on=s.h.indexOf(hq)>=0;SPHG+='<a href="#priceBox" class="'+(on?'on':'')+'">'+(on?'✓ ':'🔒 ')+cap(HN[hq])+'</a>'}SPHG+='</div>';
  $('sphGrid').innerHTML=SPHG;
 
@@ -1089,8 +1088,9 @@ go.onclick=function(){
  function LPER(l,w){if(['Saturn','Jupiter','Pluto','NN'].indexOf(w)<0)return '';var ws=windows(function(d){return H(w==='NN'?meanNode(d):lonOf(w,d))===l?'x':null});return ws.map(function(x){return rg(x.s,x.e)}).join('; ')}
  $('bFrom').innerHTML=links.map(function(l,i){var w=why[l]||'tri';if(uW[w])w='tri';uW[w]=1;var pl=w==='ruler'?ruler:(w==='tri'?RULER[sgn(window.CUSPS[l-1])]:w);if(uP[pl])pl=RULER[sgn(window.CUSPS[l-1])];uP[pl]=1;var ac=(CH[pl]||CH.Saturn)[l];
   var proof=WHY_H[w].replace('{in}',SN.in),lp=LPER(l,w),ax='<span class="ax">Для тех, кто разбирается: '+l+' дом, '+WHY_AX[w](pl)+'</span>';
-  if(i===0)return '<div><b>1 · '+cap(HN[l])+'</b><p>'+pick(DEP_T,'dp0')(SN,HL[l])+'. '+proof+'</p><span class="cp"><b>'+pick(CH_L,'cl0')+'</b> '+ac+'</span><a class="lkmore" href="#priceBox">🔒 Почему это сработает именно у тебя, твой период и что делать дальше - продолжение этой сферы в полном расчёте</a>'+ax+'</div>';
-  return '<div class="lkcard"><b>🔒 '+(i+1)+' · '+cap(HN[l])+'</b><p>'+proof+'</p>'+(lp?'<p class="lkp">Твой период в 2027: <span class="bl">'+lp+'</span></p>':'')+'<a class="lkmore" href="#priceBox">Что делать в этой сфере - уже посчитано в полном расчёте →</a>'+ax+'</div>'}).join('');
+  if(i===0)return '<div><b>1 · '+cap(HN[l])+'</b><p>'+pick(DEP_T,'dp0')(SN,HL[l])+'. '+proof+'</p><span class="cp"><b>'+pick(CH_L,'cl0')+'</b> '+ac+'</span><span class="lkmore">🔒 Почему это сработает именно у тебя, твой период и что делать дальше - продолжение этой сферы получишь в конце</span>'+ax+'</div>';
+  return '<div class="lkcard"><b>🔒 '+(i+1)+' · '+cap(HN[l])+'</b><p>'+proof+'</p>'+(lp?'<p class="lkp">Твой период в 2027: <span class="bl">'+lp+'</span></p>':'')+'<span class="lkmore">Что делать в этой сфере - уже посчитано, как получить - в конце ↓</span>'+ax+'</div>'}).join('');
+ $('bFrom').innerHTML+='<div class="lkbridge">Полностью эту сферу, ещё две связи и остальные 9 сфер, которые тоже так или иначе влияют на '+SN.acc+', ты получишь в конце ↓</div>';
  $('nWeeks').innerHTML=pick(WK_A,'wa')+'<ul class="wk"><li><b>Неделя 1:</b> «'+cap(HN[links[0]])+'»</li><li class="lkw"><b>Неделя 2:</b> 🔒 «'+cap(HN[links[1]])+'» - в полном расчёте</li><li class="lkw"><b>Неделя 3:</b> 🔒 «'+cap(HN[links[2]])+'» - в полном расчёте</li></ul><b>'+pick(FWL,'fw')+'</b> '+FW[links[0]]+'. '+pick(WK_B,'wb')+' '+WEEK_SEE[links[0]]+'. '+pick(WK_C,'wc');
  $('nAsk').innerHTML=pick(ASK_T,'ask')(SN,BD);
 
@@ -1151,7 +1151,7 @@ go.onclick=function(){
   // 4. откуда рост
   var uW={},uP={};
   var grow=links.map(function(l,i){var w=why[l]||'tri';if(uW[w])w='tri';uW[w]=1;var pl=w==='ruler'?ruler:(w==='tri'?RULER[sgn(window.CUSPS[l-1])]:w);if(uP[pl])pl=RULER[sgn(window.CUSPS[l-1])];uP[pl]=1;var ac=(CH[pl]||CH.Saturn)[l];
-   if(i>0)return '<div class="gc lkg"><div class="gn">🔒</div><div><b class="gt2">'+cap(HN[l])+'</b><p class="g1">'+WHY_H[w].replace('{in}',SN.in)+'</p>'+(LPER(l,w)?'<p class="g2">Твой период в 2027: <span class="bl">'+LPER(l,w)+'</span></p>':'')+'<a class="lkmore" href="#priceBox">Что делать здесь - в полном расчёте →</a></div></div>';
+   if(i>0)return '<div class="gc lkg"><div class="gn">🔒</div><div><b class="gt2">'+cap(HN[l])+'</b><p class="g1">'+WHY_H[w].replace('{in}',SN.in)+'</p>'+(LPER(l,w)?'<p class="g2">Твой период в 2027: <span class="bl">'+LPER(l,w)+'</span></p>':'')+'<span class="lkmore">Что делать здесь - уже посчитано, как получить - в конце ↓</span></div></div>';
    return '<div class="gc"><div class="gn">'+(i+1)+'</div><div><b class="gt2">'+cap(HN[l])+'</b><p class="g1">'+cap(ac)+'</p><p class="g2">Через 7 дней: '+WEEK_SEE[l]+'</p><details><summary>Почему это про работу</summary><p>'+pick(DEP_T,'dp'+i)(SN,HL[l])+'. '+WHY_H[w].replace('{in}',SN.in)+'</p><p>'+HOUSE_DO[l]+'</p><span class="ax">Для тех, кто разбирается: '+l+' дом, '+WHY_A[w]+'</span></details></div></div>'}).join('');
   var GROW_T=['Рост в работе у тебя придёт не из работы','Двигать работу ты будешь из трёх других сфер','Ключ к спокойной работе лежит рядом с ней'];
   // рендер

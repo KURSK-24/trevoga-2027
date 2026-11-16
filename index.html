@@ -296,6 +296,8 @@ details p{font-size:15px!important;color:var(--soft)!important;margin-top:8px!im
 .offer .lock{background:#fffaf2;border-color:rgba(19,38,42,.16)}.offer .lock h4{color:#13262a}.offer .lock p{color:#5b5048}.offer .lock:before,.offer .lock:after{border-color:#9a7a55}
 .rules{list-style:none;padding:0;margin:10px 0 0;display:block}.rules li{position:relative;padding-left:30px;margin-top:10px;font-size:16px;line-height:1.4;color:#2c3a3c}.rules li:before{content:'✓';position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;background:#13262a;color:#e6cdb0;font-size:12px;display:flex;align-items:center;justify-content:center}
 .offer .lock{padding:13px 15px}.offer .lock:before,.offer .lock:after{display:none}.offer .bon{color:#7a5a36;font-size:12.5px;opacity:1}.lnote{margin:10px 0 4px;padding:12px 14px;border-radius:12px;background:#13262a;color:#f3e6d6!important;font-size:15px!important;font-weight:600;line-height:1.4}
+.cur{list-style:none;padding:0;margin:12px 0 4px}.cur li{margin-top:10px;padding:12px 14px;border-radius:12px;background:rgba(243,230,214,.06);border:1px solid var(--line);border-left:4px solid #d79a86;font-size:15.5px;color:var(--soft)}.cur li b{display:block;color:var(--gold2);font-size:14px;margin-bottom:3px}
+#curN{color:var(--gold2)!important;font-weight:700;font-size:16px;margin-top:14px;opacity:1}
 </style>
 </head>
 <body>
@@ -346,6 +348,15 @@ details p{font-size:15px!important;color:var(--soft)!important;margin-top:8px!im
     <p class="small" id="legend"></p>
   </div>
 
+  <div class="scr s-b" id="curScr" style="display:none">
+    <div class="step">Твой период прямо сейчас</div>
+    <div class="h" id="curH"></div>
+    <p id="curLead"></p>
+    <ul class="cur" id="curL"></ul>
+    <p class="ax" id="curAx"></p>
+    <div class="mnext" id="curN"></div>
+  </div>
+
   <div id="wkA" style="display:none"></div>
 
   <div class="scr s-b oldv">
@@ -364,7 +375,7 @@ details p{font-size:15px!important;color:var(--soft)!important;margin-top:8px!im
     <div class="h">Оксана Смирнова</div>
     <p>Финансовый астролог. Больше 7 лет в астрологии, больше 300 клиентов прошли мой личный разбор, больше 200 учеников научились у меня читать карту</p>
     <p>До астрологии я много лет работала с деньгами и цифрами, поэтому считаю карту так же точно, как баланс. И говорю без запугивания: что у тебя происходит, когда действовать и что делать</p>
-    <p>Этот расчёт устроен так же, как мои личные прогнозы на год: твоя сфера, главные периоды с датами и конкретные шаги</p>
+    <p>Этот расчёт делает нейросеть, но по моей методологии. Мы долго обучали её считать так, как считаю я сама: периоды, транзиты, дома, градусы, всё, что я учитываю в личном прогнозе на год. Поэтому здесь не общий гороскоп, а твоя карта: твоя сфера, периоды с датами и конкретные шаги</p>
   </div>
 
   <div id="wkB" style="display:none"></div>
@@ -423,7 +434,7 @@ details p{font-size:15px!important;color:var(--soft)!important;margin-top:8px!im
         <div class="bon">🎁 Бонусом к этому видео</div>
         <div class="lock"><h4>🎁 План по неделям на весь 2027</h4><p>В каждой сфере понятный шаг на неделю, чтобы не гадать, за что браться</p></div>
         <div class="lock"><h4>🎁 Трекер новых привычек</h4><p>Отметила шаг и видишь, сколько уже сделано</p></div>
-        <div class="lock"><h4>🎁 Дневник изменений на 21 день</h4><p>Одна строка вечером: что сегодня изменилось. Через три недели видно, что шаги работают</p></div></div>
+        <div class="lock"><h4>🎁 Дневник изменений: 21 день до нового года</h4><p>Начинаешь сразу после оплаты: одна строка вечером, что сегодня изменилось. За три недели шаги заработают, и в 2027 ты войдёшь уже с первыми результатами, а не с тревогой</p></div></div>
       <div class="item"><b>Практическое видео 3. Откуда взять энергию, чтобы желание в этой сфере исполнилось</b><span>Ты узнаешь:</span><ul class="vl"><li>как поставить цель на 2027 именно по твоей дате рождения</li><li>что такое компенсаторика и как выполнять то, что калькулятор посчитал лично тебе</li><li>где у тебя утекают силы и как собрать энергию на одно желание</li><li>какая аскеза подходит тебе, на какую сферу и с какого дня начать</li></ul>
         <div class="bon">🎁 Бонусом к этому видео, уже посчитано по твоей дате</div>
         <div class="lock"><h4>🎁 Лист целей 2027</h4><p>Ставишь цели по своей дате вместе с видео, по каждой сфере</p></div>
@@ -985,6 +996,41 @@ go.onclick=function(){
  var M=MAIN[s.id][mk],Lnm=HN[links[0]];function fl(t){return t.replace(/\{L\}/g,Lnm)}
  var HM={'Сатурн':SAT_SC,'Плутон':PLU_SC,'Северный узел':NN_SC,'Юпитер':JUP_SC};
  $('nAstro2').textContent=hits.length?'Для тех, кто разбирается: в 2027 твою сферу '+(hits.length>1?'проходят ':'проходит ')+(hits.length>1?hits.slice(0,-1).join(', ')+' и '+hits[hits.length-1]:hits[0])+'. Что это значит для тебя: '+hits.map(function(h){return h+' - '+HM[h][s.id]}).join('. '):'Для тех, кто разбирается: Сатурн, Юпитер, Плутон и Северный узел в 2027 не проходят твою сферу напрямую. Что это значит: сама сфера не перегружена, главное напряжение приходит через связанную сферу «'+Lnm+'». Поэтому и шаги ниже начинаются со связей';
+
+ // период прямо сейчас (Елена 16.11): от даты, когда человек открыл расчёт, до конца 2026
+ (function(){
+  var NOW=Date.now(),DAY=86400000,Y27=Date.UTC(2027,0,1);
+  if(NOW>=Y27){$('curScr').style.display='none';return}
+  var cur=[],ax=[];
+  function till(fn){for(var d=NOW;d<NOW+420*DAY;d+=DAY){if(!fn(new Date(d)))return d}return NOW+420*DAY}
+  function when(e){return e>=Y27?'до конца года и дальше, в 2027':'до '+dm(e)}
+  var SCm={Saturn:SAT_SC,Pluto:PLU_SC,Jupiter:JUP_SC};
+  ['Saturn','Pluto','Uranus','Neptune','Jupiter'].forEach(function(T){
+   var orb=(T==='Jupiter'||T==='Saturn')?2:1.5,x=aspX(lonOf(T,new Date(NOW)),P[ruler],orb);
+   if(x){var tn=isTense(x[0],T),e=till(function(d){return aspX(lonOf(T,d),P[ruler],orb)});
+    cur.push({w:tn?0:2,d:when(e),x:cap(TRT[T][tn?1:0])});ax.push(PN[T]+' '+ASPN[x[0]]+' с управителем сферы ('+PN_I[ruler]+')')}
+   if(SCm[T]&&inS(H(lonOf(T,new Date(NOW))))){var e2=till(function(d){return inS(H(lonOf(T,d)))});
+    cur.push({w:T==='Jupiter'?2:1,d:when(e2),x:cap(SCm[T][s.id])});ax.push(PN[T]+' идёт по твоей сфере')}});
+  if(inS(H(meanNode(new Date(NOW))))){cur.push({w:1,d:when(till(function(d){return inS(H(meanNode(d)))})),x:cap(NN_SC[s.id])});ax.push('Северный узел идёт по твоей сфере')}
+  var mA=lonOf('Mercury',new Date(NOW)),mB=lonOf('Mercury',new Date(NOW+DAY));
+  if(rev(mB-mA+180)-180<0){var e3=till(function(d){return rev(lonOf('Mercury',new Date(d.getTime()+DAY))-lonOf('Mercury',d)+180)-180<0});
+   cur.push({w:1,d:when(e3),x:'Легко ошибиться в переписке, платежах и договорённостях. Всё важное перепроверяй дважды и не начинай новое на бегу'});ax.push('ретроградный Меркурий')}
+  cur.sort(function(a,b){return a.w-b.w});cur=cur.slice(0,3);
+  var today=dm(NOW)+' '+new Date(NOW).getUTCFullYear();
+  $('curH').textContent=pick(['Сегодня '+today+'. Что у тебя сейчас','Что идёт у тебя прямо сейчас, '+today,'Сейчас, '+today+', у тебя вот что'],'ch');
+  if(cur.length){
+   var hard=cur.some(function(c){return c.w<2});
+   if(!hard)$('curLead').textContent=pick(['Тревожно, но по карте сейчас у тебя идёт и хорошее. Важно его не пропустить:','Сейчас у тебя не только тревога. Вот что идёт тебе навстречу:'],'cl2');else
+   $('curLead').textContent=pick(['Тревога '+SN.in+' у тебя не на пустом месте. Вот что идёт прямо сейчас:','Это не просто плохое настроение. Вот что сейчас происходит у тебя '+SN.in+':','То, что ты чувствуешь последние недели, видно по карте:'],'cl0');
+   $('curL').innerHTML=cur.map(function(c){return '<li><b>'+cap(c.d)+'</b>'+nd(c.x)+'</li>'}).join('');
+  }else{
+   $('curLead').textContent=pick(['Прямо сейчас сильного давления на саму сферу нет. Тревога идёт через связанные с ней сферы, и это хорошая новость: до 2027 есть время спокойно подготовиться','Сейчас сама сфера под прямым давлением не стоит. Тревожно из-за того, что творится в соседних сферах, и до нового года у тебя есть время навести там порядок'],'cl1');
+   $('curL').innerHTML='';
+  }
+  $('curAx').textContent=ax.length?'Для тех, кто разбирается: сейчас '+ax.slice(0,3).join('; '):'Для тех, кто разбирается: сейчас медленные планеты не задевают управителя сферы и не идут по ней';
+  $('curN').textContent=pick(['А теперь 2027. Погнали ↓','Это то, что сейчас. А теперь твой 2027, погнали ↓','С этим разобрались. Дальше 2027, погнали ↓'],'cn');
+  $('curScr').style.display='';
+ })();
 
  // периоды по сфере
  var per=[];

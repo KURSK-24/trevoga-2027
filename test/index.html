@@ -353,7 +353,7 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
     <div class="rh pearl" id="rTitle"></div>
     <div class="rsub" id="rSub"></div>
     <div class="chartBox" style="margin-top:14px"><svg id="chart" viewBox="0 0 360 360" aria-label="Твоя натальная карта"></svg></div>
-    <div class="legend"><span><i style="background:#e6cdb0;box-shadow:0 0 8px #e6cdb0"></i>твоя сфера</span><span><i style="background:transparent;border:2px dashed #e6cdb0"></i>что откликается вместе с ней</span></div>
+    <div class="legend"><span><i style="background:#e6cdb0;box-shadow:0 0 8px #e6cdb0"></i>твоя сфера</span><span><i style="background:transparent;border:2px dashed #e6cdb0"></i>с чем она тесно связана</span></div>
     <div id="decode" style="display:none;margin-top:14px;border-top:1px solid var(--line);padding-top:12px;font-size:16px"></div>
     <p class="small" id="legend"></p>
     <div class="freeinfo"><b>Это бесплатный фон года по твоей сфере.</b> Все её периоды с датами и сферы, на которых она держится, уже посчитаны по твоей дате. Как их получить, расскажу в конце ↓</div>
@@ -458,7 +458,7 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
         <li>2 сферы, на которых держится тревога, с периодами и шагами</li>
         <li>3 урока Оксаны и материалы</li>
         <li>Закрытый канал</li>
-        <li class="no">Третья сфера</li>
+        <li class="no">Третья, тайная сфера</li>
         <li class="no">Компенсаторика на год</li>
         <li class="no">Аскеза с личными датами</li>
       </ul>
@@ -668,9 +668,9 @@ var PER_DU=['Перемены легче пройти, если оперетьс
 var PERL_A=['Твой год в этой сфере открывается периодом {D}.','Первый важный период твоего 2027 - {D}.','Запомни {D}: с этого начинается твой год в этой сфере.','Первое, что ждёт тебя в 2027 в этой сфере, - {D}.','Отметь у себя {D}: здесь твой 2027 в этой сфере начинается.','Начало твоего года здесь - {D}.'];
 var PERL_B=['Это 3 открытых периода. Ниже под замком остальные даты по этой сфере, и среди них самые дорогие: когда лучше не рисковать и когда точно действовать','Три периода я открыла, чтобы ты увидела, как это работает. А главные решения года обычно висят на датах ниже: когда подписывать, просить, переезжать или переждать','Открытые 3 периода - это только начало года. Даты, на которых чаще всего теряют деньги и силы, ниже под замком. Они уже посчитаны по твоей карте'];
 var LL_T=[
- function(S,t,a,b){return S.lnk+' ещё с двумя сферами: «'+a+'» и «'+b+'». Когда тревожно '+S.ab+', там тоже есть напряжение, просто его меньше видно'},
- function(S,t,a,b){return 'Снять '+t+' в лоб получается не всегда. По твоей карте вместе с ней откликаются ещё две сферы: «'+a+'» и «'+b+'»'},
- function(S,t,a,b){return 'По твоей дате '+S.acc+' держат на себе ещё две сферы: «'+a+'» и «'+b+'». Пока там всё по-старому, тревога возвращается'}];
+ function(S,t,a,b,c){return S.lnk+' ещё с тремя сферами, и очень тесно: «'+a+'», «'+b+'» и «'+c+'». Когда тревожно '+S.ab+', там тоже есть напряжение, просто его меньше видно'},
+ function(S,t,a,b,c){return 'Снять '+t+' в лоб получается не всегда. По твоей карте эта сфера тесно связана ещё с тремя: «'+a+'», «'+b+'» и «'+c+'»'},
+ function(S,t,a,b,c){return 'По твоей дате '+S.acc+' держат на себе ещё три сферы: «'+a+'», «'+b+'» и «'+c+'». Пока там всё по-старому, тревога возвращается'}];
 var WK_A=['Как делать всё системно и с удовольствием, чтобы не бросить на полпути? Главная ошибка - начать всё с понедельника и выдохнуться к среде. Поэтому так:','Как не бросить через три дня? Не браться за всё сразу: рывок в понедельник и пустота к среде - так бросает большинство. Поэтому по одной сфере в неделю:','Чтобы это стало системой, а не порывом на один вечер, двигайся по неделям:','Как сделать, чтобы хватило и сил, и удовольствия? По одной сфере в неделю, без рывка с понедельника:'];
 var WK_B=['Уже за 7 дней будут видны первые изменения:','Первые сдвиги появятся уже за неделю:','Через 7 дней ты заметишь, что стало иначе:','Результат будет виден быстро, уже за первую неделю:'];
 var WK_C=['Замечай такие сдвиги и не пропускай их','Не пропусти этот момент: с него всё и начинается','Замечай каждую такую мелочь','Отмечай такие изменения, даже самые маленькие'];
@@ -693,7 +693,7 @@ var DO_L=['Что сделать:','Первый шаг:','С чего нача�
 var CH_L=['По твоей карте особенно сработает:','Именно тебе по дате подойдёт:','Твой личный шаг по карте:','По твоей дате лучше всего сработает:'];
 var EV_I=['','Может быть так: ','Возможный сценарий: ','Не исключено: '];
 var EV_L=['Что сделать:','Как действовать:','Что с этим делать:','Твой шаг:'];
-var LL_TAIL=['Ниже почему так. Что делать в каждой, уже посчитано','Покажу, как они связаны. Шаги по каждой уже посчитаны','Вот как это устроено у тебя'];
+var LL_TAIL=['Две покажу прямо сейчас, а третья у тебя тайная','Две разберу ниже. Третья - тайная опора, о ней отдельно','Начну с двух. Третья особенная, она тайная'];
 function low1(x){return x.charAt(0).toLowerCase()+x.slice(1)}
 
 
@@ -1088,20 +1088,21 @@ go.onclick=function(){
  $('perLock').innerHTML='<div class="plk">'+rest.slice(0,3).map(function(x){return '<div class="plc"><span class="lab '+x.tone+'">'+x.lab+'</span><span class="pd2">'+x.d.split(';')[0]+'</span><span class="pw2">'+x.hd+'</span></div>'}).join('')+'<div class="plt">🔒 '+(more?'Под замком ещё '+more+' '+plP(more)+' по сфере «'+s.n+'»: точные даты и что в них делать':'Под замком что делать в каждом периоде и даты по сферам, которые влияют на '+SN.acc)+'. Что делать в каждом периоде - в полном расчёте ↓</div></div>';
  var DMU='https://t.me/okssmi?text='+encodeURIComponent('Хочу личный разбор всех 12 сфер на 2027');var SPHG='<div class="sgh">Твои 12 сфер на 2027</div><div class="sg">';for(var hq=1;hq<=12;hq++){var on=s.h.indexOf(hq)>=0,lk=links.indexOf(hq)>=0;SPHG+=on?'<a href="#result" class="on">✓ '+cap(HN[hq])+'</a>':(lk?'<a href="#priceBox">🔒 '+cap(HN[hq])+'</a>':'<a href="'+DMU+'" target="_blank" rel="noopener" class="pr">✦ '+cap(HN[hq])+'</a>')}SPHG+='</div><p class="sgn">✓ открыта сейчас · 🔒 откроется в программе · ✦ разбираю лично, напиши мне</p>';
  $('sphGrid').innerHTML=SPHG;
- $('oThree').innerHTML='<h5>Сферы, на которых держится твоя тревога</h5>'+links.map(function(l,i){return '<div class="lock"><h4>'+(i<2?'«'+cap(HN[l])+'»':'🔒 Третья сфера · только в полном')+'</h4><p>'+(i<2?'Твоя сфера зависит '+HL[l]+'. В расчёте: периоды 2027 по этой сфере с датами и что делать в каждом':'Самая скрытая опора. Откроется в полном тарифе со своими датами и шагами')+'</p></div>'}).join('')+'<p class="o3t">Наладишь их, и '+SN.in+' станет спокойнее: ты действуешь прямо в корне тревоги</p>';
+ $('oThree').innerHTML='<h5>Сферы, на которых держится твоя тревога</h5>'+links.map(function(l,i){return '<div class="lock"><h4>'+(i<2?'«'+cap(HN[l])+'»':'🔒 «'+cap(HN[l])+'» - тайная опора · только в полном')+'</h4><p>'+(i<2?'Твоя сфера зависит '+HL[l]+'. В расчёте: периоды 2027 по этой сфере с датами и что делать в каждом':'Почему тревога держится именно на ней, её даты и шаги откроются в полном тарифе')+'</p></div>'}).join('')+'<p class="o3t">Наладишь их, и '+SN.in+' станет спокойнее: ты действуешь прямо в корне тревоги</p>';
 
 
+ $('tF3').textContent='Третья сфера «'+HN[links[2]]+'»: тайная опора твоей тревоги';
  // 3 события и что с ними делать
  $('nEv').innerHTML=top.map(function(x,i){var key=EV[s.id][x.k]?x.k:'ecl';return '<div class="sc"><div class="k">'+(i+1)+' · '+x.d.split(';')[0]+'</div><p><b>'+(function(p){return p?p+low1(EV[s.id][key]):EV[s.id][key]})(pick(EV_I,'ei'+i))+'</b></p><p><span class="todo">'+pick(EV_L,'el'+i)+'</span> '+EVDO[s.id][key]+'</p></div>'}).join('');
 
  // 3 связи + компенсаторика в этих сферах
- $('nLinkLead').textContent=pick(LL_T,'ll')(SN,TR[s.id],HN[links[0]],HN[links[1]])+'. '+pick(LL_TAIL,'lta');
+ $('nLinkLead').textContent=pick(LL_T,'ll')(SN,TR[s.id],HN[links[0]],HN[links[1]],HN[links[2]])+'. '+pick(LL_TAIL,'lta');
  var uW={},uP={};
  function LPER(l,w){if(['Saturn','Jupiter','Pluto','NN'].indexOf(w)<0)return '';var ws=windows(function(d){return H(w==='NN'?meanNode(d):lonOf(w,d))===l?'x':null});return ws.map(function(x){return rg(x.s,x.e)}).join('; ')}
  $('bFrom').innerHTML=links.slice(0,2).map(function(l,i){var w=why[l]||'tri';if(uW[w])w='tri';uW[w]=1;var pl=w==='ruler'?ruler:(w==='tri'?RULER[sgn(window.CUSPS[l-1])]:w);if(uP[pl])pl=RULER[sgn(window.CUSPS[l-1])];uP[pl]=1;var ac=(CH[pl]||CH.Saturn)[l];
   var proof=WHY_H[w].replace('{in}',SN.in),lp=LPER(l,w),ax='<span class="ax">Для тех, кто разбирается: '+l+' дом, '+WHY_AX[w](pl)+'</span>';
   return '<div class="lkcard"><b>'+(i+1)+' · '+cap(HN[l])+'</b><p>'+pick(DEP_T,'dp'+i)(SN,HL[l])+'. '+proof+'</p>'+(lp?'<p class="lkp">Твой период в 2027: <span class="bl">'+lp+'</span></p>':'')+'<span class="lkmore">🔒 Период и что делать в этой сфере - в полном расчёте ↓</span>'+ax+'</div>'}).join('');
- $('bFrom').innerHTML+='<div class="lkcard"><b>🔒 3 · Третья сфера</b><p>Есть ещё одна, самая скрытая опора твоей тревоги. Её почти не замечают, а держит она сильнее всех</p><span class="lkmore">Откроется в полном тарифе ↓</span></div><div class="lkbridge">Вот почему одной сферы мало. Пока в «'+HN[links[0]]+'» и «'+HN[links[1]]+'» всё по-старому, спокойствие не задержится, и в 2027 тревога вернётся в те же периоды. Даты и шаги по каждой уже посчитаны по твоей дате ↓</div>';
+ $('bFrom').innerHTML+='<div class="lkcard"><b>🔒 3 · '+cap(HN[links[2]])+' - тайная опора</b><p>Эту связь почти не замечают, а держит она твою тревогу сильнее всех. Почему именно она, твои даты и что делать - в полном тарифе</p><span class="lkmore">Откроется в полном тарифе ↓</span></div><div class="lkbridge">Вот почему одной сферы мало. Пока в «'+HN[links[0]]+'» и «'+HN[links[1]]+'» всё по-старому, спокойствие не задержится, и в 2027 тревога вернётся в те же периоды. Даты и шаги по каждой уже посчитаны по твоей дате ↓</div>';
  $('nWeeks').innerHTML=pick(WK_A,'wa')+'<ul class="wk"><li><b>Неделя 1:</b> «'+cap(HN[links[0]])+'»</li><li class="lkw"><b>Неделя 2:</b> 🔒 «'+cap(HN[links[1]])+'» - в полном расчёте</li><li class="lkw"><b>Неделя 3:</b> 🔒 «'+cap(HN[links[2]])+'» - в полном расчёте</li></ul><b>'+pick(FWL,'fw')+'</b> '+FW[links[0]]+'. '+pick(WK_B,'wb')+' '+WEEK_SEE[links[0]]+'. '+pick(WK_C,'wc');
  $('nAsk').innerHTML=pick(ASK_T,'ask')(SN,BD);
 
@@ -1161,7 +1162,7 @@ go.onclick=function(){
   var cards=top.map(function(x){return '<div class="pc '+x.tone+'"><span class="lab '+x.tone+'">'+x.lab+'</span><div class="pd">'+x.d.split(';')[0]+'</div><div class="pw">'+cap(nd(x.o))+'</div><details><summary>Подробнее</summary><p>'+nd(x.x)+'</p><span class="ax">Для тех, кто разбирается: '+x.ti+'</span></details></div>'}).join('');
   // 4. откуда рост
   var uW={},uP={};
-  var grow=links.map(function(l,i){if(i===2)return '<div class="gc lkg"><div class="gn">🔒</div><div><b class="gt2">Третья сфера</b><p class="g1">Самая скрытая опора твоей тревоги</p><span class="lkmore">Откроется в полном тарифе ↓</span></div></div>';var w=why[l]||'tri';if(uW[w])w='tri';uW[w]=1;var pl=w==='ruler'?ruler:(w==='tri'?RULER[sgn(window.CUSPS[l-1])]:w);if(uP[pl])pl=RULER[sgn(window.CUSPS[l-1])];uP[pl]=1;var ac=(CH[pl]||CH.Saturn)[l];
+  var grow=links.map(function(l,i){if(i===2)return '<div class="gc lkg"><div class="gn">🔒</div><div><b class="gt2">'+cap(HN[l])+' - тайная опора</b><p class="g1">Эту связь почти не замечают, а держит она сильнее всех</p><span class="lkmore">Откроется в полном тарифе ↓</span></div></div>';var w=why[l]||'tri';if(uW[w])w='tri';uW[w]=1;var pl=w==='ruler'?ruler:(w==='tri'?RULER[sgn(window.CUSPS[l-1])]:w);if(uP[pl])pl=RULER[sgn(window.CUSPS[l-1])];uP[pl]=1;var ac=(CH[pl]||CH.Saturn)[l];
    if(i>0)return '<div class="gc lkg"><div class="gn">🔒</div><div><b class="gt2">'+cap(HN[l])+'</b><p class="g1">'+WHY_H[w].replace('{in}',SN.in)+'</p>'+(LPER(l,w)?'<p class="g2">Твой период в 2027: <span class="bl">'+LPER(l,w)+'</span></p>':'')+'<span class="lkmore">Что делать здесь - уже посчитано, как получить - в конце ↓</span></div></div>';
    return '<div class="gc"><div class="gn">'+(i+1)+'</div><div><b class="gt2">'+cap(HN[l])+'</b><p class="g1">'+WHY_H[w].replace('{in}',SN.in)+'</p><span class="lkmore">🔒 Что делать здесь - в полном расчёте ↓</span><details><summary>Почему это про работу</summary><p>'+pick(DEP_T,'dp'+i)(SN,HL[l])+'. '+WHY_H[w].replace('{in}',SN.in)+'</p><p>'+HOUSE_DO[l]+'</p><span class="ax">Для тех, кто разбирается: '+l+' дом, '+WHY_A[w]+'</span></details></div></div>'}).join('');
   var GROW_T=['Рост в работе у тебя придёт не из работы','Двигать работу ты будешь из трёх других сфер','Ключ к спокойной работе лежит рядом с ней'];
@@ -1176,12 +1177,12 @@ go.onclick=function(){
    '<div class="scr s-c w3"><div class="step">Твой 2027 в работе</div><div class="h">'+pick(['Когда просить и менять, а когда держаться','Когда действовать, а когда переждать','Твой рабочий календарь на год'],'yh')+'</div>'+strip
    +'<ul class="ylg"><li class="ok"><b>Действовать:</b> '+YDO.ok+'</li><li class="bad"><b>Не спешить:</b> '+YDO.bad+'</li><li class="du"><b>Перемены:</b> '+YDO.du+'</li></ul>'
    +'<div class="tag" style="margin-top:18px">3 главных периода</div>'+cards+'</div>'
-   +'<div class="scr s-d w4"><div class="step">Откуда придёт рост</div><div class="h">'+pick(GROW_T,'gt')+'</div><p class="soft">По твоей карте с работой напрямую связаны ещё сферы. Шаг в них снимает тревогу быстрее, чем борьба в лоб</p>'+grow+'</div>'
+   +'<div class="scr s-d w4"><div class="step">Откуда придёт рост</div><div class="h">'+pick(GROW_T,'gt')+'</div><p class="soft">По твоей карте с работой тесно связаны ещё три сферы. Шаг в них снимает тревогу быстрее, чем борьба в лоб</p>'+grow+'</div>'
    +'<div class="scr s-pearl w5"><div class="h">Это только начало</div><p class="big2">'+pick(['Ты узнала, откуда тревога, свою роль, что тебя выматывает, 3 периода и сферы роста. А в полном расчёте по дате '+BD+' уже посчитано:','Это фон года. В полном расчёте по дате '+BD+' уже посчитано:','Работа - только верхушка. В полном расчёте по дате '+BD+' уже посчитано:'],'b5')+'</p><ul class="chk"><li>все периоды 2027 по работе с датами и что делать в каждом</li><li>2 сферы, на которых держится тревога, а в полном тарифе и третья</li><li>в полном тарифе: компенсаторика на год и аскеза с личными датами</li></ul></div>';
  })();
 
- drawChart(P,startSign,s,links.slice(0,2));
- $('decode').innerHTML='<b>Твоя сфера:</b> '+s.h.map(function(n){return HP[n]}).join(', а ещё ')+'<br><br><b>Вместе с ней откликаются ещё две:</b><br>'+links.slice(0,2).map(function(n){return '· <b>'+cap(HN[n])+':</b> '+HP[n]}).join('<br>')+'<span class="ax" style="display:block">Для тех, кто разбирается в астрологии: сфера - '+s.h.join(' и ')+' дом, связанные - '+links.slice(0,2).join(', ')+' дом (третья - в полном расчёте)</span>';
+ drawChart(P,startSign,s,links);
+ $('decode').innerHTML='<b>Твоя сфера:</b> '+s.h.map(function(n){return HP[n]}).join(', а ещё ')+'<br><br><b>С ней тесно связаны ещё три:</b><br>'+links.map(function(n,i){return i<2?'· <b>'+cap(HN[n])+':</b> '+HP[n]:'· <b>'+cap(HN[n])+':</b> 🔒 твоя тайная опора, о ней ниже'}).join('<br>')+'<span class="ax" style="display:block">Для тех, кто разбирается в астрологии: сфера - '+s.h.join(' и ')+' дом, связанные - '+links.join(', ')+' дом</span>';
  try{localStorage.setItem('trevoga2027_free',s.id)}catch(e){}
  [].forEach.call(chips.children,function(x){if(x.dataset.id!==s.id)x.classList.add('locked')});
  setTariffs();

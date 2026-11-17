@@ -937,13 +937,17 @@ opt(mi,'','Минуты');for(i=0;i<60;i+=5)opt(mi,i,(i<10?'0':'')+i+' мин');
 var dl=document.getElementById('cities');CITIES.forEach(function(c){var o=document.createElement('option');o.value=c[0];dl.appendChild(o)});
 document.getElementById('knowTime').onchange=function(){document.getElementById('timeBox').style.display=this.checked?'block':'none'};
 
-var stored=null;try{if(/[?&]sbros/.test(location.search)){localStorage.removeItem('trevoga2027_free');localStorage.removeItem('trevoga2027_price_start')}stored=localStorage.getItem('trevoga2027_free')}catch(e){}
+var stored=null;try{if(/[?&]sbros/.test(location.search)){localStorage.removeItem('trevoga2027_free');localStorage.removeItem('trevoga2027_date');localStorage.removeItem('trevoga2027_price_start')}stored=localStorage.getItem('trevoga2027_free')}catch(e){}
 var chosen=null,chips=document.getElementById('chips'),go=document.getElementById('go');
 SPH.forEach(function(s){var b=document.createElement('button');b.className='chip';b.textContent=s.t;b.dataset.id=s.id;
  if(stored&&stored!==s.id)b.classList.add('locked');
- b.onclick=function(){if(b.classList.contains('locked')){document.getElementById('note').textContent='Бесплатно открывается одна сфера. Остальные - в программе или на личном разборе';return}chosen=s;[].forEach.call(chips.children,function(x){x.classList.remove('on')});b.classList.add('on');check()};chips.appendChild(b)});
+ b.onclick=function(){if(b.classList.contains('locked')){document.getElementById('note').textContent='Бесплатно открывается одна сфера и один раз. Остальные - в полном расчёте';return}chosen=s;[].forEach.call(chips.children,function(x){x.classList.remove('on')});b.classList.add('on');check()};chips.appendChild(b)});
 [dd,mm,yy].forEach(function(e){e.onchange=check});
-var $n;if(stored){var sn=SPH.filter(function(x){return x.id===stored})[0];if(sn){$n=document.getElementById('note');$n.innerHTML='Бесплатно ты уже открыла сферу «'+sn.t+'». Её можно посмотреть снова. Остальные сферы - в программе или на личном разборе';$n.style.color='#7a5a36'}}
+var $n;if(stored){var sn=SPH.filter(function(x){return x.id===stored})[0];if(sn){$n=document.getElementById('note');$n.innerHTML='Бесплатно ты уже открыла сферу «'+sn.t+'». Её можно посмотреть снова, по той же дате. Другие сферы и другие даты - в полном расчёте';$n.style.color='#7a5a36';
+ chosen=sn;[].forEach.call(chips.children,function(x){if(x.dataset.id===sn.id)x.classList.add('on')});
+ var sd=null;try{sd=JSON.parse(localStorage.getItem('trevoga2027_date')||'null')}catch(e){}
+ if(sd){dd.value=sd.d;mm.value=sd.m;yy.value=sd.y;[dd,mm,yy].forEach(function(e){e.disabled=true});if(sd.t){$('knowTime').checked=true;$('timeBox').style.display='block';hh.value=sd.h;mi.value=sd.mi;$('city').value=sd.c}$('knowTime').disabled=true;[hh,mi,$('city')].forEach(function(e){e.disabled=true})}
+ setTimeout(check,0)}}
 function check(){var ok=chosen&&dd.value&&mm.value&&yy.value;go.disabled=!ok;go.textContent=ok?'Открыть сферу: '+chosen.t:(chosen?'Выбери дату рождения':'Выбери дату и сферу')}
 
 function fit(){[].forEach.call(document.querySelectorAll('.fit'),function(el){var w=el.parentNode.clientWidth;el.style.fontSize='40px';var r=w/el.scrollWidth;el.style.fontSize=Math.min(56,Math.floor(40*r*0.97))+'px'})}
@@ -1193,7 +1197,7 @@ go.onclick=function(){
 
  drawChart(P,startSign,s,links);
  $('decode').innerHTML='<b>Твоя сфера:</b> '+s.h.map(function(n){return HP[n]}).join(', а ещё ')+'<br><br><b>С ней тесно связаны ещё три:</b><br>'+links.map(function(n,i){return i<2?'· <b>'+cap(HN[n])+':</b> '+HP[n]:'· <b>'+cap(HN[n])+':</b> 🔒 твоя тайная опора, о ней ниже'}).join('<br>')+'<span class="ax" style="display:block">Для тех, кто разбирается в астрологии: сфера - '+s.h.join(' и ')+' дом, связанные - '+links.join(', ')+' дом</span>';
- try{localStorage.setItem('trevoga2027_free',s.id)}catch(e){}
+ try{if(!localStorage.getItem('trevoga2027_date'))localStorage.setItem('trevoga2027_date',JSON.stringify({d:dd.value,m:mm.value,y:yy.value,t:full,h:hh.value,mi:mi.value,c:$('city').value}));localStorage.setItem('trevoga2027_free',s.id)}catch(e){}
  [].forEach.call(chips.children,function(x){if(x.dataset.id!==s.id)x.classList.add('locked')});
  setTariffs();
  var r=$('result');r.style.display='block';r.scrollIntoView({behavior:'smooth'});

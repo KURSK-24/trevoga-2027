@@ -308,6 +308,9 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
 .backup{position:fixed;right:14px;bottom:96px;z-index:60;display:none;align-items:center;gap:6px;background:#e6cdb0;color:#13262a;border-radius:999px;padding:10px 16px;font:700 14px Manrope,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.35);border:0;cursor:pointer}.sgn{font-size:13px;color:var(--soft);margin-top:8px}.sg a.pr{opacity:.8}.o3t{margin-top:12px;font-weight:700;color:#13262a}.blur .lk{flex-direction:row!important;position:static!important}.blur .lk em{margin:0!important;position:static!important;transform:none!important}
 .cut{display:none!important}#bPeriods .dd{display:none}
 .tar{margin-top:16px;border:1.5px solid rgba(154,122,85,.35);border-radius:16px;padding:16px 14px;background:#fffaf3;color:#13262a}.tar.top{border:2px solid #13262a;background:#fbf1e3}.tar .tn{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#8a6a45}.tar .tp{font-family:'Playfair Display',Georgia,serif;font-size:34px;color:#13262a;margin-top:4px}.tar .tp s{font-size:18px;color:#8a7d70;margin-left:8px}.tar ul{margin:10px 0 0;padding-left:18px}.tar li{margin:5px 0;font-size:15px}.tar li.no{opacity:.5;text-decoration:line-through}.tar .btn{display:block;text-align:center;text-decoration:none;margin-top:14px}.tar .hit{display:inline-block;margin-left:6px;font-size:11px;font-weight:800;background:#e6cdb0;color:#13262a;border-radius:999px;padding:3px 9px;vertical-align:middle}.prg{counter-reset:pg}.prg .pi{position:relative;padding:12px 0 12px 44px;border-bottom:1px solid rgba(154,122,85,.25)}.prg .pi:before{counter-increment:pg;content:counter(pg);position:absolute;left:0;top:12px;width:30px;height:30px;border-radius:50%;background:#13262a;color:#e6cdb0;font:700 14px/30px Manrope,sans-serif;text-align:center}.prg .pi b{display:block;font-size:16.5px;color:#13262a}.prg .pi p{margin:4px 0 0;font-size:15px;color:#3d3530}.prg .only{display:inline-block;margin-top:6px;font-size:12px;font-weight:800;color:#8a6a45;background:#fbf1e3;border:1px solid rgba(154,122,85,.45);border-radius:999px;padding:3px 10px}.tarh{margin-top:22px;font-family:"Playfair Display",Georgia,serif;font-size:24px;color:#13262a;text-align:center}.svoi{margin-top:12px;padding:10px 12px;border-radius:12px;background:#e6cdb0;color:#13262a;font-weight:700;font-size:14.5px}
+.ax,.axd{display:none!important}
+#expScr .eh{font-family:"Playfair Display",Georgia,serif;font-size:22px;color:var(--gold2);margin:4px 0 8px}#expScr p{margin:0 0 14px}#expScr .eh2{margin-top:6px}
+.gf{margin-top:22px;border-radius:18px;overflow:hidden;background:#13262a;color:#f3e6d6}.gf .gfb{position:relative}.gf .gfb img{display:block;width:100%;height:170px;object-fit:cover;opacity:.55}.gf .gfb div{position:absolute;left:16px;right:16px;bottom:14px}.gf .gfb small{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#e6cdb0}.gf .gfb b{display:block;font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:26px;line-height:1.15;color:#fff}.gf .gfl{padding:6px 14px 16px}.gf .gi{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid rgba(230,205,176,.18)}.gf .gi:last-child{border-bottom:0}.gf .gi i{flex:none;font-style:normal;width:44px;height:44px;border-radius:12px;background:#e6cdb0;display:flex;align-items:center;justify-content:center;font-size:22px}.gf .gi b{display:block;font-size:17px;color:#fff}.gf .gi p{margin:5px 0 0;font-size:14.5px;line-height:1.45;color:#d9cdbd}.gf .gi p em{font-style:normal;color:#e6cdb0;font-weight:700}
 </style>
 </head>
 <body>
@@ -358,6 +361,14 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
     <p class="small" id="legend"></p>
     <div class="freeinfo"><b>Это бесплатный фон года по твоей сфере.</b> Все её периоды с датами и сферы, на которых она держится, уже посчитаны по твоей дате. Как их получить, расскажу в конце ↓</div>
     <div class="notime" id="noTime" style="display:none"><b>Время рождения не указано, поэтому расчёт приблизительный.</b> Дома карты и Луна зависят от часа рождения, и без него сферы могут сместиться. Даже астролог без времени не скажет точно, не то что система. Мы посчитали по дате, а для точного разбора напиши Оксане: она подскажет, что делать дальше</div>
+  </div>
+
+  <div class="scr s-c" id="expScr" style="display:none">
+    <div class="step">Разбор по твоей дате</div>
+    <div class="eh">Почему у тебя так</div>
+    <p id="expWhy"></p>
+    <div class="eh eh2">Что будет в 2027 именно у тебя</div>
+    <p id="exp27"></p>
   </div>
 
   <div class="scr s-b" id="curScr" style="display:none">
@@ -444,7 +455,7 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
       <div class="pi"><b>Как прожить сложные периоды мягче</b><p>Около 10 простых действий на весь год под твои напряжённые даты</p><span class="only">в полном тарифе</span></div>
       <div class="pi"><b>Как сделать, чтобы желание исполнилось</b><p>Твоя аскеза по карте: когда её взять, на какой срок и как не сорваться</p><span class="only">в полном тарифе</span></div>
       <div class="pi"><b>3 видео-урока Оксаны</b><p>Как работать со своим расчётом, микрошаги против тревоги и как направить силы на желание. Подробно ниже</p></div>
-      <div class="pi"><b>Подарки и закрытый канал</b><p>Трекер новых привычек, дневник «21 день до нового года», лист целей 2027 и канал, где можно задать вопрос</p></div>
+      <div class="pi"><b>5 подарков и закрытый канал</b><p>Личный календарь 2027, первые 12 дней года, дневник, трекер привычек и лист целей. Что в каждом - ниже</p></div>
     </div>
 
     <div class="part lessons"><h5>Уроки Оксаны</h5>
@@ -455,7 +466,17 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
         <ul class="vl"><li>маленькие действия, которые дают опору, когда опускаются руки</li><li>с чего начать завтра утром, чтобы не выдохнуться к среде</li><li>как заметить сдвиг, даже когда кажется, что всё стоит</li></ul></div>
       <div class="item"><b>Видео 3. Как сделать, чтобы желание исполнилось, а сложные периоды прошли иначе</b>
         <ul class="vl"><li>какая цель на 2027 подходит именно тебе</li><li>как прожить свои сложные периоды по-другому, мягче</li><li>куда утекают силы и как их вернуть на желание</li></ul></div>
-      <div class="chips"><span>🎁 Трекер новых привычек</span><span>🎁 Дневник: 21 день до нового года</span><span>🎁 Лист целей 2027</span></div>
+    </div>
+
+    <div class="gf" id="podarki">
+      <div class="gfb"><img loading="lazy" src="img/art-karta.jpg" alt=""><div><small>И это ещё не всё</small><b>Внутри тебя ждут подарки</b></div></div>
+      <div class="gfl">
+        <div class="gi"><i>🗓</i><div><b>Твой личный календарь 2027</b><p>Весь год на одном листе, по твоей дате рождения. Дни для старта, просьб и покупок и дни, когда лучше не спешить, уже отмечены. <em>Распечатай и повесь на видное место: больше не нужно гадать, когда начинать</em></p></div></div>
+        <div class="gi"><i>✨</i><div><b>Первые 12 дней 2027</b><p>Что делать в каждый из первых 12 дней года, чтобы каждая сфера получила свой старт. <em>Год начнётся не с тревоги, а с понятного плана на каждый день</em></p></div></div>
+        <div class="gi"><i>📔</i><div><b>Дневник «21 день до нового года»</b><p>Каждый день короткая запись: что тревожило, что сделала, что изменилось. <em>Через три недели ты своими глазами видишь, что сдвинулось, а не держишь всё в голове</em></p></div></div>
+        <div class="gi"><i>✅</i><div><b>Трекер новых привычек</b><p>Маленький шаг из твоего расчёта превращается в привычку: отмечаешь каждый день и видишь, где держишь ритм. <em>Тревога становится списком понятных дел</em></p></div></div>
+        <div class="gi"><i>🎯</i><div><b>Лист целей 2027</b><p>Цели на год под твои даты: что начинать в хорошие окна, а что не трогать в плотные недели. <em>Желания перестают быть списком «когда-нибудь» и получают свои даты</em></p></div></div>
+      </div>
     </div>
 
     <img loading="lazy" class="insert in tall" src="img/kofe.jpg" alt="Оксана Смирнова">
@@ -467,7 +488,7 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
       <div class="tp">1 990 ₽</div>
       <ul>
         <li>Расчёт: твоя сфера, 2 сферы, на которых она держится, и погода года</li>
-        <li>3 видео-урока, подарки и закрытый канал</li>
+        <li>3 видео-урока, 5 подарков и закрытый канал</li>
         <li class="no">Тайная третья сфера</li>
         <li class="no">Как прожить сложные периоды мягче</li>
         <li class="no">Как сделать, чтобы желание исполнилось</li>
@@ -1080,8 +1101,8 @@ go.onclick=function(){
   Object.keys(gr).forEach(function(a){var ws=gr[a],tn=(a==='sq'||a==='opp'),isR=tg[0]===ruler;
    var co=(a==='conj');
    var sc=T==='Saturn'?SAT_SC[s.id]:(T==='Jupiter'&&!tn?JUP_SC[s.id]:(T==='Pluto'?PLU_SC[s.id]:''));
-   var tt=TRT[T][tn?1:0],dt=tt.indexOf('. ');tt=dt>0?tt.slice(dt+2):tt;var body=cap(tt);
-   per.push({k:T,tone:co?'du':(tn?'bad':'ok'),lab:co?'время перемен':(tn?'время не спешить':'время действовать'),t:ws[0].s,e:ws[ws.length-1].e,p:isR?1:2,d:ws.map(function(w){return rg(w.s,w.e)}).join('; '),hd:SN.hd+': '+(co?'время перемен, хорошее и трудное вместе':PHD[T+(tn?'-':'+')]),x:body,o:tn?DOT[s.id]:DOH[s.id],ti:PN[T]+' · '+ASPN[a]+' · '+MY[tg[0]]+tg[1]})})})});
+   var hv=tn||(co&&T!=='Jupiter');var tt=TRT[T][hv?1:0],dt=tt.indexOf('. ');tt=dt>0?tt.slice(dt+2):tt;var body=cap(tt);
+   per.push({k:T,tone:co?'du':(tn?'bad':'ok'),lab:co?'время перемен':(tn?'время не спешить':'время действовать'),t:ws[0].s,e:ws[ws.length-1].e,p:isR?1:2,d:ws.map(function(w){return rg(w.s,w.e)}).join('; '),hd:SN.hd+': '+(co?'время перемен, хорошее и трудное вместе':PHD[T+(tn?'-':'+')]),x:body,o:hv?DOT[s.id]:DOH[s.id],a:a,r:isR,ti:PN[T]+' · '+ASPN[a]+' · '+MY[tg[0]]+tg[1]})})})});
  per.sort(function(a,b){return a.p-b.p||a.t-b.t});
  var top=[],seen={};function ov(a,b){return a.e>a.t&&b.e>b.t&&a.t<=b.e&&b.t<=a.e}function free(x){return top.every(function(y){return !ov(x,y)})}
  per.forEach(function(x){if(top.length<3&&!seen[x.k]&&free(x)){top.push(x);seen[x.k]=1}});
@@ -1095,6 +1116,44 @@ go.onclick=function(){
  $('bPeriods').innerHTML=top.map(function(x,i){var pt=pick(x.tone==='ok'?PER_OK:(x.tone==='bad'?PER_BAD:PER_DU),'pt'+i).replace('{L}',HN[links[i%2]]);return '<li><span class="lab '+x.tone+'">'+x.lab+'</span><span class="d">'+x.d+'</span><span class="w">'+x.hd+'</span>'+nd(x.x)+'. '+pt+'<span class="dd"><b>Что делать:</b> '+nd(x.o)+'</span><span class="ax">Для тех, кто разбирается: '+x.ti+'</span></li>'}).join('');
  $('perLead').textContent=(top.length?pick(PERL_A,'pa').replace('{D}',top[0].d.split(';')[0])+' ':'')+pick(PERL_B,'pb');
 
+
+ // экспертный разбор простым языком (Елена 18.11)
+ (function(){
+  var SPI={money:'деньгами',work:'работой',love:'отношениями',home:'домом и семьёй',self:'уверенностью в себе',rest:'силами и самочувствием'};
+  var NOM={money:['твои деньги',1],work:['твоя работа',0],love:['твои отношения',1],home:['спокойствие дома',0],self:['твоя уверенность',0],rest:['твои силы',1]};
+  var PM={Sun:'твоё «я» и желание быть заметной',Moon:'чувства и ощущение безопасности',Mercury:'голова, расчёт и договорённости',Venus:'удовольствие, вкус и отношения с людьми',Mars:'действие, напор и смелость',Jupiter:'рост, щедрость и вера в лучшее',Saturn:'порядок, дисциплина и ответственность',Uranus:'свобода и неожиданные решения',Neptune:'чутьё и вдохновение',Pluto:'сила, контроль и умение возрождаться'};
+  var FEM={Moon:1,Venus:1},NEU={Sun:1},ACC={Moon:'Луну',Venus:'Венеру'};
+  function him(b){return FEM[b]?'ей':'ему'}
+  function on(b){return FEM[b]?'она':(NEU[b]?'оно':'он')}
+  function acc(b){return ACC[b]||PN[b]}
+  function my(b){return (FEM[b]?'твою ':(NEU[b]?'твоё ':'твой '))+acc(b)}
+  var nm=NOM[s.id],pl=nm[1];
+  function vb(one,many){return pl?many:one}
+  var PL1={'Сатурн':'Сатурн - планета проверки и порядка','Плутон':'Плутон - планета глубоких перемен','Юпитер':'Юпитер - планета роста','Северный узел':'Северный узел - точка нового направления'};
+  var PL2={'Сатурн':'Сатурн (проверка и порядок)','Плутон':'Плутон (глубокие перемены)','Юпитер':'Юпитер (рост)','Северный узел':'Северный узел (новое направление)'};
+  var w=cap(SPI[s.id])+' у тебя управляет '+PN[ruler]+' - это '+PM[ruler]+'. ';
+  if(inS(rH))w+='И стоит '+on(ruler)+' прямо в этой сфере. Поэтому '+nm[0]+' '+vb('держится','держатся')+' прежде всего на тебе самой: пока ты действуешь, всё идёт, остановилась - и сразу тревожно. ';
+  else if(rH===links[2])w+='А стоит '+on(ruler)+' в твоей тайной сфере. Поэтому '+nm[0]+' '+vb('зависит','зависят')+' от того, что происходит там, а не только от твоих усилий здесь. ';
+  else w+='А стоит '+on(ruler)+' в сфере «'+HN[rH]+'». Поэтому '+nm[0]+' '+vb('питается','питаются')+' от того, что происходит там, а не только от твоих усилий здесь. ';
+  if(dg==='dom'||dg==='ex')w+='Там '+him(ruler)+' сильно, это твоя опора. ';
+  else if(dg==='det'||dg==='fall'||dg==='detfall')w+='Там '+him(ruler)+' неуютно: способы «как у всех» дают тебе меньше, нужен свой путь. ';
+  if(tense)w+='А ещё с рождения на '+acc(ruler)+' давит '+PN[tense.b]+', отсюда '+nd(ASPP[tense.b][1])+'.';
+  else{var hp=asps.filter(function(x){return !x.t})[0];if(hp)w+='И '+him(ruler)+' помогает '+PN[hp.b]+', поэтому '+nd(ASPP[hp.b][0]).replace(/^помогают /,'тебе помогают ')+'.'}
+  $('expWhy').textContent=w;
+  var t='';
+  if(hits.length)t+='В 2027 по твоей сфере '+(hits.length>1?'идут '+hits.map(function(h){return PL2[h]||h}).join(', ').replace(/, ([^,]*)$/,' и $1'):'идёт '+(PL1[hits[0]]||hits[0]))+'. ';
+  var HV=['Saturn','Pluto','Uranus','Neptune'];
+  var hard=per.filter(function(x){return x.r&&HV.indexOf(x.k)>=0&&(x.a==='conj'||x.a==='sq'||x.a==='opp')})[0];
+  var soft=per.filter(function(x){return x.r&&x.tone==='ok'})[0];
+  var VB={conj:'встаёт прямо на',sq:'давит на',opp:'давит на'};
+  function cnt(x){var k=x.d.split(';').length;return k===2?'Дважды ':(k===3?'Трижды ':'')}
+  function dd(x){return x.d.split('; ').join(' и ')}
+  if(hard){var hs=TRT[hard.k][1],ix=hs.indexOf('. ');t+=cnt(hard)+PN[hard.k]+' '+VB[hard.a]+' '+my(ruler)+': '+dd(hard)+'. Это самые плотные недели: '+low1(ix>0?hs.slice(ix+2):hs)+'. '}
+  if(soft){t+=(hard?'А ':'')+dd(soft)+' у тебя хорошее время: '+PN[soft.k]+' поддерживает '+my(ruler)+', это '+low1(TRT[soft.k][0])+'.'}
+  if(!t)t='В 2027 большие планеты твою сферу напрямую почти не трогают. Давление приходит через связанные сферы, поэтому и снимать его легче через них ↓';
+  $('exp27').textContent=cap(t.trim());
+  $('expScr').style.display='';
+ })();
 
  // переход к продукту (Елена 16.11: подруга не заметила оффер)
  var rest=per.filter(function(x){return top.indexOf(x)<0}),more=rest.length;

@@ -363,6 +363,15 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
     <div class="notime" id="noTime" style="display:none"><b>Время рождения не указано, поэтому расчёт приблизительный.</b> Дома карты и Луна зависят от часа рождения, и без него сферы могут сместиться. Даже астролог без времени не скажет точно, не то что система. Мы посчитали по дате, а для точного разбора напиши Оксане: она подскажет, что делать дальше</div>
   </div>
 
+  <div class="scr s-b" id="curScr" style="display:none">
+    <div class="step">Твой период прямо сейчас</div>
+    <div class="h" id="curH"></div>
+    <p id="curLead"></p>
+    <ul class="cur" id="curL"></ul>
+    <p class="ax" id="curAx"></p>
+    <div class="mnext" id="curN"></div>
+  </div>
+
   <div class="scr s-c" id="expScr" style="display:none">
     <div class="h">Разбор по твоей дате</div>
     <div class="eh">Почему у тебя так:</div>
@@ -372,15 +381,6 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
   <div class="scr s-cream" id="exp27Scr" style="display:none">
     <div class="eh">Что будет в 2027 именно у тебя:</div>
     <div id="exp27"></div>
-  </div>
-
-  <div class="scr s-b" id="curScr" style="display:none">
-    <div class="step">Твой период прямо сейчас</div>
-    <div class="h" id="curH"></div>
-    <p id="curLead"></p>
-    <ul class="cur" id="curL"></ul>
-    <p class="ax" id="curAx"></p>
-    <div class="mnext" id="curN"></div>
   </div>
 
   <div id="wkA" style="display:none"></div>
@@ -684,12 +684,12 @@ var MKP={sat:['2027 проверяет {acc} на прочность','2027 тр
  jup:['в 2027 {in} открываются возможности, и страшно их упустить','2027 даёт шанс, и тревожно, справишься ли ты','в 2027 {in} будет больше предложений, чем сил'],
  link:['причина не там, где ты её ищешь','корни этой тревоги в других сферах жизни','тревога приходит сюда из соседних сфер']};
 var NOW_T=[
- function(N,P,a,b){return N+'. И это неспроста: '+P+'. А корни у этой тревоги в сферах «'+a+'» и «'+b+'»'},
- function(N,P,a,b){return N+'. Это не случайно: '+P+', и тянется это из сфер «'+a+'» и «'+b+'»'},
- function(N,P,a,b){return N+'. И у этого есть причина: '+P+'. Подпитывают тревогу сферы «'+a+'» и «'+b+'»'},
- function(N,P,a,b){return N+'. Ты ничего не придумываешь: '+P+'. И связано это со сферами «'+a+'» и «'+b+'»'},
- function(N,P,a,b){return N+'. Это пришло не просто так: '+P+'. Загляни в сферы «'+a+'» и «'+b+'», там корни'},
- function(N,P,a,b){return N+'. И это не на пустом месте: '+P+'. А держится всё на сферах «'+a+'» и «'+b+'»'}];
+ function(N,P){return N+'. И это неспроста: '+P},
+ function(N,P){return N+'. Это не случайно: '+P},
+ function(N,P){return N+'. И у этого есть основание: '+P},
+ function(N,P){return N+'. Ты ничего не придумываешь: '+P},
+ function(N,P){return N+'. Это пришло не просто так: '+P},
+ function(N,P){return N+'. И это не на пустом месте: '+P}];
 var MAIN_CL=['Самый короткий путь к спокойствию у тебя идёт через сферу «{L}»','Начинать тебе лучше со сферы «{L}»: там спокойствие даётся проще всего','Твоя точка опоры в этом году - сфера «{L}»','Опору ищи в сфере «{L}»: по твоей карте она держит всё остальное','Первая помощь у тебя придёт из сферы «{L}»'];
 var MAIN_CL2=['А вторая опора - сфера «{L}»','И не забывай про сферу «{L}»: она тоже на твоей стороне','Поддержит тебя и сфера «{L}»','Помогать будет и сфера «{L}»'];
 var MOK=['И знай: у тебя получится. Это верные шаги в любом случае','И знай: у тебя получится. Эти шаги работают при любом раскладе','Ты справишься. Даже один маленький шаг уже снижает тревогу','У тебя получится: начни хотя бы с одного пункта','И помни: это посильно. Один шаг в неделю уже меняет картину','Ты точно справишься: здесь нет ничего сверх сил'];
@@ -1052,9 +1052,8 @@ go.onclick=function(){
  if(tense)wy='Так устроена твоя карта: в этой сфере у тебя '+nd(ASPP[tense.b][1]);
  else if(dg==='det'||dg==='fall'||dg==='detfall')wy='Ты делаешь всё, что положено, а результат меньше, чем хочется. Дело не в тебе: в этой сфере тебе нужен свой путь, а не как у всех';
  else wy='А когда тревога накрывает, ты '+nd(SHADOW[moonS]);
- $('nWhy').innerHTML='<p>'+cap(nd(rhT[0]))+'. '+cap(nd(rhT[1]))+'</p>'
-  +'<p class="voice">'+pick(VOICE_IN,'vi')+' '+pickN(VOICE2[s.id],3,'v').join(', ')+'</p>'
-  +'<p>'+wy+'. И первым откликается тело: '+nd(pick(s.body,'body'))+'. '+pick(GUM,'gum')+'</p>';
+ $('nWhy').innerHTML='<p class="voice">'+pick(VOICE_IN,'vi')+' '+pickN(VOICE2[s.id],3,'v').join(', ')+'</p>'
+  +'<p>'+'И первым откликается тело: '+nd(pick(s.body,'body'))+'. '+pick(GUM,'gum')+'</p>';
  var rIn=inS(rH);
  $('nAstro1').textContent='Управитель сферы '+PN[ruler]+' '+SIGNS_IN[rulS]+', '+rH+' дом, '+DIG_N[dg]+(tense?', в натальной карте '+ASPN[tense.a]+' с '+PN_I[tense.b]:'')+'. Что это значит: '+(rIn?'управитель стоит в самой сфере, поэтому она держится прежде всего на тебе самой':'управитель стоит в '+rH+' доме, поэтому эта сфера питается от сферы «'+HN[rH]+'»')+'. '+cap(DIG_X[dg])+'.'+(tense?' '+cap(ASPN[tense.a])+' с '+PN_I[tense.b]+': '+nd(ASPP[tense.b][1])+'.':'')+' '+(full?'Дома посчитаны по асценденту, потому что указано время рождения':'Дома посчитаны от знака Солнца, потому что время рождения не указано');
  var mk=hits.indexOf('Сатурн')>=0?'sat':(hits.indexOf('Плутон')>=0?'plu':(hits.indexOf('Северный узел')>=0?'nn':(hits.indexOf('Юпитер')>=0?'jup':'link')));
@@ -1078,7 +1077,7 @@ go.onclick=function(){
     cur.push({w:T==='Jupiter'?2:1,d:when(e2),x:cap(SCm[T][s.id])});ax.push(PN[T]+' идёт по твоей сфере')}});
   if(inS(H(meanNode(new Date(NOW))))){cur.push({w:1,d:when(till(function(d){return inS(H(meanNode(d)))})),x:cap(NN_SC[s.id])});ax.push('Северный узел идёт по твоей сфере')}
   cur.sort(function(a,b){return a.w-b.w});cur=cur.slice(0,3);
-  var today=dm(NOW)+' '+new Date(NOW).getUTCFullYear();
+  var LN=new Date(NOW),today=LN.getDate()+' '+MON[LN.getMonth()]+' '+LN.getFullYear();
   $('curH').textContent=pick(['Сегодня '+today+'. Что у тебя сейчас','Что идёт у тебя прямо сейчас, '+today,'Сейчас, '+today+', у тебя вот что'],'ch');
   if(cur.length){
    var hard=cur.some(function(c){return c.w<2});
@@ -1090,7 +1089,7 @@ go.onclick=function(){
    $('curL').innerHTML='';
   }
   $('curAx').textContent=ax.length?'Для тех, кто разбирается: сейчас '+ax.slice(0,3).join('; '):'Для тех, кто разбирается: сейчас медленные планеты не задевают управителя сферы и не идут по ней';
-  $('curN').textContent=pick(['А теперь 2027. Погнали ↓','Это то, что сейчас. А теперь твой 2027, погнали ↓','С этим разобрались. Дальше 2027, погнали ↓'],'cn');
+  $('curN').textContent=pick(['Теперь разберём, почему у тебя так и что будет в 2027 ↓','Это то, что сейчас. Дальше: почему так и что ждёт тебя в 2027 ↓','С этим разобрались. Теперь почему у тебя так и твой 2027 ↓'],'cn');
   $('curScr').style.display='';
  })();
 

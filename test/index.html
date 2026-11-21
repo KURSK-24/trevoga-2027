@@ -309,7 +309,7 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
 .cut{display:none!important}#bPeriods .dd{display:none}
 .tar{margin-top:16px;border:1.5px solid rgba(154,122,85,.35);border-radius:16px;padding:16px 14px;background:#fffaf3;color:#13262a}.tar.top{border:2px solid #13262a;background:#fbf1e3}.tar .tn{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#8a6a45}.tar .tp{font-family:'Playfair Display',Georgia,serif;font-size:34px;color:#13262a;margin-top:4px}.tar .tp s{font-size:18px;color:#8a7d70;margin-left:8px}.tar ul{margin:10px 0 0;padding-left:18px}.tar li{margin:5px 0;font-size:15px}.tar li.no{opacity:.5;text-decoration:line-through}.tar .btn{display:block;text-align:center;text-decoration:none;margin-top:14px}.tar .hit{display:inline-block;margin-left:6px;font-size:11px;font-weight:800;background:#e6cdb0;color:#13262a;border-radius:999px;padding:3px 9px;vertical-align:middle}.prg{counter-reset:pg}.prg .pi{position:relative;padding:12px 0 12px 44px;border-bottom:1px solid rgba(154,122,85,.25)}.prg .pi:before{counter-increment:pg;content:counter(pg);position:absolute;left:0;top:12px;width:30px;height:30px;border-radius:50%;background:#13262a;color:#e6cdb0;font:700 14px/30px Manrope,sans-serif;text-align:center}.prg .pi b{display:block;font-size:16.5px;color:#13262a}.prg .pi p{margin:4px 0 0;font-size:15px;color:#3d3530}.prg .only{display:inline-block;margin-top:6px;font-size:12px;font-weight:800;color:#8a6a45;background:#fbf1e3;border:1px solid rgba(154,122,85,.45);border-radius:999px;padding:3px 10px}.tarh{margin-top:22px;font-family:"Playfair Display",Georgia,serif;font-size:24px;color:#13262a;text-align:center}.svoi{margin-top:12px;padding:10px 12px;border-radius:12px;background:#e6cdb0;color:#13262a;font-weight:700;font-size:14.5px}
 .ax,.axd{display:none!important}
-#expScr .eh{font-family:"Playfair Display",Georgia,serif;font-size:22px;color:var(--gold2);margin:4px 0 8px}#expScr p{margin:0 0 14px}#expScr .eh2{margin-top:6px}
+#expScr .eh,#exp27Scr .eh{font-family:"Playfair Display",Georgia,serif;font-size:22px;color:var(--gold2);margin:4px 0 10px}#exp27Scr .eh{color:#8a6a3f}#expScr p,#exp27Scr p{margin:0 0 14px}#expScr p:last-child,#exp27Scr p:last-child{margin-bottom:0}
 .gf{margin-top:22px;border-radius:18px;overflow:hidden;background:#13262a;color:#f3e6d6}.gf .gfb{position:relative}.gf .gfb img{display:block;width:100%;height:170px;object-fit:cover;opacity:.55}.gf .gfb div{position:absolute;left:16px;right:16px;bottom:14px}.gf .gfb small{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#e6cdb0}.gf .gfb b{display:block;font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:26px;line-height:1.15;color:#fff}.gf .gfl{padding:6px 14px 16px}.gf .gi{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid rgba(230,205,176,.18)}.gf .gi:last-child{border-bottom:0}.gf .gi i{flex:none;font-style:normal;width:44px;height:44px;border-radius:12px;background:#e6cdb0;display:flex;align-items:center;justify-content:center;font-size:22px}.gf .gi b{display:block;font-size:17px;color:#fff}.gf .gi p{margin:5px 0 0;font-size:14.5px;line-height:1.45;color:#d9cdbd}.gf .gi p em{font-style:normal;color:#e6cdb0;font-weight:700}
 </style>
 </head>
@@ -359,16 +359,19 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
     <div class="legend"><span><i style="background:#e6cdb0;box-shadow:0 0 8px #e6cdb0"></i>твоя сфера</span><span><i style="background:transparent;border:2px dashed #e6cdb0"></i>с чем она тесно связана</span></div>
     <div id="decode" style="display:none;margin-top:14px;border-top:1px solid var(--line);padding-top:12px;font-size:16px"></div>
     <p class="small" id="legend"></p>
-    <div class="freeinfo"><b>Это бесплатный фон года по твоей сфере.</b> Все её периоды с датами и сферы, на которых она держится, уже посчитаны по твоей дате. Как их получить, расскажу в конце ↓</div>
+    <div class="freeinfo" id="freeinfo"></div>
     <div class="notime" id="noTime" style="display:none"><b>Время рождения не указано, поэтому расчёт приблизительный.</b> Дома карты и Луна зависят от часа рождения, и без него сферы могут сместиться. Даже астролог без времени не скажет точно, не то что система. Мы посчитали по дате, а для точного разбора напиши Оксане: она подскажет, что делать дальше</div>
   </div>
 
   <div class="scr s-c" id="expScr" style="display:none">
-    <div class="step">Разбор по твоей дате</div>
-    <div class="eh">Почему у тебя так</div>
-    <p id="expWhy"></p>
-    <div class="eh eh2">Что будет в 2027 именно у тебя</div>
-    <p id="exp27"></p>
+    <div class="h">Разбор по твоей дате</div>
+    <div class="eh">Почему у тебя так:</div>
+    <div id="expWhy"></div>
+  </div>
+
+  <div class="scr s-cream" id="exp27Scr" style="display:none">
+    <div class="eh">Что будет в 2027 именно у тебя:</div>
+    <div id="exp27"></div>
   </div>
 
   <div class="scr s-b" id="curScr" style="display:none">
@@ -1115,6 +1118,39 @@ go.onclick=function(){
  $('nMain').innerHTML='<div class="mh">'+nd(fl(M[0]))+'. '+cl+'</div><ol class="msteps">'+st.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ol><div class="mok">'+pick(MOK,'mok')+'</div><div class="mnext">'+pick(MNEXT,'mn')+' ↓</div>';
  $('bPeriods').innerHTML=top.map(function(x,i){var pt=pick(x.tone==='ok'?PER_OK:(x.tone==='bad'?PER_BAD:PER_DU),'pt'+i).replace('{L}',HN[links[i%2]]);return '<li><span class="lab '+x.tone+'">'+x.lab+'</span><span class="d">'+x.d+'</span><span class="w">'+x.hd+'</span>'+nd(x.x)+'. '+pt+'<span class="dd"><b>Что делать:</b> '+nd(x.o)+'</span><span class="ax">Для тех, кто разбирается: '+x.ti+'</span></li>'}).join('');
  $('perLead').textContent=(top.length?pick(PERL_A,'pa').replace('{D}',top[0].d.split(';')[0])+' ':'')+pick(PERL_B,'pb');
+ // хук под колесом (Елена 22.11): своя фраза для каждой даты и сферы, без «как получить расскажу в конце»
+ (function(){
+  var T='тревога '+SN.ab,Tc=cap(T),L1='«'+HN[links[0]]+'»',L2='«'+HN[links[1]]+'»',BD=D+' '+MON[M-1]+' '+Y;
+  var okD=fOk?fOk.d.split(';')[0]:'',nowOn=Date.now()<Date.UTC(2027,0,1);
+  var O=['Твоя карта готова, и в ней видно, на чём держится '+T,
+   'Выдохни: '+T+' по твоей карте объяснима',
+   'Посмотри на свою карту: в ней уже видно, откуда '+T,
+   'Ты делаешь всё, что можешь, а '+T+' не уходит. По карте видно почему',
+   Tc+' появилась у тебя не на пустом месте',
+   'Это небо дня, когда ты родилась, '+BD+'. И оно многое объясняет',
+   'С тобой всё в порядке: '+T+' по карте читается, и у неё есть причина',
+   'Твоя '+T+' не случайна, и карта это подтверждает',
+   'Хорошая новость: у тебя '+T+' с понятной причиной',
+   'Знаешь, почему '+T+' возвращается, даже когда кажется, что всё решила?'];
+  var B=['Она держится ещё на двух сферах: '+L1+' и '+L2+'. Пока чинишь только то, что болит '+SN.in+', она возвращается',
+   'Она тянется из двух соседних сфер, '+L1+' и '+L2+', и пока их не трогаешь, остаётся с тобой',
+   'Объяснение у тебя своё, по дате рождения. У подруги с той же проблемой оно было бы другим',
+   'Корни у неё в двух других сферах твоей карты: '+L1+' и '+L2+'. Туда обычно даже не смотрят',
+   'По карте её подпитывают '+L1+' и '+L2+'. Поэтому решать её в лоб не получается',
+   'Её усиливают '+L1+' и '+L2+'. Когда там наводишь порядок, легче становится и '+SN.in,
+   'Дело не в том, что ты мало стараешься. Так сейчас устроен твой период, и по карте он хорошо читается',
+   'У тебя она завязана на '+L1+' и '+L2+'. Значит, и облегчение придёт в том числе оттуда'];
+  if(top.length)B.push('Когда в 2027 действовать, а когда переждать, у тебя уже посчитано. Если перепутать эти месяцы, силы уйдут впустую');
+  if(okD)B.push('Первое время действовать у тебя по карте: '+okD+'. До него важно не растратить силы');
+  var E=['Листай: покажу, как это устроено у тебя и когда в 2027 действовать',
+   'Листай ниже, всё посчитано по твоей дате',
+   'Ниже разберём по шагам: почему так и когда действовать',
+   'Дальше всё про тебя, без общих гороскопов',
+   'Ниже твой разбор, второго такого нет ни у кого',
+   'Читай дальше, там твой 2027 по месяцам'];
+  if(nowOn)E.push('Ниже: что идёт у тебя прямо сейчас и 3 главных периода 2027','Читай дальше: сначала то, что у тебя прямо сейчас, потом твой 2027','Листай, начнём с того, что происходит у тебя прямо сейчас');
+  $('freeinfo').innerHTML='<b>'+pick(O,'hko')+'</b>'+pick(B,'hkb')+'. '+pick(E,'hke')+' ↓';
+ })();
 
 
  // экспертный разбор простым языком (Елена 18.11)
@@ -1137,14 +1173,15 @@ go.onclick=function(){
   else w+='А стоит '+on(ruler)+' в сфере «'+HN[rH]+'». Поэтому '+nm[0]+' '+vb('питается','питаются')+' от того, что происходит там, а не только от твоих усилий здесь. ';
   if(dg==='dom'||dg==='ex')w+='Там '+him(ruler)+' сильно, это твоя опора. ';
   else if(dg==='det'||dg==='fall'||dg==='detfall')w+='Там '+him(ruler)+' неуютно: способы «как у всех» дают тебе меньше, нужен свой путь. ';
+  w+='\n';
   if(tense)w+='А ещё с рождения на '+acc(ruler)+' давит '+PN[tense.b]+', отсюда '+nd(ASPP[tense.b][1])+'.';
   var hp=asps.filter(function(x){return !x.t&&(!tense||x.b!==tense.b)})[0];
   var HLP={Sun:'всё получается, когда ты действуешь от себя, а не от чужих ожиданий',Moon:'интуиция тебя здесь не подводит, доверяй ощущению',Mercury:'решения находятся через разговор и расчёт',Venus:'тебе помогают люди и приятные случайности',Mars:'тебе хватает напора и смелости',Jupiter:'даже трудные периоды здесь заканчиваются хорошо',Saturn:'результат приходит медленно, но прочно',Uranus:'приходят неожиданные возможности и свежие решения',Neptune:'выручают интуиция и вдохновение',Pluto:'у тебя есть сила подниматься после трудного'};
   if(hp)w+=(tense?' Зато ':'И ')+him(ruler)+' помогает '+PN[hp.b]+', поэтому '+HLP[hp.b]+'.';
   var MOONT=['тревога у тебя сразу просится в действие: вспыхнула, сделала, отпустило. Тяжелее всего, когда прямо сейчас ничего нельзя сделать','тебе спокойно, когда под ногами опора: деньги отложены, всё идёт привычным порядком. Тревога приходит, когда что-то из этого шатается','тревога у тебя живёт в голове: мысли крутятся по кругу, хочется всё обсудить. Легче становится, когда проговоришь или запишешь','ты всё пропускаешь через сердце и через близких. За своих бывает тревожнее, чем за себя','тебе важно, чтобы тебя видели и ценили. Тревога приходит, когда кажется, что тебя не замечают или ты не справляешься у всех на глазах','тревога у тебя прячется в мелочах и контроле: проверить, перепроверить, всё предусмотреть. Отпускает, когда появляется понятный план','тебе спокойно, когда вокруг мир и согласие. Ссоры и необходимость выбирать выбивают из колеи сильнее всего','ты чувствуешь глубоко и держишь в себе. Снаружи спокойствие, а внутри напряжение может копиться долго','тебе нужен смысл и простор. Тревожно становится, когда не видишь перспективы и кажется, что застряла','ты привыкла держать себя в руках и решать всё сама. Тревога часто выходит усталостью и чувством «всё на мне»','тебе нужны свобода и своё пространство. Тревожно, когда загоняют в рамки или давят чужими ожиданиями','ты тонко чувствуешь людей и всё, что вокруг. Чужая тревога легко становится твоей, поэтому так важно вовремя отдыхать'];
   var mS=sgn(P.Moon),mD=((P.Moon%360)+360)%360%30,edge=!full&&(mD<6.5||mD>23.5);
-  w+=' А тревогу каждая проживает по-своему. Луна у тебя '+SIGNS_IN[mS]+(edge?' (в твой день рождения она меняла знак, точнее скажет время рождения)':'')+', поэтому '+MOONT[mS]+'.';
-  $('expWhy').textContent=w.replace(/\s+/g,' ').trim();
+  w+='\nА тревогу каждая проживает по-своему. Луна у тебя '+SIGNS_IN[mS]+(edge?' (в твой день рождения она меняла знак, точнее скажет время рождения)':'')+', поэтому '+MOONT[mS]+'.';
+  $('expWhy').innerHTML=w.split('\n').map(function(x){return x.replace(/\s+/g,' ').trim()}).filter(Boolean).map(function(x){return '<p>'+cap(x)+'</p>'}).join('');
   var t='';
   if(hits.length)t+='В 2027 по твоей сфере '+(hits.length>1?'идут '+hits.map(function(h){return PL2[h]||h}).join(', ').replace(/, ([^,]*)$/,' и $1'):'идёт '+(PL1[hits[0]]||hits[0]))+'. ';
   var HV=['Saturn','Pluto','Uranus','Neptune'];
@@ -1153,12 +1190,14 @@ go.onclick=function(){
   var VB={conj:'встаёт прямо на',sq:'давит на',opp:'давит на'};
   function cnt(x){var k=x.d.split(';').length;return k===2?'Дважды ':(k===3?'Трижды ':'')}
   function dd(x){return x.d.split('; ').join(' и ')}
-  if(hard){var hs=TRT[hard.k][1],ix=hs.indexOf('. ');t+=cnt(hard)+PN[hard.k]+' '+VB[hard.a]+' '+my(ruler)+': '+dd(hard)+'. Это самые плотные недели: '+low1(ix>0?hs.slice(ix+2):hs)+'. '}
+  t+='\n';
+  if(hard){var hs=TRT[hard.k][1],ix=hs.indexOf('. ');t+=cnt(hard)+PN[hard.k]+' '+VB[hard.a]+' '+my(ruler)+': '+dd(hard)+'. Это самые плотные недели. '+cap(ix>0?hs.slice(ix+2):hs)+'. '}
+  t+='\n';
   if(soft){t+=(hard?'А ':'')+dd(soft)+' у тебя хорошее время: '+PN[soft.k]+' поддерживает '+my(ruler)+', это '+low1(TRT[soft.k][0])+'.'}
   if(!hard&&!soft){var oth=per.filter(function(x){return !x.r})[0];if(oth){var TB={bad:'давит на твою сферу',ok:'поддерживает твою сферу',du:'встаёт прямо в твою сферу'};t+=PN[oth.k]+' '+TB[oth.tone]+': '+dd(oth)+'. '+(oth.tone==='ok'?'Это '+low1(TRT[oth.k][0]):'В эти недели '+low1(oth.x))+'.'}}
-  if(!t)t='В 2027 большие планеты твою сферу напрямую почти не трогают. Давление приходит через связанные сферы, поэтому и снимать его легче через них ↓';
-  $('exp27').textContent=cap(t.trim());
-  $('expScr').style.display='';
+  if(!t.trim())t='В 2027 большие планеты твою сферу напрямую почти не трогают. Давление приходит через связанные сферы, поэтому и снимать его легче через них ↓';
+  $('exp27').innerHTML=t.split('\n').map(function(x){return x.replace(/\s+/g,' ').trim()}).filter(Boolean).map(function(x){return '<p>'+cap(x)+'</p>'}).join('');
+  $('expScr').style.display='';$('exp27Scr').style.display='';
  })();
 
  // переход к продукту (Елена 16.11: подруга не заметила оффер)

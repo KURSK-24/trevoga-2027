@@ -1627,6 +1627,10 @@ function drawChart(P,start,s,links){
 </script>
 <button class="backup" id="backUp" type="button">↑ вернуться, где читала</button>
 <script>(function(){var b=document.getElementById("backUp"),y=null,ar=false;document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^='#']");if(!a||a===b)return;var h=a.getAttribute("href");if(h==="#"||h==="#result")return;y=window.scrollY;ar=false;setTimeout(function(){ar=true;b.style.display="flex"},1200)},true);b.onclick=function(){var t=y;b.style.display="none";y=null;ar=false;if(t!==null)window.scrollTo({top:t,behavior:"smooth"})};window.addEventListener("scroll",function(){if(ar&&y!==null&&Math.abs(window.scrollY-y)<120){b.style.display="none";y=null}},{passive:true});})();</script>
+<script>/* 28.11: ссылка ...#video из бота показывает видео сразу над калькулятором */(function(){
+if(!/video/i.test(location.hash))return;var u=document.getElementById('urok'),k=document.getElementById('calc');if(!u||!k)return;
+u.style.margin='0 0 18px';var h=u.querySelector('h5');if(h)h.textContent='Бесплатное видео Оксаны «2027 без паники»';k.parentNode.insertBefore(u,k);setTimeout(function(){u.scrollIntoView({block:'start'})},50);
+})();</script>
 <script>/* видео «2027 без паники»: HLS из video/, грузится только когда блок рядом, куски качаются после нажатия «плей», 28.11 */(function(){
 var v=document.getElementById('vu');if(!v)return;var SRC='video/index.m3u8',done=false,played=false;
 v.addEventListener('play',function(){if(!played){played=true;try{ym(114710441,'reachGoal','video_play')}catch(e){}}});

@@ -312,6 +312,81 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
 #expScr .eh,#exp27Scr .eh{font-family:"Playfair Display",Georgia,serif;font-size:22px;color:var(--gold2);margin:4px 0 10px}#exp27Scr .eh{color:#8a6a3f}#expScr p,#exp27Scr p{margin:0 0 14px}#expScr p:last-child,#exp27Scr p:last-child{margin-bottom:0}
 .gf{margin-top:22px;border-radius:18px;overflow:hidden;background:#13262a;color:#f3e6d6}.gf .gfb{position:relative}.gf .gfb img{display:block;width:100%;height:170px;object-fit:cover;opacity:.55}.gf .gfb div{position:absolute;left:16px;right:16px;bottom:14px}.gf .gfb small{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#e6cdb0}.gf .gfb b{display:block;font-family:"Playfair Display",Georgia,serif;font-weight:500;font-size:26px;line-height:1.15;color:#fff}.gf .gfl{padding:6px 14px 16px}.gf .gi{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid rgba(230,205,176,.18)}.gf .gi:last-child{border-bottom:0}.gf .gi i{flex:none;font-style:normal;width:44px;height:44px;border-radius:12px;background:#e6cdb0;display:flex;align-items:center;justify-content:center;font-size:22px}.gf .gi b{display:block;font-size:17px;color:#fff}.gf .gi p{margin:5px 0 0;font-size:14.5px;line-height:1.45;color:#d9cdbd}.gf .gi p em{font-style:normal;color:#e6cdb0;font-weight:700}.gf .only{display:inline-block;margin-top:8px;font-size:12px;font-weight:800;color:#13262a;background:#e6cdb0;border-radius:999px;padding:3px 10px}
 </style>
+<!-- Yandex.Metrika counter -->
+<script>
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ym(114710441, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+(function(){
+  function goal(n, p){ try{ ym(114710441, "reachGoal", n, p || {}); }catch(e){} }
+  function byUrl(u){
+    u = String(u || "");
+    if (/Kod_spokoistviya_bot|tribute|prodamus|payform|yookassa|yoomoney|robokassa|cloudpayments|getcourse/i.test(u)) return "klik_oplata";
+    if (/t\.me\/|telegram\./i.test(u)) return "klik_telegram";
+    if (/max\.ru/i.test(u)) return "klik_max";
+    if (/wa\.me|whatsapp/i.test(u)) return "klik_whatsapp";
+    if (/vk\.(com|me)\//i.test(u)) return "klik_vk";
+  }
+  var CH = {tg:"klik_telegram", telegram:"klik_telegram", max:"klik_max", wa:"klik_whatsapp", whatsapp:"klik_whatsapp", vk:"klik_vk"};
+  document.addEventListener("submit", function(){ goal("calc_submit"); }, true);
+  document.addEventListener("click", function(ev){
+    if (!ev.target.closest) return;
+    var b = ev.target.closest("[data-ch]");
+    if (b && CH[b.getAttribute("data-ch")]) { goal(CH[b.getAttribute("data-ch")]); return; }
+    var a = ev.target.closest("a[href]");
+    var g = a && byUrl(a.href);
+    if (g) goal(g, {url: a.href.slice(0, 200)});
+  }, true);
+  var wo = window.open;
+  window.open = function(u){ var g = byUrl(u); if (g) goal(g, {url: String(u).slice(0, 200)}); return wo.apply(window, arguments); };
+})();
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/114710441" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели воронки калькулятора -->
+<script>
+(function(){
+  var ID=114710441, MIN_READ=15000, done={};
+  function goal(n,p){ try{ ym(ID,"reachGoal",n,p||{}); }catch(e){} }
+  function once(n,p){ if(done[n]) return; done[n]=1; goal(n,p); }
+  function where(el){
+    if(el.id) return el.id;
+    var s=el.closest("section,.sticky,.sticky-cta,.lock,.offer"); return s ? (s.id || s.className.split(" ")[0]) : "page";
+  }
+  document.addEventListener("click", function(ev){
+    if(!ev.target.closest) return;
+    var a=ev.target.closest("a[href*='tribute']");
+    if(a){ goal("klik_klub", {mesto: where(a)}); return; }
+    var b=ev.target.closest(".more,.lcta,.club-link,.here");
+    if(b) goal("klub_otkryla", {mesto: b.getAttribute("data-p") || where(b)});
+  }, true);
+  function start(){
+    var res=document.getElementById("result");
+    if(!res || !("IntersectionObserver" in window)) return;
+    var end=document.createElement("div"); end.setAttribute("aria-hidden","true"); end.style.height="1px";
+    res.appendChild(end);
+    var shownAt=0, endSeen=false;
+    function read(){ if(shownAt && endSeen && Date.now()-shownAt>=MIN_READ) once("dochitala"); }
+    var io=new IntersectionObserver(function(list){
+      list.forEach(function(e){
+        if(!e.isIntersecting) return;
+        if(e.target===res && !shownAt){ shownAt=Date.now(); once("rezultat_pokazan"); setTimeout(read, MIN_READ+100); }
+        else if(e.target===end){ endSeen=true; read(); }
+        else if(e.target!==res){ once("uvidela_cenu"); }
+      });
+    });
+    io.observe(res); io.observe(end);
+    var price=document.querySelector("#club .offer, #price");
+    if(price) io.observe(price);
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", start); else start();
+})();
+</script>
+<!-- /Цели воронки калькулятора -->
+
 </head>
 <body>
 <div class="wrap">
@@ -348,7 +423,7 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
   <p class="note" id="note">Сферу можно выбрать одну. Проверь, что выбрала ту, что болит</p>
 </div>
 
-<a class="stk" id="stk" href="#tarify"><span><b>Полный расчёт твоей сферы на 2027 готов</b><i id="stkI">от 1 990 ₽ · всё придёт сразу после оплаты</i></span><strong>Открыть →</strong></a>
+<a class="stk" id="stk" href="#tarify"><span><b>Полный расчёт твоей сферы на 2027</b><i id="stkI">от 1 990 ₽ · набор первой группы</i></span><strong>Открыть →</strong></a>
 <section id="result">
 
   <div class="scr s-a">
@@ -535,7 +610,7 @@ html{scroll-behavior:smooth}.lsub{font-size:15px;color:#5b5048;margin-top:4px}.b
     </div>
 
     <div class="part"><h5>Как всё устроено</h5>
-      <ul class="rules"><li>Расчёт и уроки приходят сразу после оплаты</li><li>Материалы остаются с тобой навсегда</li><li>Всё выдаёт бот, вопросы можно задать в закрытом канале</li><li id="ruleTime" style="display:none">Ты не указала время рождения, поэтому расчёт приблизительный. Для точного разбора напиши Оксане: она подскажет, что делать дальше</li></ul>
+      <ul class="rules"><li>Кнопка откроет Telegram-бот: там твой тариф и оплата</li><li>После оплаты бот задаст 2 коротких вопроса и через пару минут пришлёт PDF «Код спокойствия 2027» с твоими датами</li><li>В полном тарифе сразу после оплаты придёт ссылка в закрытый чат «Новогодняя движуха»</li><li>Это первая группа: уроки и подарки я выдаю позже, старт объявлю, когда группа соберётся</li><li>Материалы остаются с тобой навсегда</li><li id="ruleTime" style="display:none">Ты не указала время рождения, поэтому расчёт приблизительный. Для точного разбора напиши Оксане: она подскажет, что делать дальше</li></ul>
     </div>
     <a class="btn2" href="#urok">Ещё не готова? Забирай бесплатное видео «Тенденции 2027: что ждёт нас всех и как посмотреть это по своей карте»</a>
   </div>
@@ -1543,5 +1618,10 @@ function drawChart(P,start,s,links){
 </script>
 <button class="backup" id="backUp" type="button">↑ вернуться, где читала</button>
 <script>(function(){var b=document.getElementById("backUp"),y=null,ar=false;document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^='#']");if(!a||a===b)return;var h=a.getAttribute("href");if(h==="#"||h==="#result")return;y=window.scrollY;ar=false;setTimeout(function(){ar=true;b.style.display="flex"},1200)},true);b.onclick=function(){var t=y;b.style.display="none";y=null;ar=false;if(t!==null)window.scrollTo({top:t,behavior:"smooth"})};window.addEventListener("scroll",function(){if(ar&&y!==null&&Math.abs(window.scrollY-y)<120){b.style.display="none";y=null}},{passive:true});})();</script>
+<script>/* оплата через бот @Kod_spokoistviya_bot (BotHelp, карточка тарифа -> Продамус -> анкета -> PDF), 28.11 */(function(){
+var B='https://t.me/Kod_spokoistviya_bot?start=dl-';
+var T={'oplata-1990':B+'1795838095774','oplata-2490':B+'179583906442cbfcc43678','oplata-svoi-1990':B+'1795861232dfe29434b5b2'};
+window.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('#buy,#buyBase');if(!a)return;var k=(a.getAttribute('data-k')||a.getAttribute('href')||'').replace('#','');if(!T[k])return;a.setAttribute('data-k',k);a.href=T[k];a.target='_blank';a.rel='noopener'},true);
+})();</script>
 </body>
 </html>
